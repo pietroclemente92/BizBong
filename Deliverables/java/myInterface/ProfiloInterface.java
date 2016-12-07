@@ -3,7 +3,7 @@ package myInterface;
 import entity.Statisitca;
 
 /**
- * Created by Raffaella on 07/12/2016.
+ * Created by GameSoftItalia on 07/12/2016.
  */
 public interface ProfiloInterface {
 
