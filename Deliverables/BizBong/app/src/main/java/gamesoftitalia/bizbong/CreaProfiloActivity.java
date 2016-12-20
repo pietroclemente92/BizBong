@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
@@ -52,7 +53,7 @@ public class CreaProfiloActivity extends AppCompatActivity {
 
         //Button
         registrazione = (TextView) findViewById(R.id.registrazioneButton);
-        /*registrazione.setOnClickListener(new View.OnClickListener() {
+        registrazione.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nickname = nicknameEdit.getText().toString();
@@ -60,7 +61,7 @@ public class CreaProfiloActivity extends AppCompatActivity {
                 email = emailEdit.getText().toString();
                 new CreaProfiloAsync(CreaProfiloActivity.this).execute(nickname, password, email);
             }
-        });*/
+        });
     }
 
 
