@@ -1,5 +1,10 @@
 package gamesoftitalia.bizbong;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,16 +12,39 @@ import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
+import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+    private boolean audioAssociato=true;     /*valore prende da file*/
+    private Intent music = new Intent();
+    private MusicServiceBase mServ;
+
+    ServiceConnection Scon =new ServiceConnection(){
+        /*implementazione metodi astratti*/
+        public void onServiceConnected(ComponentName name, IBinder binder) {
+            mServ = ((MusicServiceBase.ServiceBinder)binder).getService();
+        }
+        public void onServiceDisconnected(ComponentName name) {
+            mServ = null;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //Music
+        if (audioAssociato == true){
+            music.setClass(this, MusicServiceBase.class);
+            associareService();
+            startService(music);
+        }
+
 
         /*
         // Toolbar
@@ -79,4 +107,29 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setCustomView(tabQuattro);
     }
 
+
+
+    @Override
+    protected void onResume() {     /*quando l'app viene riattivata*/
+        super.onResume();
+        if (audioAssociato==true)
+            if(mServ!=null)
+                mServ.resumeMusic();
+    };
+
+    @Override
+    protected void onPause() {            /*quando l'app va in background viene stoppato*/
+        if (audioAssociato==true)
+            if(mServ!=null)
+                mServ.pauseMusic();
+        super.onPause();
+    }
+
+
+    //legare il servizio al contesto
+    public void associareService(){
+        bindService(music, Scon, Context.BIND_AUTO_CREATE);                    /*aggiungere il servizio*/
+        audioAssociato = true;
+    }
 }
+
