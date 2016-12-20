@@ -6,5 +6,6 @@
     <color name="creaprofiloToolbar">#79a6ef</color>
     <color name="whiteText">#fff</color>
     <color name="blackText">#000</color>
+    <color name="toolbarHome">#de6666</color>
     <color name="backgroundForm">#616060</color>
 </resources>

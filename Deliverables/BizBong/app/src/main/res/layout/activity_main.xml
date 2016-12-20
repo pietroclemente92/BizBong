@@ -4,45 +4,17 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gamesoftitalia.bizbong.MainActivity">
+    tools:context="gamesoftitalia.bizbong.MainActivity"
+    android:background="@drawable/background_home">
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
-            <Button
-                android:id="@+id/creaProfiloButton"
-                android:text="@string/creaprofilo"
-                android:background="@drawable/main_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/loginButton"
-                android:text="Login"
-                android:background="@drawable/main_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"/>
-            <Button
-                android:id="@+id/allenamentoButton"
-                android:text="Allenamento"
-                android:background="@drawable/main_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="7"
-            android:gravity="right">
-        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
