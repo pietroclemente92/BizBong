@@ -8,4 +8,9 @@
     <color name="blackText">#000</color>
     <color name="toolbarHome">#de6666</color>
     <color name="backgroundForm">#616060</color>
+    <color name="white">#ffffff</color>
+    <color name="header_activity">#31a4ec</color>
+    <color name="header_account">#62d66a</color>
+    <color name="header_password">#d95f4a</color>
+    <color name="window">#f5f5f5</color>
 </resources>

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
@@ -18,6 +19,7 @@ public class CreaProfiloActivity extends AppCompatActivity {
 
     private EditText nicknameEdit, passwordEdit, emailEdit;
     private TextView registrazione;
+    private ImageButton backButton;
     private String nickname, password, email;
 
     private boolean audioAssociato=false;     /*valore prende da file*/
@@ -52,6 +54,13 @@ public class CreaProfiloActivity extends AppCompatActivity {
         emailEdit = (EditText) findViewById(R.id.emailEdit);
 
         //Button
+        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CreaProfiloActivity.super.onBackPressed();
+            }
+        });
         registrazione = (TextView) findViewById(R.id.registrazioneButton);
         registrazione.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +90,10 @@ public class CreaProfiloActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     //legare il servizio al contesto
     public void associareService(){

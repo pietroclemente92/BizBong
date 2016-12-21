@@ -16,22 +16,34 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
 
         <!-- Permessi per utilizzare un servizio -->
         <service
             android:name=".service.MusicServiceBase"
             android:enabled="true" />
 
-        <activity android:name=".CreaProfiloActivity"></activity>
+        <activity
+            android:name=".CreaProfiloActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NuovaPartitaActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".GameActivity"></activity>
     </application>
 
 </manifest>

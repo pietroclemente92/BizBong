@@ -10,11 +10,10 @@
         android:orientation="vertical">
 
         <gamesoftitalia.bizbong.adapters.AdapterViewPager
-            android:id="@+id/viewPagerBanner"
+            android:id="@+id/viewPagerGames"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp">
+            android:layout_gravity="center">
         </gamesoftitalia.bizbong.adapters.AdapterViewPager>
 
         <Button
@@ -24,6 +23,20 @@
             android:layout_height="wrap_content"
             android:background="@drawable/main_button"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="25dp"/>
+
+        <gamesoftitalia.bizbong.gifanimator.PlayGifView
+            android:id="@+id/gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"/>
+
+        <gamesoftitalia.bizbong.adapters.AdapterViewPager
+            android:id="@+id/viewPagerBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+        </gamesoftitalia.bizbong.adapters.AdapterViewPager>
     </LinearLayout>
 </RelativeLayout>

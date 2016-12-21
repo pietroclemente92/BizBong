@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.widget.TextView;
+
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
@@ -44,7 +45,6 @@ public class HomeActivity extends AppCompatActivity {
             associareService();
             startService(music);
         }
-
 
         /*
         // Toolbar
@@ -125,6 +125,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     //legare il servizio al contesto
     public void associareService(){

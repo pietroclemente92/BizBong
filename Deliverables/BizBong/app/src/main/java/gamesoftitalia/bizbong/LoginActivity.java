@@ -10,7 +10,9 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText nicknameEdit, passwordEdit;
     private TextView login;
+    private ImageButton backButton;
     private String nickname, password;
 
     private boolean audioAssociato=true;     /*valore prende da file*/
@@ -54,6 +57,13 @@ public class LoginActivity extends AppCompatActivity {
         passwordEdit = (EditText) findViewById(R.id.passwordEdit);
 
         //Button
+        backButton = (ImageButton) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.super.onBackPressed();
+            }
+        });
         login = (TextView) findViewById(R.id.registrazioneButton);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +93,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     //legare il servizio al contesto
     public void associareService(){

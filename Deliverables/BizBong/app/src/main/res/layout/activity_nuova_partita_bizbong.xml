@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_nuova_partita"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gamesoftitalia.bizbong.NuovaPartitaActivity"
+    android:background="#5e5e5e">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbarHome">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:background="@drawable/ic_back"/>
+        <TextView
+            android:text="Nuova Partita"
+            android:textSize="14pt"
+            android:textStyle="bold"
+            android:textColor="@color/blackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:text="Modalità di gioco"
+            android:textStyle="bold"
+            android:textSize="12pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <Button
+                android:text="Classica"
+                android:id="@+id/classicaButton"
+                android:textStyle="bold"
+                android:textSize="9pt"
+                android:textColor="@color/whiteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"/>
+            <Button
+                android:text="Challenge"
+                android:id="@+id/challengeButton"
+                android:textStyle="bold"
+                android:textSize="9pt"
+                android:textColor="@color/whiteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+        <TextView
+            android:text="Seleziona una delle modalità proposte e sfida i tuoi amici"
+            android:textStyle="bold"
+            android:textSize="5pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:text="Gioca Adesso"
+            android:id="@+id/giocaAdesso"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>

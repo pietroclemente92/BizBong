@@ -15,16 +15,16 @@ import gamesoftitalia.bizbong.R;
  * Created by Raffaella on 16/12/2016.
  */
 
-public class CustomBannerAdapter extends PagerAdapter {
+public class CustomHomePagerAdapter extends PagerAdapter {
 
     private int[] img;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public CustomBannerAdapter(Context context) {
+    public CustomHomePagerAdapter(Context context, int[] img) {
         this.context = context;
 
-        img = new int[]{R.drawable.news1, R.drawable.news2};
+        this.img = img;
     }
 
     @Override

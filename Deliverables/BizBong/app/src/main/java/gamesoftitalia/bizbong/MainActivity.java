@@ -25,17 +25,16 @@ import gamesoftitalia.bizbong.service.MusicServiceBase;
 public class MainActivity extends AppCompatActivity {
 
     private Button creaProfiloButton, loginButton, allenamentoButton;
-    PlayGifView pGif;
+    private PlayGifView pGif;
     private Intent intent;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    LayoutInflater inflater;
+    private LayoutInflater inflater;
 
 
     private boolean audioAssociato = true;  //prende valore dal file
     private Intent music = new Intent();
     private MusicServiceBase mServ;
-
 
     ServiceConnection Scon =new ServiceConnection(){
         /*implementazione metodi astratti*/
@@ -46,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
             mServ = null;
         }
     };
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,9 +127,6 @@ public class MainActivity extends AppCompatActivity {
         }, 10000);
     }
 
-
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -149,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
-
     @Override
     protected void onDestroy() {
         mServ.stopMusic();
@@ -162,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
     public void associareService(){
         bindService(music, Scon, Context.BIND_AUTO_CREATE);
         audioAssociato = true;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
     //togliere il servizio al contesto
