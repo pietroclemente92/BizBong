@@ -31,19 +31,25 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-
-        <!-- Permessi per utilizzare un servizio -->
-        <service
-            android:name=".service.MusicServiceBase"
-            android:enabled="true" />
-
         <activity
             android:name=".CreaProfiloActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".NuovaPartitaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".GameActivity"></activity>
+        <activity
+            android:name=".GameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GameSudoBizBongActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- Permessi per utilizzare un servizio -->
+        <service
+            android:name=".service.MusicServiceBase"
+            android:enabled="true" />
+
+
     </application>
 
 </manifest>
