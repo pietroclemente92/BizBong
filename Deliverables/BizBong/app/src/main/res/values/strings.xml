@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BizBong</string>
     <string name="creaprofilo">Crea Profilo</string>
+    <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
 </resources>

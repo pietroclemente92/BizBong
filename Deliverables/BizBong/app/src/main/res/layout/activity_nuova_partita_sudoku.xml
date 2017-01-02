@@ -57,6 +57,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
             <Button
+                android:id="@+id/facile2x2Button"
                 android:text="Facile"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -67,6 +68,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
             <Button
+                android:id="@+id/medio2x2Button"
                 android:text="Medio"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -77,6 +79,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
             <Button
+                android:id="@+id/difficile2x2Button"
                 android:text="Difficile"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -110,6 +113,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
             <Button
+                android:id="@+id/facile3x3Button"
                 android:text="Facile"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -120,6 +124,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
             <Button
+                android:id="@+id/medio3x3Button"
                 android:text="Medio"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -130,6 +135,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
             <Button
+                android:id="@+id/difficile3x3Button"
                 android:text="Difficile"
                 android:textStyle="bold"
                 android:textSize="7pt"
@@ -149,6 +155,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"/>
         <Button
+            android:id="@+id/giocaAdesso"
             android:text="Gioca Adesso"
             android:textStyle="bold"
             android:textSize="9pt"
