@@ -4,12 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.widget.Toast;
+
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +19,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import gamesoftitalia.bizbong.GameActivity;
-import gamesoftitalia.bizbong.HomeActivity;
+import gamesoftitalia.bizbong.BizBongGameActivity;
 import gamesoftitalia.bizbong.entity.BizBong;
 
 /**
@@ -112,7 +109,7 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
             BizBong bizBong = new Gson().fromJson(result, BizBong.class);
 
             // Intent
-            Intent intent = new Intent(context, GameActivity.class);
+            Intent intent = new Intent(context, BizBongGameActivity.class);
             intent.putExtra("bizbong", bizBong);
             context.startActivity(intent);
         } else {

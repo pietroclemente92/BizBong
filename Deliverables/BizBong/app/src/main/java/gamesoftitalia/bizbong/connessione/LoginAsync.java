@@ -38,7 +38,7 @@ public class LoginAsync extends AsyncTask<String, Void, String> {
         this.context = context;
 
         //Shared
-        sharedPreferences = context.getSharedPreferences("sessionUtente", context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("sessioneUtente", context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
@@ -122,6 +122,7 @@ public class LoginAsync extends AsyncTask<String, Void, String> {
 
                 // Sessione inserisce nickname
                 editor.putString("nickname", nickname);
+                editor.putString("online", "true");
                 editor.commit();
 
                 // Intent

@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Music
+        // Music
         if (audioAssociato == true){
             music.setClass(this, MusicServiceBase.class);
             associareService();
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", MainActivity.this.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+        Log.d("Debug", "Value-->"+sharedPreferences.getAll().containsKey("online"));
 
         // Loading Dialog
         final Dialog dialog = new  Dialog(this);
@@ -83,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(sharedPreferences.getAll().containsKey("game")){
-                    //Inseriamo il reloading della partita
+                if(sharedPreferences.getAll().containsKey("online")){
+                    // Inseriamo il reloading della partita
+                    dialog.dismiss();
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
                 } else {
                     dialog.dismiss();
                     LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.main_button_layout, null, false);

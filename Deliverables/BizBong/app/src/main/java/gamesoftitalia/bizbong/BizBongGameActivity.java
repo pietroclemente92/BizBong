@@ -1,0 +1,178 @@
+package gamesoftitalia.bizbong;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import gamesoftitalia.bizbong.entity.BizBong;
+
+/**
+ * Created by GameSoftItalia on 21/12/2016.
+ */
+
+public class BizBongGameActivity extends AppCompatActivity {
+
+    private BizBong bizBong;
+    private TextView domanda, time, punteggioTextView;
+    private Button[] risposte;
+    private int turno;
+    private int punteggio;
+    private long tempoCorrente;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private String nickname;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bizbong_game);
+
+        // SharedPrefernces
+        sharedPreferences = this.getSharedPreferences("sessionUtente", this.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        if(sharedPreferences.getAll().containsKey("nickname"))
+            nickname = sharedPreferences.getAll().get("nickname").toString();
+
+        // Game's Variables
+        punteggio = 0;
+        turno = 0;
+
+        // BizBong
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            bizBong = (BizBong) bundle.getSerializable("bizbong");
+        }
+
+        // TextView
+        domanda = (TextView) findViewById(R.id.domanda);
+        domanda.setText(bizBong.getListaDomande().get(turno).getDomanda());
+        time = (TextView) findViewById(R.id.time);
+        tempoCorrente = 17;
+        time.setText(String.valueOf(tempoCorrente));
+        punteggioTextView = (TextView) findViewById(R.id.punteggio);
+
+        // Button
+        risposte = new Button[4];
+        for(int i = 0; i < 4; i++){
+            int indexAnswer = i+1;
+            final int tmp = i;
+            String pathName = "@id/answer" + indexAnswer;
+            //Log.d("DEBUG:", "PathName-->"+pathName+", ID1-->"+getResources().getIdentifier(pathName, null, getPackageName())+", ID2-->"+R.id.answer1);
+            risposte[tmp] = (Button) findViewById(getResources().getIdentifier(pathName, null, getPackageName()));
+            risposte[tmp].setText(bizBong.getListaDomande().get(turno).getListaRisposte().get(tmp).toString());
+            risposte[tmp].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    risposte[tmp].setBackgroundResource(R.drawable.button_modalita_true);
+                    if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
+                        punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
+                        punteggioTextView.setText("Punteggio: "+punteggio);
+                    }
+                    setNuovoTurno();
+                }
+            });
+        }
+
+        // Thread di gioco
+        final Handler mHandler = new Handler();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                while (turno < 9) {
+                    try {
+                        Thread.sleep(1000);
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                if (tempoCorrente == 1) {
+                                    setNuovoTurno();
+                                } else {
+                                    tempoCorrente--;
+                                    time.setText(String.valueOf(tempoCorrente));
+                                }
+                            }
+                        });
+                    } catch (Exception e) {
+                        // TODO: handle exception
+                    }
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    public void onBackPressed(){
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        finish();
+    }
+
+
+    private void setNuovoTurno() {
+        if(turno < 9){
+            tempoCorrente = 16;
+            time.setText(String.valueOf(tempoCorrente));
+            turno++;
+            domanda.setText(bizBong.getListaDomande().get(turno).getDomanda());
+            for(int i = 0; i < 4; i++){
+                final int tmp = i;
+                risposte[tmp].setText(bizBong.getListaDomande().get(turno).getListaRisposte().get(i).toString());
+                risposte[tmp].setBackgroundResource(R.drawable.buttonshape);
+                risposte[tmp].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
+                            risposte[tmp].setBackgroundResource(R.drawable.button_modalita_true);
+                            punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
+                            punteggioTextView.setText("Punteggio: "+punteggio);
+                        } else {
+                            for(int j = 0; j < 4; j++){
+                                if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
+                                    risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
+                                    risposte[j].setOnClickListener(null);
+                                }
+                            }
+                        }
+                        setNuovoTurno();
+                    }
+                });
+            }
+        } else{
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.congratulazioni_dialog, null);
+            dialogBuilder.setView(dialogView);
+
+            // Dialog Views
+            TextView congratulazioniText = (TextView) dialogView.findViewById(R.id.congratulazioniText);
+            congratulazioniText.setText("Congratulazioni " + nickname.substring(0, 1).toUpperCase() + nickname.substring(1));
+
+            TextView punteggioText = (TextView) dialogView.findViewById(R.id.punteggioText);
+            punteggioText.setText("Punteggio: " + punteggio);
+
+            Button avantiButton = (Button) dialogView.findViewById(R.id.avantiButton);
+            avantiButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(BizBongGameActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            AlertDialog alertDialog = dialogBuilder.create();
+            alertDialog.show();
+        }
+    }
+}

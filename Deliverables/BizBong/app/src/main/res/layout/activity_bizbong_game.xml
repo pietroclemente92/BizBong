@@ -4,7 +4,7 @@
     android:id="@+id/activity_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="gamesoftitalia.bizbong.GameActivity"
+    tools:context="gamesoftitalia.bizbong.BizBongGameActivity"
     android:background="#5e5e5e">
 
     <android.support.v7.widget.Toolbar
@@ -13,11 +13,15 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/bar_bizbong">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="90px"
-            android:layout_height="90px"
-            android:background="@drawable/ic_back"/>
+        <TextView
+            android:id="@+id/punteggio"
+            android:text="Punteggio: 0"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:textColor="@color/blackText"
+            android:layout_width="180px"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"/>
         <TextView
             android:text="BizBong"
             android:textSize="14pt"
@@ -65,57 +69,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:padding="10dp"
+            android:padding="30dp"
             android:orientation="vertical">
-            <LinearLayout
+            <Button
+                android:id="@+id/answer1"
+                android:text="Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:gravity="center"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/answer1"
-                    android:text="Answer1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/buttonshape"/>
-
-                <Button
-                    android:id="@+id/answer2"
-                    android:text="Answer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/buttonshape"/>
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_weight="1"
+                android:background="@drawable/buttonshape"/>
+            <Button
+                android:id="@+id/answer2"
+                android:text="Answer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="20dp"
-                android:layout_weight="1">
-                <Button
-                    android:id="@+id/answer3"
-                    android:text="Answer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/buttonshape"/>
-                <Button
-                    android:id="@+id/answer4"
-                    android:text="Answer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/buttonshape"/>
-            </LinearLayout>
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonshape"/>
+            <Button
+                android:id="@+id/answer3"
+                android:text="Answer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/buttonshape"/>
+            <Button
+                android:id="@+id/answer4"
+                android:text="Answer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/buttonshape"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
