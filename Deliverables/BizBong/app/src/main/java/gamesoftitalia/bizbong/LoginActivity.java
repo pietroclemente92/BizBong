@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
 import gamesoftitalia.bizbong.connessione.LoginAsync;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,9 +26,10 @@ public class LoginActivity extends AppCompatActivity {
     private TextView login;
     private ImageButton backButton;
     private String nickname, password;
+    private Impostazioni entity;
 
-    private boolean audioAssociato=true;     /*valore prende da file*/
-    private Intent music = new Intent();
+    private Intent music=new Intent();
+    private boolean audioAssociato;
     private MusicServiceBase mServ;
 
     ServiceConnection Scon =new ServiceConnection(){
@@ -44,11 +46,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        entity= (Impostazioni) getIntent().getSerializableExtra("Impostazioni");     //ricevitore oggetto Impostazioni
 
         //Music
-        if (audioAssociato == true){
+        audioAssociato=entity.getAudio();
+        if (audioAssociato){
             music.setClass(this, MusicServiceBase.class);
-            associareService();
+            bindService(music, Scon, Context.BIND_AUTO_CREATE);    //legare il servizio al contesto
             startService(music);
         }
 
@@ -77,30 +81,39 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onResume() {     /*quando l'app viene riattivata*/
         super.onResume();
         if (audioAssociato==true)
-            if(mServ!=null)
+            if(mServ!=null) {
+                bindService(music, Scon, Context.BIND_AUTO_CREATE);
                 mServ.resumeMusic();
+            }
+
     };
 
     @Override
     protected void onPause() {            /*quando l'app va in background viene stoppato*/
         if (audioAssociato==true)
-            if(mServ!=null)
+            if(mServ!=null){
                 mServ.pauseMusic();
+                unbindService(Scon);
+            }
         super.onPause();
     }
 
     @Override
-    public void onBackPressed() {
+    protected void onDestroy() {
+        try {
+            audioAssociato = entity.getAudio();
+            if (audioAssociato) {
+                mServ.stopMusic();
+                stopService(music);
+                unbindService(Scon);   //togliere il contesto al servizio
+            }
+        } catch (NullPointerException | IllegalArgumentException e){}
 
-    }
-
-    //legare il servizio al contesto
-    public void associareService(){
-        bindService(music, Scon, Context.BIND_AUTO_CREATE);                    /*aggiungere il servizio*/
-        audioAssociato = true;
+        super.onDestroy();
     }
 }

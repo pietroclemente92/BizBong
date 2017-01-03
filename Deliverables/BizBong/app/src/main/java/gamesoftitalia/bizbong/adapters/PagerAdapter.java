@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import gamesoftitalia.bizbong.fragment.ClassificaFragment;
 import gamesoftitalia.bizbong.fragment.HomeFragment;
-import gamesoftitalia.bizbong.fragment.ImpostazioniFragment;
 import gamesoftitalia.bizbong.fragment.ProfiloFragment;
 
 /**
@@ -34,9 +33,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 ProfiloFragment tab3 = new ProfiloFragment();
                 return tab3;
-            case 3:
+           /* case 3:
                 ImpostazioniFragment tab4 = new ImpostazioniFragment();
-                return tab4;
+                return tab4;*/
             default:
                 return null;
         }

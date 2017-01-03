@@ -17,23 +17,28 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class HomeActivity extends AppCompatActivity {
-
+    static final int READ_BLOCK_SIZE = 100;
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private LinearLayout profiloButton;
     private ImageButton logoutButton;
-
-    private boolean audioAssociato=true;     /*valore prende da file*/
-    private Intent music = new Intent();
-    private MusicServiceBase mServ;
-
+    private ImageButton impostazioniButton;
     private static TextView nicknameText;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private Impostazioni entity;
+
+    private Intent music=new Intent();
+    private boolean audioAssociato;
+    private MusicServiceBase mServ;
 
     ServiceConnection Scon =new ServiceConnection(){
         /*implementazione metodi astratti*/
@@ -45,10 +50,12 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        caricaImpostazioni();
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
@@ -59,9 +66,10 @@ public class HomeActivity extends AppCompatActivity {
             nicknameText.setText(sharedPreferences.getAll().get("nickname").toString());
 
         //Music
-        if (audioAssociato == true){
+        audioAssociato=entity.getAudio();
+        if (audioAssociato){
             music.setClass(this, MusicServiceBase.class);
-            associareService();
+            bindService(music, Scon, Context.BIND_AUTO_CREATE);    //legare il servizio al contesto
             startService(music);
         }
 
@@ -76,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 4"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         setupTabIcons();
 
@@ -112,6 +119,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Button impostazioni
+        impostazioniButton = (ImageButton) findViewById(R.id.impostazioniButton);
+        impostazioniButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ImpostazioniActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // ImageButton
         logoutButton = (ImageButton) findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -121,12 +138,16 @@ public class HomeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.commit();
 
+
                 // Restart MainActivity
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+
+
     }
 
     private void setupTabIcons() {
@@ -152,33 +173,79 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(3).setCustomView(tabQuattro);*/
     }
 
+    private void caricaImpostazioni(){
+        //stringa da dividere
+        String imp=ReadBtn();
+
+        //divisione stringa
+        String[] i=imp.split("\\-");
+
+        String lingua=i[0];
+        String audioS=i[1];
+        String effettiS=i[2];
+        String vibrazioneS=i[3];
+
+        //conversione stringhe
+        boolean audio= Boolean.valueOf(audioS);             //String-->boolean
+        boolean effetti= Boolean.valueOf(effettiS);         //String-->boolean
+        boolean vibrazione= Boolean.valueOf(vibrazioneS);   //String-->boolean
+
+        //oggetto impostazioni da avvalorare con i valori presi da file
+        entity=new Impostazioni(lingua,audio,effetti,vibrazione);
+    }
+
+    private String ReadBtn() {
+        String s="";
+        try {
+            FileInputStream fileIn=openFileInput("BizBong.txt");
+            InputStreamReader InputRead= new InputStreamReader(fileIn);
+            char[] inputBuffer= new char[READ_BLOCK_SIZE];
+            int charRead;
+            while ((charRead=InputRead.read(inputBuffer))>0) {
+                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                s +=readstring;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
+
 
 
     @Override
     protected void onResume() {     /*quando l'app viene riattivata*/
         super.onResume();
         if (audioAssociato==true)
-            if(mServ!=null)
+            if (mServ != null) {
+                bindService(music, Scon, Context.BIND_AUTO_CREATE);
                 mServ.resumeMusic();
+            }
     };
 
     @Override
     protected void onPause() {            /*quando l'app va in background viene stoppato*/
         if (audioAssociato==true)
-            if(mServ!=null)
+            if(mServ!=null){
                 mServ.pauseMusic();
+                unbindService(Scon);
+            }
         super.onPause();
     }
 
     @Override
-    public void onBackPressed() {
+    protected void onDestroy() {
+        try {
+            audioAssociato = entity.getAudio();
+            if (audioAssociato) {
+                mServ.stopMusic();
+                stopService(music);
+                unbindService(Scon);   //togliere il contesto al servizio
+            }
+        } catch (NullPointerException | IllegalArgumentException e){}
 
-    }
-
-    //legare il servizio al contesto
-    public void associareService(){
-        bindService(music, Scon, Context.BIND_AUTO_CREATE);                    /*aggiungere il servizio*/
-        audioAssociato = true;
+        super.onDestroy();
     }
 }
 

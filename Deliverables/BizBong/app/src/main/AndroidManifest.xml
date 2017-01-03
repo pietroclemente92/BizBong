@@ -24,7 +24,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait" />
@@ -49,7 +49,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfiloActivity"></activity>
+
+        <activity
+            android:name=".ProfiloActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ImpostazioniActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GameSudoBizBongActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

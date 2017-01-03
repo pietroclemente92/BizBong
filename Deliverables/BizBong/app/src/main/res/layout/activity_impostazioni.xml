@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="gamesoftitalia.bizbong.ImpostazioniActivity"
+        android:background="#5e5e5e">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/bar_bizbong">
+
+            <TextView
+                android:text="Impostazioni"
+                android:textSize="14pt"
+                android:textStyle="bold"
+                android:textColor="@color/blackText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </android.support.v7.widget.Toolbar>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
+
+    <Switch
+        android:text="Vibrazione"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch3"
+        android:layout_marginTop="81dp"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:text="Effetti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch2"
+        android:layout_alignBottom="@+id/switch3"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="23dp" />
+
+    <Switch
+        android:text="Audio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:layout_above="@+id/switch2"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ok" android:onClick="onClick"
+        android:layout_below="@+id/switch3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp" />
+
+
+</RelativeLayout>

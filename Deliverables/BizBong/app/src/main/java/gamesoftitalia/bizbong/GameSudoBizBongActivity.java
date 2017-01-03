@@ -218,7 +218,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
     }
 
 
-    //funione che gestisce la fine del gioco e stabilisce se l'utente ha completato bene il sudoku
+    //funzione che gestisce la fine del gioco e stabilisce se l'utente ha completato bene il sudoku
     private void fineGame(){
         fine.setOnClickListener(new View.OnClickListener() {
             @Override
