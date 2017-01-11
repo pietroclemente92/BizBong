@@ -10,20 +10,20 @@ import java.util.List;
  */
 
 public class BizBong implements BizBongInterface, Serializable {
-    private int tempo;
+    private String modalita;
     private List<Domanda> listaDomande;
 
-    public BizBong(int tempo, List<Domanda> listaDomande) {
-        this.tempo = tempo;
+    public BizBong(String modalita, List<Domanda> listaDomande) {
+        this.modalita = modalita;
         this.listaDomande = listaDomande;
     }
 
-    public int getTempo() {
-        return tempo;
+    public String getModalita() {
+        return modalita;
     }
 
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
+    public void setModalita(String modalita) {
+        this.modalita = modalita;
     }
 
     public List<Domanda> getListaDomande() {
@@ -40,7 +40,7 @@ public class BizBong implements BizBongInterface, Serializable {
         for(int i = 0; i < listaDomande.size(); i++){
             domande += listaDomande.get(i)+";";
         }
-        return "BizBong[tempo:"+tempo+", listaDomande:"+domande+"}]";
+        return "BizBong[modalita:"+modalita+", listaDomande:"+domande+"}]";
     }
 
     @Override
@@ -50,6 +50,6 @@ public class BizBong implements BizBongInterface, Serializable {
         if (!(obj instanceof BizBong)) return false;
 
         BizBong b = (BizBong) obj;
-        return ( this.tempo == b.tempo && this.listaDomande.equals(b.listaDomande));
+        return ( this.modalita.equals(b.modalita) && this.listaDomande.equals(b.listaDomande));
     }
 }

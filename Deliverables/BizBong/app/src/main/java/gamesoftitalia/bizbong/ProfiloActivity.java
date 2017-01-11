@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class ProfiloActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private ImageButton backButton;
 
-    private TextView modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
+    private EditText modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
     private Button modificaButton;
 
     @Override
@@ -61,6 +62,8 @@ public class ProfiloActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         final Profilo profilo = new Gson().fromJson(profiloGson, Profilo.class);
+        // Log.d("DEBUG:", "Value-->"+profilo.getStatistiche().getPunteggiList()[0]);
+
 
         // ProfiloText
         nicknameText = (TextView) findViewById(R.id.nicknameProfilo);
@@ -69,10 +72,12 @@ public class ProfiloActivity extends AppCompatActivity {
         emailText.setText("Email: "+profilo.getEmail());
 
         // TextView
-        modificaNicknameTextView = (TextView) findViewById(R.id.modificaNickname);
-        modificaEmailTextView = (TextView) findViewById(R.id.modificaEmail);
-        modificaPasswordTextView = (TextView) findViewById(R.id.modificaPassword);
-        confermaPasswordTextView = (TextView) findViewById(R.id.confermaPassword);
+        modificaNicknameTextView = (EditText) findViewById(R.id.modificaNickname);
+        modificaNicknameTextView.setHint(profilo.getNickname());
+        modificaEmailTextView = (EditText) findViewById(R.id.modificaEmail);
+        modificaEmailTextView.setHint(profilo.getEmail());
+        modificaPasswordTextView = (EditText) findViewById(R.id.modificaPassword);
+        confermaPasswordTextView = (EditText) findViewById(R.id.confermaPassword);
 
         // Button
         modificaButton = (Button) findViewById(R.id.modificaButton);
@@ -83,13 +88,15 @@ public class ProfiloActivity extends AppCompatActivity {
                 String tmpModificaPassword = modificaPasswordTextView.getText().toString();
                 String tmpConfermaPassword = confermaPasswordTextView.getText().toString();
 
-                if(tmpModificaEmail.length() > 0)
+                if(tmpModificaEmail.length() > 0) {
                     profilo.setEmail(tmpModificaEmail);
+                    ricaricaProfilo(tmpModificaEmail);
+                }
                 if(tmpModificaPassword.length() > 0 && tmpModificaPassword.equals(tmpConfermaPassword))
                     profilo.setPassword(tmpModificaPassword);
 
                 String modificaProfilo = new Gson().toJson(profilo, Profilo.class);
-                Log.d("DEBUG:", "GSON-->"+modificaProfilo);
+                // Log.d("DEBUG:", "GSON-->"+modificaProfilo);
                 new ModificaProfiloAsync(context).execute(modificaProfilo);
             }
         });
@@ -98,5 +105,10 @@ public class ProfiloActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+    private void ricaricaProfilo(String newEmail){
+        emailText.setText("Email: "+newEmail);
+        modificaEmailTextView.setHint(newEmail);
     }
 }

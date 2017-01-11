@@ -21,19 +21,19 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import gamesoftitalia.bizbong.HomeActivity;
+import gamesoftitalia.bizbong.entity.Profilo;
 
 /**
  * Created by Raffaella on 03/01/2017.
  */
 
-public class ModificaProfiloAsync extends AsyncTask<String, Void, String> {
+public class ModificaStatisticheAsync extends AsyncTask<String, Void, String> {
 
     private ProgressDialog loadingDialog;
     private Context context;
     private String profilo;
 
-    public ModificaProfiloAsync(Context context){
+    public ModificaStatisticheAsync(Context context){
         this.context = context;
     }
 
@@ -53,14 +53,14 @@ public class ModificaProfiloAsync extends AsyncTask<String, Void, String> {
             HttpURLConnection con = null;
             //boolean redirect = false;
             try{
-                // Parametri profilo execute come parametri
+                // Parametri nickname e password passati da execute come parametri
                 profilo = params[0];
 
-                // Dati nickname e le opportune modifiche effettuate (inoltrati al server)
+                // Dati nickname(inoltrati al server)
                 String data = "?profilo=" + URLEncoder.encode(profilo, "UTF-8");
 
                 // Link
-                String link = "http://bizbong.altervista.org/php/Control/ModificaProfiloControl.php" + data;
+                String link = "http://bizbong.altervista.org/php/Control/ModificaStatisticheControl.php" + data;
                 // Log.d("DEBUG:", link);
 
                 // URL
@@ -106,15 +106,7 @@ public class ModificaProfiloAsync extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         loadingDialog.dismiss();
 
-        if (result != null) {
-            //Log.d("DEBUG:", "VALUE-->"+result.toString());
-            Boolean bool = new Gson().fromJson(result, Boolean.class);
-
-            if(bool)
-                Toast.makeText(context, "Modifica avvenuta correttamente!", Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(context, "Modifica non avvenuta: Errore di credenziali!", Toast.LENGTH_SHORT).show();
-        } else {
+        if (result == null) {
             String msg = "Connessione lenta o non funzionante";
             AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(context);

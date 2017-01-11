@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         // String
         nicknameText = (TextView) findViewById(R.id.nicknameProfilo);
@@ -140,7 +141,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
                 // Restart MainActivity
-                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                Intent intent = new Intent(HomeActivity.this, IntroActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -162,12 +163,12 @@ public class HomeActivity extends AppCompatActivity {
         tabDue.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_challenge, 0, 0);
         tabLayout.getTabAt(1).setCustomView(tabDue);
 
-        /*TextView tabTre = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
+        TextView tabTre = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
         tabTre.setText("THREE");
         tabTre.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_profile, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabTre);
 
-        TextView tabQuattro = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
+        /*TextView tabQuattro = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
         tabQuattro.setText("FOUR");
         tabQuattro.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_setting, 0, 0);
         tabLayout.getTabAt(3).setCustomView(tabQuattro);*/

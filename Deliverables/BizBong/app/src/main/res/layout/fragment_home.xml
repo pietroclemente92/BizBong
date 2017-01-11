@@ -13,8 +13,7 @@
             android:id="@+id/viewPagerGames"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-        </gamesoftitalia.bizbong.adapters.AdapterViewPager>
+            android:layout_gravity="center"/>
 
         <Button
             android:id="@+id/nuovaPartitaButton"
@@ -36,7 +35,6 @@
             android:id="@+id/viewPagerBanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-        </gamesoftitalia.bizbong.adapters.AdapterViewPager>
+            android:layout_gravity="center"/>
     </LinearLayout>
 </RelativeLayout>

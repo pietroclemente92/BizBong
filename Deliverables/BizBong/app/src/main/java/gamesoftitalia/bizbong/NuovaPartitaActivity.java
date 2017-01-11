@@ -53,7 +53,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             indexClassica = 0;
                             classicaButton.setBackgroundResource(R.drawable.buttonshape);
                         } else{
-                            modalita = "Classica";
+                            modalita = "classica";
                             indexClassica = 1;
                             classicaButton.setBackgroundResource(R.drawable.button_modalita_true);
                         }
@@ -142,11 +142,6 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-
-
-
-
-
                 break;
         }
 

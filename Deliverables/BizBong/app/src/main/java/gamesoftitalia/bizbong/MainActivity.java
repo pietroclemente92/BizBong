@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
-import android.os.Handler;
+import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
@@ -29,12 +31,16 @@ import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.gifanimator.PlayGifView;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
+/**
+ * Created by GameSoftItalia on 09/01/2017.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
     static final int READ_BLOCK_SIZE = 100;
     private Button creaProfiloButton, loginButton, allenamentoButton;
     private PlayGifView pGif;
+    private TextView loading_dialog_textview;
     private Intent intent;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -77,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", MainActivity.this.MODE_PRIVATE);
-        Log.d("Debug", "Value-->"+sharedPreferences.getAll().containsKey("online"));
+        //Log.d("Debug", "Value-->"+sharedPreferences.getAll().containsKey("online"));
 
         // Loading Dialog
         final Dialog dialog = new  Dialog(this);
@@ -90,14 +96,45 @@ public class MainActivity extends AppCompatActivity {
         //GIF
         pGif = (PlayGifView) dialog.findViewById(R.id.gif);
         pGif.setImageResource(R.drawable.cane);
+
+        //TextView
+        loading_dialog_textview = (TextView) dialog.findViewById(R.id.loading_text_dialog);
         dialog.show();
 
         // Loading
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        new CountDownTimer(10000, 1000){
             @Override
-            public void run() {
+            public void onTick(long l) {
+                switch((int) (l/1000)){
+                    case 8:
+                        loading_dialog_textview.setText("Loading.");
+                        break;
+                    case 7:
+                        loading_dialog_textview.setText("Loading..");
+                        break;
+                    case 6:
+                        loading_dialog_textview.setText("Loading...");
+                        break;
+                    case 5:
+                        loading_dialog_textview.setText("Loading.");
+                        break;
+                    case 4:
+                        loading_dialog_textview.setText("Loading..");
+                        break;
+                    case 3:
+                        loading_dialog_textview.setText("Loading...");
+                        break;
+                    case 2:
+                        loading_dialog_textview.setText("Loading.");
+                        break;
+                    case 1:
+                        loading_dialog_textview.setText("Loading..");
+                        break;
+                }
+            }
 
+            @Override
+            public void onFinish() {
                 if(sharedPreferences.getAll().containsKey("online")){
                     // Inseriamo il reloading della partita
                     dialog.dismiss();
@@ -143,8 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             }
-        }, 10000);
-
+        }.start();
     }
 
     private boolean controlloFile(){
@@ -253,12 +289,4 @@ public class MainActivity extends AppCompatActivity {
         } catch (NullPointerException | IllegalArgumentException e){}
         super.onDestroy();
     }
-
-
-
-
-
-
-
-
 }

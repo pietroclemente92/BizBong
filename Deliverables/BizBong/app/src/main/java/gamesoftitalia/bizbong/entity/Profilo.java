@@ -3,19 +3,22 @@ package gamesoftitalia.bizbong.entity;
 /**
  * Created by GameSoftItalia on 01/12/2016.
  */
+
 public class Profilo {
     private String nickname, password, email, img_profilo;
+    private Statistiche statistiche;
 
     public Profilo(String nickname, String img_profilo){
         this.nickname = nickname;
         this.img_profilo = img_profilo;
     }
 
-    public Profilo(String nickname, String password, String email) {
+    public Profilo(String nickname, String password, String email, String img_profilo, Statistiche statistiche) {
         this.nickname = nickname;
         this.password = password;
         this.email = email;
-        this.img_profilo = "img_base.png";
+        this.img_profilo = img_profilo;
+        this.statistiche = statistiche;
     }
 
     public String getNickname() {
@@ -46,9 +49,18 @@ public class Profilo {
 
     public void setImgProfilo(String img_profilo) { this.img_profilo = img_profilo; }
 
+    public Statistiche getStatistiche() {
+        return statistiche;
+    }
+
+    public void setStatistiche(Statistiche statistiche) {
+        this.statistiche = statistiche;
+    }
+
     @Override
     public String toString() {
-        return "Profilo[Nickname:"+nickname+",Password:"+password+",Email:"+email+",ImmagineProfilo:"+img_profilo+"]";
+        return "Profilo[Nickname:"+nickname+",Password:"+password+",Email:"+email+",ImmagineProfilo:"+img_profilo+
+                ", Statistiche:"+statistiche.toString()+"]";
     }
 
     @Override
@@ -59,6 +71,6 @@ public class Profilo {
 
         Profilo p = (Profilo) obj;
         return ( this.nickname == p.nickname && this.password == p.password && this.email == p.email
-                 && this.img_profilo.equals(p.img_profilo));
+                 && this.img_profilo.equals(p.img_profilo) && statistiche.equals(p.statistiche));
     }
 }

@@ -33,12 +33,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="7"
+            android:layout_weight="9"
             android:orientation="horizontal">
 
             <ImageView
@@ -96,7 +97,8 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -110,13 +112,16 @@
                         android:layout_weight="1"
                         android:padding="10dp"
                         android:orientation="horizontal">
+
                         <TextView
                             android:text="Nickname"
-                            android:textSize="10pt"
+                            android:textColor="@color/blackText"
+                            android:textSize="8pt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="7"
-                            android:gravity="center_vertical"/>
+                            android:gravity="center_vertical"
+                            android:id="@+id/textView2" />
 
                         <EditText
                             android:id="@+id/modificaNickname"
@@ -132,7 +137,8 @@
                         android:orientation="horizontal">
                         <TextView
                             android:text="Email"
-                            android:textSize="10pt"
+                            android:textColor="@color/blackText"
+                            android:textSize="8pt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="7"
@@ -140,6 +146,8 @@
 
                         <EditText
                             android:id="@+id/modificaEmail"
+                            android:hint="Email"
+                            android:singleLine="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="4"/>
@@ -165,7 +173,8 @@
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -183,13 +192,19 @@
                         android:orientation="horizontal">
                         <TextView
                             android:text="Password"
-                            android:textSize="10pt"
+                            android:textColor="@color/blackText"
+                            android:textSize="8pt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="7"
                             android:gravity="center_vertical"/>
+
                         <EditText
                             android:id="@+id/modificaPassword"
+                            android:maxLines="1"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:password="true"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="4"/>
@@ -203,13 +218,19 @@
                         android:orientation="horizontal">
                         <TextView
                             android:text="Ripetere"
-                            android:textSize="10pt"
+                            android:textColor="@color/blackText"
+                            android:textSize="8pt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="7"
                             android:gravity="center_vertical"/>
+
                         <EditText
                             android:id="@+id/confermaPassword"
+                            android:maxLines="1"
+                            android:inputType="textPassword"
+                            android:password="true"
+                            android:hint="Password"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="4"/>

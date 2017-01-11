@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface BizBongInterface {
 
-    public int getTempo();
+    public String getModalita();
     public List getListaDomande();
-    public void setTempo(int tempo);
+    public void setModalita(String modalita);
     public void setListaDomande(List<Domanda> listaDomande);
 }

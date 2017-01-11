@@ -18,9 +18,6 @@ import gamesoftitalia.bizbong.R;
 
 public class ProfiloFragment extends Fragment{
     private static View view;
-    private static TextView nicknameText, email;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
     private Context context;
 
     @Override
@@ -28,17 +25,8 @@ public class ProfiloFragment extends Fragment{
         // Context
         context = getActivity();
 
-        //Shared
-        sharedPreferences = context.getSharedPreferences("sessionUtente", context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-
         // View
         view =  inflater.inflate(R.layout.fragment_profilo, container, false);
-
-        // String
-        nicknameText = (TextView) view.findViewById(R.id.nicknameProfilo);
-        if(sharedPreferences.getAll().containsKey("nickname"))
-            nicknameText.setText("Session:"+sharedPreferences.getAll().get("nickname").toString());
 
         return view;
     }

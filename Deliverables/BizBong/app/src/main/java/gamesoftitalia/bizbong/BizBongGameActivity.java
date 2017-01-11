@@ -6,11 +6,21 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import java.util.concurrent.ExecutionException;
+
+import gamesoftitalia.bizbong.connessione.ModificaStatisticheAsync;
+import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.entity.BizBong;
+import gamesoftitalia.bizbong.entity.Profilo;
+import gamesoftitalia.bizbong.entity.Statistiche;
 
 /**
  * Created by GameSoftItalia on 21/12/2016.
@@ -28,16 +38,26 @@ public class BizBongGameActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private String nickname;
 
+    private String profiloGson;
+    private Profilo profilo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizbong_game);
 
         // SharedPrefernces
-        sharedPreferences = this.getSharedPreferences("sessionUtente", this.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("sessioneUtente", this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         if(sharedPreferences.getAll().containsKey("nickname"))
             nickname = sharedPreferences.getAll().get("nickname").toString();
+
+        try {
+            profiloGson = new ProfiloAsync(BizBongGameActivity.this).execute(nickname).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        profilo = new Gson().fromJson(profiloGson, Profilo.class);
 
         // Game's Variables
         punteggio = 0;
@@ -137,6 +157,17 @@ public class BizBongGameActivity extends AppCompatActivity {
                             risposte[tmp].setBackgroundResource(R.drawable.button_modalita_true);
                             punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
                             punteggioTextView.setText("Punteggio: "+punteggio);
+
+                            // Aggiungi punti a statistiche
+                            Statistiche statistiche =  profilo.getStatistiche();
+                            for(int j = 0; j < statistiche.getModalitaList().length; j++){
+                                Log.d("DEBUG:", "BIZBONG.MODALITA->"+bizBong.getModalita()+
+                                        "; BIZBONG.Tema->"+bizBong.getListaDomande().get(turno).getTema()+"; STATISTICHE->"+statistiche.getModalitaList()[j]);
+                                if(bizBong.getListaDomande().get(turno).getTema().equals(statistiche.getModalitaList()[j]))
+                                    profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
+                                if(bizBong.getModalita().equals(statistiche.getModalitaList()[j]))
+                                    profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
+                            }
                         } else {
                             for(int j = 0; j < 4; j++){
                                 if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
@@ -159,9 +190,15 @@ public class BizBongGameActivity extends AppCompatActivity {
             TextView congratulazioniText = (TextView) dialogView.findViewById(R.id.congratulazioniText);
             congratulazioniText.setText("Congratulazioni " + nickname.substring(0, 1).toUpperCase() + nickname.substring(1));
 
+            // Punteggio Ottenuto
             TextView punteggioText = (TextView) dialogView.findViewById(R.id.punteggioText);
             punteggioText.setText("Punteggio: " + punteggio);
 
+            // AggiornaStatistiche
+            String aggiornaProfiloGson = new Gson().toJson(profilo, Profilo.class);
+            new ModificaStatisticheAsync(BizBongGameActivity.this).execute(aggiornaProfiloGson);
+
+            // Button Exit
             Button avantiButton = (Button) dialogView.findViewById(R.id.avantiButton);
             avantiButton.setOnClickListener(new View.OnClickListener() {
                 @Override

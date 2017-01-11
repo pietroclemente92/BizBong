@@ -2,4 +2,25 @@
     <string name="app_name">BizBong</string>
     <string name="creaprofilo">Crea Profilo</string>
     <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
+    <string name="classifica_prompt">Seleziona la modalità</string>
+
+    <!-- Lista contente le modalita di gioco inserite-->
+    <string-array name="classifica_arrays">
+        <item>storia</item>
+        <item>geografia</item>
+        <item>classica</item>
+        <item>BizBong --> Materia4</item>
+        <item>BizBong --> Materia5</item>
+        <item>BizBong --> Materia6</item>
+        <item>BizBong --> Materia7</item>
+        <item>BizBong --> Materia8</item>
+        <item>BizBong --> Materia9</item>
+        <item>Sudoku2x2  --> Facile</item>
+        <item>Sudoku2x2  --> Medio</item>
+        <item>Sudoku2x2  --> Difficile</item>
+        <item>Sudoku3x3 --> Facile</item>
+        <item>Sudoku3x3 --> Medio</item>
+        <item>Sudoku3x3  --> Difficile</item>
+    </string-array>
+
 </resources>
