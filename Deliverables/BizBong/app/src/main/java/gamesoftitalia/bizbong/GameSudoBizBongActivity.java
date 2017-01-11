@@ -2,6 +2,7 @@ package gamesoftitalia.bizbong;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.CountDownTimer;
@@ -42,9 +43,22 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
     private SudoBizBong sudokuInizio;
     private Button fine;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private String nickname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // SharedPrefernces
+        sharedPreferences = this.getSharedPreferences("sessionUtente", this.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        if(sharedPreferences.getAll().containsKey("nickname"))
+            nickname = sharedPreferences.getAll().get("nickname").toString();
+
+
+
         String modalita=getIntent().getExtras().getString("modalita");
         startSudoBizBong(modalita);
     }
@@ -232,6 +246,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                     FineSudoBizBong fs = new FineSudoBizBong(sudokuInizio.getModalita(),Integer.parseInt((String) totmosse.getText()), "" + timer.getText());
                     String s="Complimenti hai vinto";
                     String s1="Il tuo punteggio è di:"+fs.getPunteggio()+"vuoi rigiocare?";
+
                     /*ImageView image = null;
                     image.setImageResource(R.drawable.go);*/
                     Dialog_fine(s,s1);
@@ -295,15 +310,15 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             public void onTick(long l) {
                 String pathName;
                 if (l/1000==3){
-                    pathName = "@drawable/pezzo2";
+                    pathName = "@drawable/timer2";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
                 if (l/1000==2){
-                    pathName = "@drawable/pezzo3";
+                    pathName = "@drawable/timer1";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
                 if (l/1000==1){
-                    pathName = "@drawable/go";
+                    pathName = "@drawable/timer0";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
             }

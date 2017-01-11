@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.GameSudoBizBongActivity"
-    android:background="#5e5e5e">
+    android:background="@drawable/background_home">
+    <!--android:background="#5e5e5e"-->
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -277,7 +279,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/pezzo"
+        android:src="@drawable/timer3"
         android:id="@+id/timer"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/time"

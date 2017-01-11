@@ -29,6 +29,8 @@ public class FineSudoBizBong {
         return p;
     }
 
+
+
     public String getModalita() {
         return modalita;
     }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.NuovaPartitaActivity"
-    android:background="#5e5e5e">
+    android:background="@drawable/background_home">
+    <!--android:background="#5e5e5e"-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,18 +23,19 @@
             android:text="Nuova Partita"
             android:textSize="14pt"
             android:textStyle="bold"
-            android:textColor="@color/blackText"
+            android:textColor="@color/whiteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
     </android.support.v7.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:orientation="vertical"
         android:padding="30dp"
-        android:layout_marginTop="20dp">
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true">
         <TextView
             android:text="Modalità di gioco"
             android:textStyle="bold"
@@ -56,6 +58,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
+
             <Button
                 android:id="@+id/facile2x2Button"
                 android:text="Facile"
@@ -64,9 +67,10 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttonshape"
+                android:background="@drawable/background"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
+
             <Button
                 android:id="@+id/medio2x2Button"
                 android:text="Medio"
@@ -75,9 +79,10 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttonshape"
+                android:background="@drawable/background"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
+
             <Button
                 android:id="@+id/difficile2x2Button"
                 android:text="Difficile"
@@ -86,8 +91,9 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttonshape"
-                android:layout_weight="1"/>
+                android:background="@drawable/background"
+                android:layout_weight="1" />
+
         </LinearLayout>
         <TextView
             android:text="Seleziona una delle modalità 2x2 proposte"
@@ -162,8 +168,9 @@
             android:textColor="@color/whiteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/buttonshape"
+            android:background="@drawable/background"
             android:layout_marginTop="30dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            />
     </LinearLayout>
 </RelativeLayout>
