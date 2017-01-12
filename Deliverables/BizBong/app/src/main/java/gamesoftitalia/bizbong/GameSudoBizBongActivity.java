@@ -21,10 +21,15 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
+import gamesoftitalia.bizbong.connessione.ModificaStatisticheAsync;
+import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.connessione.SudoBizBongAsync;
 import gamesoftitalia.bizbong.entity.FineSudoBizBong;
+import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.entity.SoluzioneSudoBizBong;
+import gamesoftitalia.bizbong.entity.Statistiche;
 import gamesoftitalia.bizbong.entity.SudoBizBong;
 import gamesoftitalia.bizbong.random.UniqueRandom;
 
@@ -46,16 +51,25 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private String nickname;
+    private String profiloGson;
+    private Profilo profilo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // SharedPrefernces
-        sharedPreferences = this.getSharedPreferences("sessionUtente", this.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("sessioneUtente", this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         if(sharedPreferences.getAll().containsKey("nickname"))
             nickname = sharedPreferences.getAll().get("nickname").toString();
+
+        try {
+            profiloGson = new ProfiloAsync(GameSudoBizBongActivity.this).execute(nickname).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        profilo = new Gson().fromJson(profiloGson, Profilo.class);
 
 
 
@@ -247,10 +261,21 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                     String s="Complimenti hai vinto";
                     String s1="Il tuo punteggio è di:"+fs.getPunteggio()+"vuoi rigiocare?";
 
+                    // Aggiungi punti a statistiche
+                    Statistiche statistiche =  profilo.getStatistiche();
+                    for(int j = 0; j < statistiche.getModalitaList().length; j++){
+                       if(fs.getModalita().equals(statistiche.getModalitaList()[j]))
+                            profilo.getStatistiche().getPunteggiList()[j] += fs.getPunteggio();
+                    }
+
+                    // AggiornaStatistiche
+                    String aggiornaProfiloGson = new Gson().toJson(profilo, Profilo.class);
+                    new ModificaStatisticheAsync(GameSudoBizBongActivity.this).execute(aggiornaProfiloGson);
+
                     /*ImageView image = null;
                     image.setImageResource(R.drawable.go);*/
                     Dialog_fine(s,s1);
-                }else{
+                } else{
                     String s="Hai perso";
                     String s1="Vuoi rigiocare";
                     //quando perdi settare le stringhe e richiamare metodo*/

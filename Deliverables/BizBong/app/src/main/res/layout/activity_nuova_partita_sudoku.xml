@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.NuovaPartitaActivity"
-    android:background="@drawable/background_home">
+    android:background="#5e5e5e">
     <!--android:background="#5e5e5e"-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/toolbarHome">
+        android:background="@drawable/bar_bizbong">
 
         <ImageButton
             android:id="@+id/backButton"
@@ -67,7 +67,7 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background"
+                android:background="@drawable/buttonshape"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
 
@@ -79,7 +79,7 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background"
+                android:background="@drawable/buttonshape"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
 
@@ -91,7 +91,7 @@
                 android:textColor="@color/whiteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background"
+                android:background="@drawable/buttonshape"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -168,7 +168,7 @@
             android:textColor="@color/whiteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/background"
+            android:background="@drawable/buttonshape"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
             />

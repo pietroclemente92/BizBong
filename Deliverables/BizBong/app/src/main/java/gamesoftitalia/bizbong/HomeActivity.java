@@ -7,9 +7,12 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -165,7 +168,7 @@ public class HomeActivity extends AppCompatActivity {
 
         TextView tabTre = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
         tabTre.setText("THREE");
-        tabTre.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_profile, 0, 0);
+        tabTre.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_pie_chart, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabTre);
 
         /*TextView tabQuattro = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
@@ -247,6 +250,43 @@ public class HomeActivity extends AppCompatActivity {
         } catch (NullPointerException | IllegalArgumentException e){}
 
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            // Dialog
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = this.getLayoutInflater();
+            final View dialogView = inflater.inflate(R.layout.dialog_close_app, null);
+            dialogBuilder.setView(dialogView);
+
+            final AlertDialog alertDialog = dialogBuilder.create();
+
+            // Button Exit
+            Button yesButton = (Button) dialogView.findViewById(R.id.yesButton);
+            yesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }
+            });
+
+            Button noButton = (Button) dialogView.findViewById(R.id.yesButton);
+            noButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+
+            alertDialog.show();
+
+
+            return false;
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
 

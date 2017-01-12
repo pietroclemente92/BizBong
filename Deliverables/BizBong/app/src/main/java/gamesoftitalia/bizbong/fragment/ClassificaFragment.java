@@ -53,7 +53,7 @@ public class ClassificaFragment extends android.support.v4.app.Fragment {
                 Object item = parent.getItemAtPosition(pos);
 
                 try {
-                    resultGson = new ClassificaAsync(container.getContext()).execute(item.toString()).get();
+                    resultGson = new ClassificaAsync(container.getContext()).execute(item.toString().toLowerCase()).get();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {

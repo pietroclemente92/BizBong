@@ -58,6 +58,7 @@ public class BizBongGameActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         profilo = new Gson().fromJson(profiloGson, Profilo.class);
+        // Log.d("DEBUG1:", "Modalita->"+profilo.getStatistiche().getModalitaList().length+", Punteggio->"+profilo.getStatistiche().getPunteggiList().length);
 
         // Game's Variables
         punteggio = 0;
@@ -161,8 +162,7 @@ public class BizBongGameActivity extends AppCompatActivity {
                             // Aggiungi punti a statistiche
                             Statistiche statistiche =  profilo.getStatistiche();
                             for(int j = 0; j < statistiche.getModalitaList().length; j++){
-                                Log.d("DEBUG:", "BIZBONG.MODALITA->"+bizBong.getModalita()+
-                                        "; BIZBONG.Tema->"+bizBong.getListaDomande().get(turno).getTema()+"; STATISTICHE->"+statistiche.getModalitaList()[j]);
+                                //Log.d("DEBUG:", "BIZBONG.MODALITA->"+bizBong.getModalita()+ "; BIZBONG.Tema->"+bizBong.getListaDomande().get(turno).getTema()+"; STATISTICHE->"+statistiche.getModalitaList()[j]);
                                 if(bizBong.getListaDomande().get(turno).getTema().equals(statistiche.getModalitaList()[j]))
                                     profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
                                 if(bizBong.getModalita().equals(statistiche.getModalitaList()[j]))
@@ -191,6 +191,8 @@ public class BizBongGameActivity extends AppCompatActivity {
             congratulazioniText.setText("Congratulazioni " + nickname.substring(0, 1).toUpperCase() + nickname.substring(1));
 
             // Punteggio Ottenuto
+            Log.d("DEBUG2:", "Modalita->"+profilo.getStatistiche().getModalitaList().length+", Punteggio->"+profilo.getStatistiche().getPunteggiList().length);
+
             TextView punteggioText = (TextView) dialogView.findViewById(R.id.punteggioText);
             punteggioText.setText("Punteggio: " + punteggio);
 
