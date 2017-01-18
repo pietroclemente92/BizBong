@@ -1,10 +1,12 @@
 package gamesoftitalia.bizbong.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by GameSoftItalia on 01/12/2016.
  */
 
-public class Profilo {
+public class Profilo implements Serializable{
     private String nickname, password, email, img_profilo;
     private Statistiche statistiche;
 

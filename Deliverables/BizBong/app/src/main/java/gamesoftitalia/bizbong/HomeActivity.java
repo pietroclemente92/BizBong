@@ -11,7 +11,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +19,17 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.concurrent.ExecutionException;
 
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
+import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.entity.Impostazioni;
+import gamesoftitalia.bizbong.entity.Profilo;
+import gamesoftitalia.bizbong.entity.Statistiche;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class HomeActivity extends AppCompatActivity {
@@ -42,6 +47,13 @@ public class HomeActivity extends AppCompatActivity {
     private Intent music=new Intent();
     private boolean audioAssociato;
     private MusicServiceBase mServ;
+
+    private String nickname;
+    private String profiloGson;
+    private Profilo profilo;
+
+
+
 
     ServiceConnection Scon =new ServiceConnection(){
         /*implementazione metodi astratti*/
@@ -64,10 +76,23 @@ public class HomeActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+
+        if(sharedPreferences.getAll().containsKey("nickname"))
+            nickname = sharedPreferences.getAll().get("nickname").toString();
+
+
+        try {
+            profiloGson = new ProfiloAsync(HomeActivity.this).execute(nickname).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        profilo = new Gson().fromJson(profiloGson, Profilo.class);
+
         // String
         nicknameText = (TextView) findViewById(R.id.nicknameProfilo);
         if(sharedPreferences.getAll().containsKey("nickname"))
             nicknameText.setText(sharedPreferences.getAll().get("nickname").toString());
+
 
         //Music
         audioAssociato=entity.getAudio();
@@ -93,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // ViewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(),profilo);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -171,10 +196,7 @@ public class HomeActivity extends AppCompatActivity {
         tabTre.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_pie_chart, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabTre);
 
-        /*TextView tabQuattro = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
-        tabQuattro.setText("FOUR");
-        tabQuattro.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_setting, 0, 0);
-        tabLayout.getTabAt(3).setCustomView(tabQuattro);*/
+
     }
 
     private void caricaImpostazioni(){

@@ -1,12 +1,13 @@
 package gamesoftitalia.bizbong.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by GameSoftItalia on 09/01/2017.
  */
 
-public class Statistiche {
+public class Statistiche implements Serializable{
 
     private String[] modalitaList;
     private int[] punteggiList;

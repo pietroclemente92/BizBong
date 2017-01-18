@@ -1,12 +1,14 @@
 package gamesoftitalia.bizbong.adapters;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.fragment.ClassificaFragment;
 import gamesoftitalia.bizbong.fragment.HomeFragment;
-import gamesoftitalia.bizbong.fragment.ProfiloFragment;
+import gamesoftitalia.bizbong.fragment.StatisticheFragment;
 
 /**
  * Created by GameSoftItalia on 19/12/2016.
@@ -14,10 +16,12 @@ import gamesoftitalia.bizbong.fragment.ProfiloFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
+    private Profilo profilo;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+    public PagerAdapter(FragmentManager fm, int NumOfTabs, Profilo profilo) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
+        this.profilo = profilo;
     }
 
     @Override
@@ -31,7 +35,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 ClassificaFragment tab2 = new ClassificaFragment();
                 return tab2;
             case 2:
-                ProfiloFragment tab3 = new ProfiloFragment();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("profilo", profilo);
+                StatisticheFragment tab3 = new StatisticheFragment();
+                tab3.setArguments(bundle);
                 return tab3;
            /* case 3:
                 ImpostazioniFragment tab4 = new ImpostazioniFragment();

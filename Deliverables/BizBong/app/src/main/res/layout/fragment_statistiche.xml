@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearButton"
+        android:id="@+id/scrollView2">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:id="@+id/tableLayout">
+
+
+
+    <TableRow
+        android:layout_gravity="center_horizontal" >
+       <RelativeLayout
+        android:id="@+id/pie_container1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+      </RelativeLayout>
+    </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/legenda1"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="a">
+                </TextView>
+
+
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_gravity="center_horizontal" >
+            <RelativeLayout
+                android:id="@+id/pie_container2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/legenda2"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="aa">
+                </TextView>
+
+            </RelativeLayout>
+
+        </TableRow>
+
+
+
+
+
+
+        <TableRow
+            android:layout_gravity="center_horizontal" >
+            <RelativeLayout
+                android:id="@+id/pie_container3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/legenda3"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="aaa">
+                </TextView>
+
+            </RelativeLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_gravity="center_horizontal" >
+            <RelativeLayout
+                android:id="@+id/pie_container4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/legenda4"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="aaaa">
+                </TextView>
+
+            </RelativeLayout>
+
+        </TableRow>
+
+
+
+
+
+
+
+
+    </TableLayout>
+
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:text="Sfida"
+            android:id="@+id/sfida"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xml1"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp">
+        </Button>
+
+        <Button
+            android:text="SudoBizBong"
+            android:id="@+id/sudobizbong"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xml2"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp">
+        </Button>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
