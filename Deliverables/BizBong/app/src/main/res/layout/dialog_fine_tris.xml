@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/dialogadapter2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/dialog" >
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentTop="@+id/titolo"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/red"
+        android:layout_below="@+id/titolo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/image"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titolo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/dialogButtonNO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Ritorna alla home "
+        android:layout_below="@+id/dialogButtonOK"
+        android:layout_alignStart="@+id/dialogButtonOK"
+        android:layout_alignEnd="@+id/dialogButtonOK" />
+
+    <Button
+        android:id="@+id/dialogButtonOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Continua a giocare  "
+        android:layout_marginEnd="79dp"
+        android:layout_below="@+id/text"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

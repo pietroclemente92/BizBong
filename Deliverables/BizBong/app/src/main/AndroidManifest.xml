@@ -49,17 +49,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ProfiloActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ImpostazioniActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GameSudoBizBongActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".IntroTrisActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GameTrisActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

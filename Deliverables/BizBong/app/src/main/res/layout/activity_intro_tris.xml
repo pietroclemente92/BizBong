@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_game"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="gamesoftitalia.bizbong.IntroTrisActivity"
+    android:background="@drawable/background_home">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bar_bizbong">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:background="@drawable/ic_back"/>
+        <TextView
+            android:text="Tris"
+            android:textSize="14pt"
+            android:textStyle="bold"
+            android:textColor="@color/blackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/testo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_marginTop="120dp">
+
+        <TextView
+            android:text="Scelta turno"
+            android:textStyle="bold"
+            android:textSize="12pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/titolo"
+            android:textStyle="bold"
+            android:textSize="12pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:id="@+id/scelta_moneta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <ImageButton
+                android:id="@+id/biz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"/>
+            <ImageButton
+                android:id="@+id/bong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonshape"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <gamesoftitalia.bizbong.gifanimator.PlayGifView
+                android:id="@+id/gif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"/>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/lancio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone">
+
+
+
+            <ImageView
+                android:id="@+id/moneta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/testo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/lancio"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:id="@+id/inzioturno"
+                android:textStyle="bold"
+                android:textSize="16pt"
+                android:textColor="@color/whiteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_below="@id/moneta"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
+
+
+
+
+
