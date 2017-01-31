@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
 import gamesoftitalia.bizbong.connessione.LoginAsync;
@@ -74,7 +75,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nickname = nicknameEdit.getText().toString();
                 password = passwordEdit.getText().toString();
-                new LoginAsync(LoginActivity.this).execute(nickname, password);
+
+                if(nickname.length() > 0 && password.length() > 0) {
+                    new LoginAsync(LoginActivity.this).execute(nickname, password);
+                }
             }
         });
     }

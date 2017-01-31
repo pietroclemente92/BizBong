@@ -20,11 +20,16 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.concurrent.ExecutionException;
 
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
+import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.entity.Impostazioni;
+import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class HomeActivity extends AppCompatActivity {
@@ -42,6 +47,12 @@ public class HomeActivity extends AppCompatActivity {
     private Intent music=new Intent();
     private boolean audioAssociato;
     private MusicServiceBase mServ;
+
+
+    private String nickname;
+    private String profiloGson;
+    private Profilo profilo;
+
 
     ServiceConnection Scon =new ServiceConnection(){
         /*implementazione metodi astratti*/
@@ -63,6 +74,16 @@ public class HomeActivity extends AppCompatActivity {
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+        if(sharedPreferences.getAll().containsKey("nickname"))
+            nickname = sharedPreferences.getAll().get("nickname").toString();
+
+        try {
+            profiloGson = new ProfiloAsync(HomeActivity.this).execute(nickname).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        profilo = new Gson().fromJson(profiloGson, Profilo.class);
 
         // String
         nicknameText = (TextView) findViewById(R.id.nicknameProfilo);
@@ -93,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // ViewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), profilo);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

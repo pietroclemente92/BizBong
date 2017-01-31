@@ -7,12 +7,15 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
+import gamesoftitalia.bizbong.connessione.LoginAsync;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class CreaProfiloActivity extends AppCompatActivity {
@@ -68,11 +71,35 @@ public class CreaProfiloActivity extends AppCompatActivity {
                 nickname = nicknameEdit.getText().toString();
                 password = passwordEdit.getText().toString();
                 email = emailEdit.getText().toString();
-                new CreaProfiloAsync(CreaProfiloActivity.this).execute(nickname, password, email);
+
+                if(controlCreaProfilo())
+                    new CreaProfiloAsync(CreaProfiloActivity.this).execute(nickname, password, email);
             }
         });
     }
 
+    private boolean controlCreaProfilo(){
+        boolean flagCreaProfilo = true;
+
+        if(nickname.length() < 0 && password.length() < 0) {
+            Toast.makeText(CreaProfiloActivity.this, "Error Empty: Non sono state inserite le credenziali opportune. Riprovare.", Toast.LENGTH_LONG).show();
+            flagCreaProfilo = false;
+        }
+        if(nickname.length() > 16 && nickname.length() < 5) {
+            Toast.makeText(CreaProfiloActivity.this, "Error Nickname: Il nickname iserito non ha lunghezza idonea(Min 5, Max 16).", Toast.LENGTH_LONG).show();
+            flagCreaProfilo = false;
+        }
+        if(!email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}")) {
+            Toast.makeText(CreaProfiloActivity.this, "Error Email: L' email inserita non è idonea.", Toast.LENGTH_LONG).show();
+            flagCreaProfilo = false;
+        }
+        if(!password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%_-]).{4,16})")) {
+            Toast.makeText(CreaProfiloActivity.this, "Error Password: La password inserita non è idonea(deve contenere una lettera maiuscola, minuscola, numero e un carattaere alfanumerico).", Toast.LENGTH_LONG).show();
+            flagCreaProfilo = false;
+        }
+
+        return flagCreaProfilo;
+    }
 
     @Override
     protected void onResume() {     /*quando l'app viene riattivata*/
