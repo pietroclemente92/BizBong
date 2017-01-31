@@ -34,7 +34,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
         // Image Array
         imageBanner = new int[]{R.drawable.news2, R.drawable.news1};
-        imageGames = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku};
+        imageGames = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
 
         // ViewPager
         viewPagerGames = (ViewPager) view.findViewById(R.id.viewPagerGames);

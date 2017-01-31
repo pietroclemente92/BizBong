@@ -1,9 +1,9 @@
 package gamesoftitalia.bizbong;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,14 +19,29 @@ public class NuovaPartitaActivity extends AppCompatActivity {
     private String modalita;
     private Intent intent;
 
+
     // BizBong
     private int indexClassica = 0;
     private int indexMultipla = 0;
     private Button classicaButton, challengeButton;
 
+
+    //Tris
+    private int indexMulti=0;
+    private int indexSingle=0;
+    private Button singleButton, multiButton;
+
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Shared
+        sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         //setContentView(R.layout.activity_nuova_partita_bizbong);
 
         Bundle bundle = getIntent().getExtras();
@@ -143,6 +158,66 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                     }
                 });
                 break;
+
+            case 2: //tris
+                setContentView(R.layout.activity_nuova_partita_tris);
+                final String nickname = sharedPreferences.getAll().get("nickname").toString();
+
+                //Button
+                singleButton = (Button) findViewById(R.id.singleButton);
+                singleButton.setText(nickname+" Vs BizBong");
+                singleButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (indexMulti==1){
+                            indexMulti=0;
+                            multiButton.setBackgroundResource(R.drawable.buttonshape);
+                        }
+                        if(indexSingle==1){
+                            indexSingle=0;
+                            singleButton.setBackgroundResource(R.drawable.buttonshape);
+                        }
+                        else{
+                            indexSingle=1;
+                            modalita="1";
+                            singleButton.setBackgroundResource(R.drawable.button_modalita_true);
+                        }
+                    }
+                });
+
+                multiButton = (Button) findViewById(R.id.multiButton);
+                multiButton.setText(nickname+" Vs Ospite");
+                multiButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (indexSingle==1){
+                            indexSingle=0;
+                            singleButton.setBackgroundResource(R.drawable.buttonshape);
+                        }
+                        if(indexMulti==1){
+                            indexMulti=0;
+                            multiButton.setBackgroundResource(R.drawable.buttonshape);
+                        }
+                        else{
+                            indexMulti=1;
+                            modalita="3";
+                            multiButton.setBackgroundResource(R.drawable.button_modalita_true);
+                        }
+
+                    }
+                });
+
+                giocaAdessoButton = (Button) findViewById(R.id.giocaAdesso);
+                giocaAdessoButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent = new Intent(NuovaPartitaActivity.this, IntroTrisActivity.class);
+                        intent.putExtra("modalita", modalita);
+                        startActivity(intent);
+                    }
+                });
+                break;
+
         }
 
         // Button

@@ -64,7 +64,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         if(sharedPreferences.getAll().containsKey("nickname"))
             nickname = sharedPreferences.getAll().get("nickname").toString();
 
-        try {
+       try {
             profiloGson = new ProfiloAsync(GameSudoBizBongActivity.this).execute(nickname).get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
