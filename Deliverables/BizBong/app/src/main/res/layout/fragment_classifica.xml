@@ -33,8 +33,7 @@
         android:id="@+id/classifica_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/classifica_arrays"
-        android:prompt="@string/classifica_prompt"
+
         android:background="@drawable/custom_spinner"
         android:gravity="center"
         android:layout_margin="20dp"

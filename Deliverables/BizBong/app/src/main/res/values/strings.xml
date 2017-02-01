@@ -4,20 +4,22 @@
     <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
     <string name="classifica_prompt">Seleziona la modalità</string>
 
+
+
     <!-- Lista contente le modalita di gioco inserite-->
     <string-array name="classifica_arrays">
-        <item>Storia</item>
-        <item>Geografia</item>
-        <item>Sport</item>
-        <item>Scienza</item>
-        <item>Cinema e spettacolo</item>
-        <item>Letteratura</item>
-        <item>Logica</item>
         <item>Videogames</item>
+        <item>Logica</item>
         <item>Informatica</item>
-        <item>Cartoni e Serie Tv</item>
+        <item>Matematica</item>
+        <item>Sport</item>
         <item>Arte</item>
-        <item>Cucina e Galateo</item>
+        <item>Storia</item>
+        <item>Musica</item>
+        <item>Geografia</item>
+        <item>Cinema e spettacolo</item>
+        <item>Scienza</item>
+        <item>Cartoni e Serie Tv</item>
         <item>Classica</item>
         <item>BizBong</item>
         <item>2x2f</item>

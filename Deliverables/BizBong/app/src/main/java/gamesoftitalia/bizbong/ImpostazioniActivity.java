@@ -69,7 +69,7 @@ public class ImpostazioniActivity extends AppCompatActivity {
         ArrayList<ItemDataSpinner> list=new ArrayList<>();
         list.add(new ItemDataSpinner("Eng",R.mipmap.ita));
         list.add(new ItemDataSpinner("Ita",R.mipmap.ita));   //modificare bandiere
-        list.add(new ItemDataSpinner("Ucr",R.mipmap.ita));
+        list.add(new ItemDataSpinner("ucr",R.mipmap.ita));
         Spinner sp=(Spinner)findViewById(R.id.spinner1);
 
         SpinnerAdapter adapter=new SpinnerAdapter(this, R.layout.spinner_layout,R.id.txt,list);

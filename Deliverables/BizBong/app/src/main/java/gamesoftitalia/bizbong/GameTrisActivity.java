@@ -416,7 +416,7 @@ public class GameTrisActivity extends AppCompatActivity {
         }
     }
 
-    
+
     private void inizzializza(){
         int i;
         for(i=0;i<9;i++)
