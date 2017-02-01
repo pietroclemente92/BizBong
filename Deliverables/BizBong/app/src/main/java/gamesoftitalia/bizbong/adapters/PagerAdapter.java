@@ -6,9 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import gamesoftitalia.bizbong.entity.Profilo;
+import gamesoftitalia.bizbong.entity.Statistiche;
 import gamesoftitalia.bizbong.fragment.ClassificaFragment;
 import gamesoftitalia.bizbong.fragment.HomeFragment;
-import gamesoftitalia.bizbong.fragment.ProfiloFragment;
+import gamesoftitalia.bizbong.fragment.StatisticheFragment;
 
 /**
  * Created by GameSoftItalia on 19/12/2016.
@@ -37,7 +38,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("profilo", profilo);
-                ProfiloFragment tab3 = new ProfiloFragment();
+                StatisticheFragment tab3 = new StatisticheFragment();
                 tab3.setArguments(bundle);
                 return tab3;
            /* case 3:

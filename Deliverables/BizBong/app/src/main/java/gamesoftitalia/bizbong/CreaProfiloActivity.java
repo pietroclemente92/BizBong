@@ -86,7 +86,7 @@ public class CreaProfiloActivity extends AppCompatActivity {
             flagCreaProfilo = false;
         }
         if(nickname.length() > 16 && nickname.length() < 5) {
-            Toast.makeText(CreaProfiloActivity.this, "Error Nickname: Il nickname iserito non ha lunghezza idonea(Min 5, Max 16).", Toast.LENGTH_LONG).show();
+            Toast.makeText(CreaProfiloActivity.this, "Error Nickname: Il nickname inserito non ha lunghezza idonea(Min 5, Max 16).", Toast.LENGTH_LONG).show();
             flagCreaProfilo = false;
         }
         if(!email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}")) {

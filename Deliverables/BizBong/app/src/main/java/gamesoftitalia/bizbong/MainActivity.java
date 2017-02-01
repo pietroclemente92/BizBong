@@ -169,15 +169,6 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
-
-                    allenamentoButton = (Button) layout.findViewById(R.id.allenamentoButton);
-                    allenamentoButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //intent = new Intent(MainActivity.this, CreaProfiloActivity.class);
-                            //startActivity(intent);
-                        }
-                    });
                 }
             }
         }.start();
