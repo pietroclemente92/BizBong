@@ -93,12 +93,12 @@ public class IntroTrisActivity extends AppCompatActivity {
                     String pathName;
                     if(d==0) {
                         /*visualizzare immagine moneta faccia biz*/
-                        pathName = "@drawable/timer1";
+                        pathName = "@drawable/monetabiz";
                         moneta.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                     }
                     else {
                      /* visualizzare immagine moneta faccia bong*/
-                        pathName = "@drawable/timer2";
+                        pathName = "@drawable/monetabong";
                         moneta.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                     }
 
