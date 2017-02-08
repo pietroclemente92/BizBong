@@ -99,7 +99,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             indexMultipla = 0;
                             challengeButton.setBackgroundResource(R.drawable.buttonshape);
                         } else{
-                            modalita = "Challenge";
+                            modalita = "challenge";
                             indexMultipla = 1;
                             challengeButton.setBackgroundResource(R.drawable.button_modalita_true);
                         }
@@ -109,7 +109,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 giocaAdessoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(indexClassica == 1 || indexClassica == 1){
+                        if(indexClassica == 1 || indexMultipla == 1){
                             new BizBongAsync(NuovaPartitaActivity.this).execute(modalita);
                         } else{
                             Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();
