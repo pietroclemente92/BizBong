@@ -9,11 +9,37 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <gamesoftitalia.bizbong.adapters.AdapterViewPager
-            android:id="@+id/viewPagerGames"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            >
+
+            <ImageButton
+                android:id="@+id/successivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/viewPagerGames"
+                android:layout_centerVertical="true"
+                />
+
+            <ImageButton
+                android:id="@+id/precedente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/viewPagerGames"
+                android:layout_centerVertical="true"
+                />
+
+        <gamesoftitalia.bizbong.adapters.AdapterViewPager
+            android:id="@+id/viewPagerGames"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/nuovaPartitaButton"

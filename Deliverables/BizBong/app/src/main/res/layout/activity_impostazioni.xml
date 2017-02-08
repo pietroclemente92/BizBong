@@ -27,6 +27,7 @@
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_spinner"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp" />

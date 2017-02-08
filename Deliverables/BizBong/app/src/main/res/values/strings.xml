@@ -5,6 +5,14 @@
     <string name="classifica_prompt">Seleziona la modalità</string>
 
 
+    <!-- Lista contente le lingue supportate dal sistema-->
+    <string-array name="lingua_arrays">
+        <item>Italiano</item>
+        <item>Inglese</item>
+        <item>Ucraino</item>
+    </string-array>
+
+
 
     <!-- Lista contente le modalita di gioco inserite-->
     <string-array name="classifica_arrays">

@@ -66,10 +66,13 @@ public class ImpostazioniActivity extends AppCompatActivity {
         }
 
         //Spinner per la scelta della lingua
+        String[] array = getResources().getStringArray(R.array.lingua_arrays);
+
+
         ArrayList<ItemDataSpinner> list=new ArrayList<>();
-        list.add(new ItemDataSpinner("Eng",R.mipmap.ita));
-        list.add(new ItemDataSpinner("Ita",R.mipmap.ita));   //modificare bandiere
-        list.add(new ItemDataSpinner("ucr",R.mipmap.ita));
+        list.add(new ItemDataSpinner(array[0],R.mipmap.ita));
+        list.add(new ItemDataSpinner(array[1],R.mipmap.ita));
+        list.add(new ItemDataSpinner(array[2],R.mipmap.ita));
         Spinner sp=(Spinner)findViewById(R.id.spinner1);
 
         SpinnerAdapter adapter=new SpinnerAdapter(this, R.layout.spinner_layout,R.id.txt,list);
@@ -81,17 +84,18 @@ public class ImpostazioniActivity extends AppCompatActivity {
 
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Configuration config = new Configuration();
+                String[] array = getResources().getStringArray(R.array.lingua_arrays);
                 switch (arg2) {
                     case 0:
-                        config.locale = Locale.ENGLISH;
-                        entity.setLingua("eng");
+                        config.locale = Locale.ITALIAN;
+                        entity.setLingua(array[0]);
                         break;
                     case 1:
-                        config.locale = Locale.ITALIAN;
-                        entity.setLingua("ita");
+                        config.locale = Locale.ENGLISH;
+                        entity.setLingua(array[1]);
                         break;
                     case 2:
-                        entity.setLingua("ucr");
+                        entity.setLingua(array[2]);
                         Locale locale = new Locale("uk");
                         Locale.setDefault(locale);
                         config.locale = locale;
@@ -204,11 +208,12 @@ public class ImpostazioniActivity extends AppCompatActivity {
     }
 
     private void impostaSpinner(Spinner x){
-        if (entity.getLingua().equals("eng"))
+        String[] array = getResources().getStringArray(R.array.lingua_arrays);
+        if (entity.getLingua().equals(array[0]))
                                       x.setSelection(0);
-        else if (entity.getLingua().equals("ita"))
+        else if (entity.getLingua().equals(array[1]))
                                            x.setSelection(1);
-             else if (entity.getLingua().equals("ucr"))
+             else if (entity.getLingua().equals(array[2]))
                                                 x.setSelection(2);
                    else
                      x.setSelection(0);
