@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.IntroTrisActivity"
-    android:background="@drawable/background_home">
+    android:background="@drawable/back_all_activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -57,22 +57,22 @@
 
         <LinearLayout
             android:id="@+id/scelta_moneta"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
             <ImageButton
                 android:id="@+id/biz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/monetabiz"
-                android:layout_marginRight="65dp"/>
+                android:background="@drawable/monetabiz"/>
+
             <ImageButton
                 android:id="@+id/bong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/monetabong"
-                android:layout_marginLeft="10dp"/>
+                android:background="@drawable/monetabong"/>
         </LinearLayout>
 
         <RelativeLayout

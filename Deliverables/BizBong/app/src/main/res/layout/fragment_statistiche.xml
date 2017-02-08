@@ -147,18 +147,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:padding="20dp">
 
         <Button
             android:text="Sfida"
             android:id="@+id/sfida"
             android:textStyle="bold"
             android:textSize="9pt"
-            android:textColor="@color/whiteText"
+            android:textColor="@color/blackText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@drawable/xml1"
             android:layout_weight="1"
             android:layout_marginRight="10dp">
@@ -169,16 +170,14 @@
             android:id="@+id/sudobizbong"
             android:textStyle="bold"
             android:textSize="9pt"
-            android:textColor="@color/whiteText"
+            android:textColor="@color/blackText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@drawable/xml2"
             android:layout_weight="1"
             android:layout_marginLeft="10dp">
         </Button>
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

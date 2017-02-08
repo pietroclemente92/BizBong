@@ -22,10 +22,9 @@ import gamesoftitalia.bizbong.gifanimator.PlayGifView;
 public class HomeFragment extends android.support.v4.app.Fragment {
 
     private static View view;
-    private ViewPager viewPagerBanner, viewPagerGames;
+    private ViewPager  viewPagerGames;
     private int[] imageBanner, imageGames;
     private Button nuovaPartita;
-    private PlayGifView gif;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,13 +38,6 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         // ViewPager
         viewPagerGames = (ViewPager) view.findViewById(R.id.viewPagerGames);
         viewPagerGames.setAdapter(new CustomHomePagerAdapter(view.getContext(), imageGames));
-
-        viewPagerBanner = (ViewPager) view.findViewById(R.id.viewPagerBanner);
-        viewPagerBanner.setAdapter(new CustomHomePagerAdapter(view.getContext(), imageBanner));
-
-        // GIF
-        gif = (PlayGifView) view.findViewById(R.id.gif);
-        gif.setImageResource(R.drawable.cane);
 
         // Button
         nuovaPartita = (Button) view.findViewById(R.id.nuovaPartitaButton);

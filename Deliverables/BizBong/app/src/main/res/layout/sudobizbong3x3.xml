@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.GameSudoBizBongActivity"
-    android:background="#5e5e5e">
+    android:background="@drawable/back_all_activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
