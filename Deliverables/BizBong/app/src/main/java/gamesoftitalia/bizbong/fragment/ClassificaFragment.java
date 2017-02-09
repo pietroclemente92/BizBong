@@ -23,6 +23,7 @@ import gamesoftitalia.bizbong.adapters.ItemDataSpinner;
 import gamesoftitalia.bizbong.adapters.SpinnerAdapter;
 import gamesoftitalia.bizbong.connessione.ClassificaAsync;
 import gamesoftitalia.bizbong.entity.Classifica;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 
 /**
  * Created by GameSoftItalia on 19/12/2016.
@@ -34,6 +35,7 @@ public class ClassificaFragment extends android.support.v4.app.Fragment {
     private ListView classifica_list;
     private Spinner classifica_spinner;
     private String resultGson;
+    private Impostazioni entity;
 
     private String[] nicknamesClassificati, iconeProfiloClassificati;
     private int[] punteggiClassificati;
@@ -43,6 +45,8 @@ public class ClassificaFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         // View
         view = inflater.inflate(R.layout.fragment_classifica, container, false);
+
+        entity = (Impostazioni) this.getArguments().getSerializable("impostazioni");
 
 
         // ListView

@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.io.Serializable;
+
 import gamesoftitalia.bizbong.HomeActivity;
 import gamesoftitalia.bizbong.NuovaPartitaActivity;
 import gamesoftitalia.bizbong.R;
 import gamesoftitalia.bizbong.adapters.CustomHomePagerAdapter;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.gifanimator.PlayGifView;
 
 /**
@@ -26,12 +29,19 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     private ViewPager  viewPagerGames;
     private int[]  imageGames;
     private Button nuovaPartita;
+<<<<<<< HEAD
     private Button leftButton, rightButton;
+=======
+    private Impostazioni entity;
+
+>>>>>>> origin/master
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // View
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        entity = (Impostazioni) this.getArguments().getSerializable("impostazioni");
 
         // Image Array
         imageGames = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
@@ -39,6 +49,9 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         // ViewPager
         viewPagerGames = (ViewPager) view.findViewById(R.id.viewPagerGames);
         viewPagerGames.setAdapter(new CustomHomePagerAdapter(view.getContext(), imageGames));
+
+
+
 
         // Button
         leftButton = (Button) view.findViewById(R.id.precedente);
@@ -69,6 +82,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), NuovaPartitaActivity.class);
                 intent.putExtra("position", viewPagerGames.getCurrentItem());
+                intent.putExtra("Impostazioni", (Serializable) entity);
                 startActivity(intent);
             }
         });

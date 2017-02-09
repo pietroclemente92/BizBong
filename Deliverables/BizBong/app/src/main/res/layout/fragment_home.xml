@@ -13,8 +13,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            >
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/successivo"
@@ -36,8 +35,12 @@
             android:id="@+id/viewPagerGames"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_centerHorizontal="true"
             />
+=======
+            android:layout_centerHorizontal="true" />
+>>>>>>> origin/master
 
         </RelativeLayout>
 

@@ -36,220 +36,206 @@
         android:layout_alignParentStart="true"
         android:layout_below="@id/toolbar">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/image_profile"
-                android:background="@mipmap/ic_profilo_onepiece"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:text="Nickname:"
-                    android:textColor="@color/white"
-                    android:textSize="8pt"
-                    android:id="@+id/nicknameProfilo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"/>
-                <TextView
-                    android:text="Email:"
-                    android:textColor="@color/white"
-                    android:textSize="6pt"
-                    android:id="@+id/emailProfilo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:layout_weight="3">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="7">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/header_account"
-                    android:layout_weight="5">
-                    <TextView
-                        android:text="Account"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/window"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:text="Nickname"
-                            android:textColor="@color/blackText"
-                            android:textSize="8pt"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="7"
-                            android:gravity="center_vertical"
-                            android:id="@+id/textView2" />
-
-                        <EditText
-                            android:id="@+id/modificaNickname"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="Email"
-                            android:textColor="@color/blackText"
-                            android:textSize="8pt"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="7"
-                            android:gravity="center_vertical"/>
-
-                        <EditText
-                            android:id="@+id/modificaEmail"
-                            android:hint="Email"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:layout_weight="6.5">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/header_password"
-                    android:layout_weight="5">
-                    <TextView
-                        android:text="Password"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/window"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="Password"
-                            android:textColor="@color/blackText"
-                            android:textSize="8pt"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="7"
-                            android:gravity="center_vertical"/>
-
-                        <EditText
-                            android:id="@+id/modificaPassword"
-                            android:maxLines="1"
-                            android:hint="Password"
-                            android:inputType="textPassword"
-                            android:password="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="Ripetere"
-                            android:textColor="@color/blackText"
-                            android:textSize="8pt"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="7"
-                            android:gravity="center_vertical"/>
-
-                        <EditText
-                            android:id="@+id/confermaPassword"
-                            android:maxLines="1"
-                            android:inputType="textPassword"
-                            android:password="true"
-                            android:hint="Password"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/modificaButton"
-                android:text="Modifica"
-                android:textSize="10pt"
-                android:background="@drawable/buttonshape"
-                android:shadowColor="#A8A8A8"
-                android:shadowRadius="5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="20dp"
                 android:layout_weight="9"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/image_profile"
+                    android:background="@mipmap/ic_profilo_onepiece"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                                <TextView
+                                    android:text="Nickname:"
+                                    android:textColor="@color/white"
+                                    android:textSize="8pt"
+                                    android:id="@+id/nicknameProfilo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"/>
+                                <TextView
+                                    android:text="Email:"
+                                    android:textColor="@color/white"
+                                    android:textSize="6pt"
+                                    android:id="@+id/emailProfilo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_weight="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="7">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/header_password"
+                            android:layout_weight="9">
+
+                            <TextView
+                                android:text="Modifica dati Profilo"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/window"
+                            android:orientation="vertical"
+                            android:layout_weight="1.5">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:text="Email"
+                                    android:textColor="@color/blackText"
+                                    android:textSize="8pt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="7"
+                                    android:gravity="center_vertical"/>
+
+                                <EditText
+                                    android:id="@+id/modificaEmail"
+                                    android:hint="Digita new Email"
+                                    android:singleLine="true"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:text="Password"
+                                    android:textColor="@color/blackText"
+                                    android:textSize="8pt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="7"
+                                    android:gravity="center_vertical"/>
+
+                                <EditText
+                                    android:id="@+id/modificaPassword"
+                                    android:maxLines="1"
+                                    android:inputType="textPassword"
+                                    android:ems="16"
+                                    android:hint="Digita new Password"
+                                    android:password="true"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:text="Ripetere"
+                                    android:textColor="@color/blackText"
+                                    android:textSize="8pt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="7"
+                                    android:gravity="center_vertical"/>
+
+                                <EditText
+                                    android:id="@+id/confermaPassword"
+                                    android:maxLines="1"
+                                    android:inputType="textPassword"
+                                    android:password="true"
+                                    android:hint="Ripeti Password"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="4"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/scegli_immagine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="220dp"
+                        android:visibility="invisible"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:id="@+id/successivo"
+                            android:layout_width="50px"
+                            android:layout_height="50px"
+                            android:layout_alignRight="@+id/viewPagerProfile"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/frecce_cambio_gioco"/>
+
+                        <ImageButton
+                            android:id="@+id/precedente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/viewPagerProfile"
+                            android:layout_centerVertical="true" />
+
+                        <gamesoftitalia.bizbong.adapters.AdapterViewPager
+                            android:id="@+id/viewPagerProfile"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_weight="1" />
+                    </RelativeLayout>
+
+
+                    <Button
+                        android:id="@+id/modificaButton"
+                        android:text="Modifica"
+                        android:textSize="10pt"
+                        android:background="@drawable/buttonshape"
+                        android:shadowColor="#A8A8A8"
+                        android:shadowRadius="5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_weight="9"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
     </LinearLayout>
+
 </RelativeLayout>

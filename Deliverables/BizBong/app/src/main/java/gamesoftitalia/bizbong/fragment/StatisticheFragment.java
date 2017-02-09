@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 import gamesoftitalia.bizbong.R;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.entity.Statistiche;
 import gamesoftitalia.bizbong.pie_chart.Attributi_grafico;
@@ -37,6 +38,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
     private boolean fgrafico2=false;
     private boolean fgrafico3=false;
     private boolean fgrafico4=false;
+    private Impostazioni entity;
 
 
 
@@ -53,6 +55,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         editor = sharedPreferences.edit();
 
         Profilo profilo = (Profilo) this.getArguments().getSerializable("profilo");
+        entity = (Impostazioni) this.getArguments().getSerializable("impostazioni");
         Statistiche statistiche=profilo.getStatistiche();
         //array con i punteggi dell'utente
         final int[] punteggi=statistiche.getPunteggiList();
@@ -230,7 +233,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
             piedata.add(item);
             maxCount=maxCount+itemCount;
         }
-        int size=750;
+        int size=400;
         int BgColor=Color.alpha(0);
         Bitmap mBaggroundImage=Bitmap.createBitmap(size,size, Bitmap.Config.ARGB_4444);
         Prop_grafico piechart=new Prop_grafico(context);

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import gamesoftitalia.bizbong.connessione.CreaProfiloAsync;
 import gamesoftitalia.bizbong.connessione.LoginAsync;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.service.MusicServiceBase;
 
 public class CreaProfiloActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class CreaProfiloActivity extends AppCompatActivity {
     private TextView registrazione;
     private ImageButton backButton;
     private String nickname, password, email;
+    private Impostazioni entity;
 
     private boolean audioAssociato=false;     /*valore prende da file*/
     private Intent music = new Intent();
@@ -43,6 +45,8 @@ public class CreaProfiloActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_profilo);
+
+        entity= (Impostazioni) getIntent().getSerializableExtra("Impostazioni");     //ricevitore oggetto Impostazioni
 
         //Music
         if (audioAssociato == true){

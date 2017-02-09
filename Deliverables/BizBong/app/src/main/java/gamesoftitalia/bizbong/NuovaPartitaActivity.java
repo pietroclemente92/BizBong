@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import gamesoftitalia.bizbong.connessione.BizBongAsync;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 
 public class NuovaPartitaActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
     private Button giocaAdessoButton;
     private String modalita;
     private Intent intent;
+    private Impostazioni entity;
 
 
     // BizBong
@@ -51,6 +56,10 @@ public class NuovaPartitaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        entity= (Impostazioni) getIntent().getSerializableExtra("Impostazioni");     //ricevitore oggetto Impostazioni
+
+        Log.d("aaa","-->"+entity.getLingua());
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
@@ -110,6 +119,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(indexClassica == 1 || indexMultipla == 1){
+                            //if (Locale.getDefault().getISO3Language()=="ita")
                             new BizBongAsync(NuovaPartitaActivity.this).execute(modalita);
                         } else{
                             Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();

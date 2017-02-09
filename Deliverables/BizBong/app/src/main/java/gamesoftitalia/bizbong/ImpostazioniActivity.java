@@ -88,14 +88,14 @@ public class ImpostazioniActivity extends AppCompatActivity {
                 switch (arg2) {
                     case 0:
                         config.locale = Locale.ITALIAN;
-                        entity.setLingua(array[0]);
+                        entity.setLingua("ita");
                         break;
                     case 1:
                         config.locale = Locale.ENGLISH;
-                        entity.setLingua(array[1]);
+                        entity.setLingua("eng");
                         break;
                     case 2:
-                        entity.setLingua(array[2]);
+                        entity.setLingua("ukr");
                         Locale locale = new Locale("uk");
                         Locale.setDefault(locale);
                         config.locale = locale;
