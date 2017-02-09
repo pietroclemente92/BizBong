@@ -34,6 +34,7 @@ public class ProfiloActivity extends AppCompatActivity {
     private int [] imageProfile;
     private ViewPager  viewPagerProfile;
     private Impostazioni entity;
+    private Button leftButton, rightButton;
 
 
     private EditText modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
@@ -93,6 +94,28 @@ public class ProfiloActivity extends AppCompatActivity {
         // ViewPager
         viewPagerProfile = (ViewPager) findViewById(R.id.viewPagerProfile);
         viewPagerProfile.setAdapter(new CustomHomePagerAdapter(context, imageProfile));
+
+        leftButton = (Button) findViewById(R.id.precedente);
+        leftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerProfile.getCurrentItem() == 0)
+                    viewPagerProfile.setCurrentItem(2, true);
+                else
+                    viewPagerProfile.setCurrentItem(viewPagerProfile.getCurrentItem() - 1, true);
+            }
+        });
+
+        rightButton = (Button) findViewById(R.id.successivo);
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerProfile.getCurrentItem() == 2)
+                    viewPagerProfile.setCurrentItem(0, true);
+                else
+                    viewPagerProfile.setCurrentItem(viewPagerProfile.getCurrentItem() + 1, true);
+            }
+        });
 
 
         //ImageButton

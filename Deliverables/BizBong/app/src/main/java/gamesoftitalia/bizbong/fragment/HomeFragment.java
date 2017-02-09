@@ -29,12 +29,8 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     private ViewPager  viewPagerGames;
     private int[]  imageGames;
     private Button nuovaPartita;
-<<<<<<< HEAD
     private Button leftButton, rightButton;
-=======
     private Impostazioni entity;
-
->>>>>>> origin/master
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,9 +45,6 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         // ViewPager
         viewPagerGames = (ViewPager) view.findViewById(R.id.viewPagerGames);
         viewPagerGames.setAdapter(new CustomHomePagerAdapter(view.getContext(), imageGames));
-
-
-
 
         // Button
         leftButton = (Button) view.findViewById(R.id.precedente);

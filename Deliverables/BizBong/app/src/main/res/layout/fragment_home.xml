@@ -35,13 +35,7 @@
             android:id="@+id/viewPagerGames"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_centerHorizontal="true"
-            />
-=======
             android:layout_centerHorizontal="true" />
->>>>>>> origin/master
-
         </RelativeLayout>
 
         <TextView
