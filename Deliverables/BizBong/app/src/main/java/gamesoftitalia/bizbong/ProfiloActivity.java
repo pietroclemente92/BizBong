@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 import gamesoftitalia.bizbong.adapters.CustomHomePagerAdapter;
 import gamesoftitalia.bizbong.connessione.ModificaProfiloAsync;
 import gamesoftitalia.bizbong.connessione.ProfiloAsync;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.entity.Profilo;
 
 public class ProfiloActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class ProfiloActivity extends AppCompatActivity {
     private ImageButton backButton;
     private int [] imageProfile;
     private ViewPager  viewPagerProfile;
+    private Impostazioni entity;
 
 
     private EditText modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
@@ -43,6 +45,8 @@ public class ProfiloActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilo);
+
+        entity= (Impostazioni) getIntent().getSerializableExtra("Impostazioni");     //ricevitore oggetto Impostazioni
 
 
         //Shared

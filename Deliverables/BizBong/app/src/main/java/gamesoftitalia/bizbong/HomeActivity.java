@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 
 import gamesoftitalia.bizbong.adapters.PagerAdapter;
@@ -114,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // ViewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), profilo);
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), profilo, entity);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -140,6 +141,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfiloActivity.class);
+                intent.putExtra("Impostazioni", (Serializable) entity);
                 startActivity(intent);
             }
         });

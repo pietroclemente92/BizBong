@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (controlloFile())
-               WriteBtn("","true","true","true");   //creazione file impostazioni
+               WriteBtn(Locale.getDefault().getISO3Language(),"true","true","true");   //creazione file impostazioni
         caricaImpostazioni();
         configuraLingua();
 
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             intent = new Intent(MainActivity.this, CreaProfiloActivity.class);
+                            intent.putExtra("Impostazioni", (Serializable) entity);
                             startActivity(intent);
                         }
                     });
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                                       config.locale = Locale.ITALIAN ;
         else if(entity.getLingua().equals("eng"))
                                           config.locale = Locale.ENGLISH;
-             else if (entity.getLingua().equals("ucr")){
+             else if (entity.getLingua().equals("ukr")){
                                              Locale locale = new Locale("uk");
                                              Locale.setDefault(locale);
                                              config.locale = locale;
