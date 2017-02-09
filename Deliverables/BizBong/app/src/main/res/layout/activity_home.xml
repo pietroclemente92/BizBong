@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="gamesoftitalia.bizbong.HomeActivity"
-    android:background="@drawable/back_home_part1">
+    android:background="@drawable/back_all_activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -83,15 +83,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:minHeight="?attr/actionBarSize"/>
+        android:layout_alignParentStart="true"
+        android:background="@drawable/toolbar_bottom_home"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/toolbar_top"
-        android:layout_above="@id/tab_layout"
-        android:layout_marginBottom="30dp"/>
+        android:layout_above="@id/tab_layout"/>
 </RelativeLayout>

@@ -16,38 +16,56 @@
             android:layout_gravity="center"
             >
 
-            <ImageButton
+            <Button
                 android:id="@+id/successivo"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="120px"
+                android:layout_height="120px"
                 android:layout_alignRight="@+id/viewPagerGames"
                 android:layout_centerVertical="true"
-                android:background="@drawable/frecce_cambio_gioco"/>
+                android:background="@drawable/frecce_cambio_gioco_right"/>
 
-            <ImageButton
+            <Button
                 android:id="@+id/precedente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120px"
+                android:layout_height="120px"
                 android:layout_alignLeft="@+id/viewPagerGames"
                 android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_left"
                 />
-
         <gamesoftitalia.bizbong.adapters.AdapterViewPager
             android:id="@+id/viewPagerGames"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-
             />
 
         </RelativeLayout>
 
+        <TextView
+            android:text="Seleziona una delle modalità proposte"
+            android:textStyle="bold"
+            android:textSize="5pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:text="(puoi cliccare sulle frecce o solezionare via touch)"
+            android:textStyle="bold"
+            android:textSize="5pt"
+            android:textColor="@color/whiteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
         <Button
             android:id="@+id/nuovaPartitaButton"
             android:text="Nuova Partita"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/main_button"
+            android:background="@drawable/buttonshape"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"/>
     </LinearLayout>

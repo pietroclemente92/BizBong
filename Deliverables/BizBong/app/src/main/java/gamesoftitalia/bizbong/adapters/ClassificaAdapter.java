@@ -34,7 +34,7 @@ public class ClassificaAdapter extends ArrayAdapter<String> {
 
         View rowView = inflater.inflate(R.layout.layout_classifica_list, parent, false);
         TextView posizioneView = (TextView) rowView.findViewById(R.id.classifica_posizione);
-        posizioneView.setText(String.valueOf(position));
+        posizioneView.setText(String.valueOf(position+1));
         ImageView iconaProfiloImageView = (ImageView) rowView.findViewById(R.id.classifica_icona_profilo);
         TextView nicknameView = (TextView) rowView.findViewById(R.id.classifica_nickname);
         nicknameView.setText(nicknameClassificato[position]);
