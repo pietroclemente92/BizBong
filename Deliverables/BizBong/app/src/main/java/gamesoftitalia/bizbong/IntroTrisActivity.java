@@ -2,6 +2,7 @@ package gamesoftitalia.bizbong;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,12 +49,13 @@ public class IntroTrisActivity extends AppCompatActivity {
 
 
 
+
     }
 
     private void intro_partita(){
         TextView titolo=(TextView)findViewById(R.id.titolo);
-        ImageButton biz=(ImageButton)findViewById(R.id.biz);
-        ImageButton bong=(ImageButton)findViewById(R.id.bong);
+        final ImageButton biz=(ImageButton)findViewById(R.id.biz);
+        final ImageButton bong=(ImageButton)findViewById(R.id.bong);
         titolo.setText(nickname+" scegli una faccia della moneta per stabilire chi inzia a giocare");
 
         biz.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +63,8 @@ public class IntroTrisActivity extends AppCompatActivity {
             public void onClick(View v) {
                 scelta_utente=0;
                 timer_gif();
-                //disabilitare clic una volta premuti entrambi i tati
+                biz.setEnabled(false);
+                bong.setEnabled(false);
             }
         });
 
@@ -70,6 +73,8 @@ public class IntroTrisActivity extends AppCompatActivity {
             public void onClick(View v) {
                 scelta_utente=1;
                 timer_gif();
+                bong.setEnabled(false);
+                biz.setEnabled(false);
             }
         });
 
@@ -80,6 +85,8 @@ public class IntroTrisActivity extends AppCompatActivity {
         final PlayGifView gif=(PlayGifView) findViewById(R.id.gif);
         final RelativeLayout lancio=(RelativeLayout)findViewById(R.id.lancio);
         gif.setVisibility(View.VISIBLE);
+        MediaPlayer mp = MediaPlayer.create(IntroTrisActivity.this, R.raw.coin);
+        mp.start();
         gif.setImageResource(R.drawable.lancio_moneta);
         new CountDownTimer(6500, 1000) {
             @Override

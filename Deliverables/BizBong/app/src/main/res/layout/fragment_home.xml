@@ -13,8 +13,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            >
+            android:layout_gravity="center">
 
             <ImageButton
                 android:id="@+id/successivo"
@@ -36,9 +35,7 @@
             android:id="@+id/viewPagerGames"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-
-            />
+            android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 

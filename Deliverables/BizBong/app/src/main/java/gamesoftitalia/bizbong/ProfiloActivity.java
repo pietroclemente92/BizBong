@@ -1,19 +1,24 @@
 package gamesoftitalia.bizbong;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 import java.util.concurrent.ExecutionException;
 
+import gamesoftitalia.bizbong.adapters.CustomHomePagerAdapter;
 import gamesoftitalia.bizbong.connessione.ModificaProfiloAsync;
 import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.entity.Profilo;
@@ -25,14 +30,20 @@ public class ProfiloActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private ImageButton backButton;
+    private int [] imageProfile;
+    private ViewPager  viewPagerProfile;
+
 
     private EditText modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
+    private ImageButton modificaImageButton;
     private Button modificaButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilo);
+
 
         //Shared
         sharedPreferences = getSharedPreferences("sessioneUtente", ProfiloActivity.MODE_PRIVATE);
@@ -69,12 +80,28 @@ public class ProfiloActivity extends AppCompatActivity {
         emailText.setText("Email: "+profilo.getEmail());
 
         // TextView
-        modificaNicknameTextView = (EditText) findViewById(R.id.modificaNickname);
-        modificaNicknameTextView.setHint(profilo.getNickname());
         modificaEmailTextView = (EditText) findViewById(R.id.modificaEmail);
-        modificaEmailTextView.setHint(profilo.getEmail());
         modificaPasswordTextView = (EditText) findViewById(R.id.modificaPassword);
         confermaPasswordTextView = (EditText) findViewById(R.id.confermaPassword);
+
+        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+
+        // ViewPager
+        viewPagerProfile = (ViewPager) findViewById(R.id.viewPagerProfile);
+        viewPagerProfile.setAdapter(new CustomHomePagerAdapter(context, imageProfile));
+
+
+        //ImageButton
+        modificaImageButton = (ImageButton) findViewById(R.id.image_profile);
+        modificaImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RelativeLayout l= (RelativeLayout) findViewById(R.id.scegli_immagine);
+                l.setVisibility(View.VISIBLE);
+
+
+            }
+        });
 
         // Button
         modificaButton = (Button) findViewById(R.id.modificaButton);
