@@ -209,11 +209,11 @@ public class ImpostazioniActivity extends AppCompatActivity {
 
     private void impostaSpinner(Spinner x){
         String[] array = getResources().getStringArray(R.array.lingua_arrays);
-        if (entity.getLingua().equals(array[0]))
+        if (entity.getLingua().equals("ita"))
                                       x.setSelection(0);
-        else if (entity.getLingua().equals(array[1]))
+        else if (entity.getLingua().equals("eng"))
                                            x.setSelection(1);
-             else if (entity.getLingua().equals(array[2]))
+             else if (entity.getLingua().equals("ukr"))
                                                 x.setSelection(2);
                    else
                      x.setSelection(0);
