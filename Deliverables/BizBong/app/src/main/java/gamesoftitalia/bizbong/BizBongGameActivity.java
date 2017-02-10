@@ -40,6 +40,7 @@ public class BizBongGameActivity extends AppCompatActivity {
 
     private String profiloGson;
     private Profilo profilo;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,18 +91,28 @@ public class BizBongGameActivity extends AppCompatActivity {
             risposte[tmp].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    risposte[tmp].setBackgroundResource(R.drawable.button_modalita_true);
                     if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
                         punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
                         punteggioTextView.setText("Punteggio: "+punteggio);
                     }
-                    setNuovoTurno();
+                    for(int j = 0; j < 4; j++){
+                        if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
+                            risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
+                            risposte[j].setOnClickListener(null);
+                        }
+                    }
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            setNuovoTurno();
+                        }
+                    }, 1000);
                 }
             });
         }
 
         // Thread di gioco
-        final Handler mHandler = new Handler();
+        mHandler = new Handler();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -114,7 +125,23 @@ public class BizBongGameActivity extends AppCompatActivity {
                             public void run() {
                                 // TODO Auto-generated method stub
                                 if (tempoCorrente == 1) {
-                                    setNuovoTurno();
+                                    for(int j = 0; j < 4; j++){
+                                        if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
+                                            risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
+                                            risposte[j].setOnClickListener(null);
+                                        }
+                                    }
+                                    try{
+                                        Thread.sleep(1000);
+                                        mHandler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                setNuovoTurno();
+                                            }
+                                        });
+                                    } catch (Exception e){
+                                        //  TODO: handle exception
+                                    }
                                 } else {
                                     tempoCorrente--;
                                     time.setText(String.valueOf(tempoCorrente));
@@ -149,13 +176,12 @@ public class BizBongGameActivity extends AppCompatActivity {
             domanda.setText(bizBong.getListaDomande().get(turno).getDomanda());
             for(int i = 0; i < 4; i++){
                 final int tmp = i;
-                risposte[tmp].setText(bizBong.getListaDomande().get(turno).getListaRisposte().get(i).toString());
                 risposte[tmp].setBackgroundResource(R.drawable.buttonshape);
+                risposte[tmp].setText(bizBong.getListaDomande().get(turno).getListaRisposte().get(i).toString());
                 risposte[tmp].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
-                            risposte[tmp].setBackgroundResource(R.drawable.button_modalita_true);
                             punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
                             punteggioTextView.setText("Punteggio: "+punteggio);
 
@@ -168,15 +194,19 @@ public class BizBongGameActivity extends AppCompatActivity {
                                 if(bizBong.getModalita().equals(statistiche.getModalitaList()[j]))
                                     profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
                             }
-                        } else {
-                            for(int j = 0; j < 4; j++){
-                                if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
-                                    risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
-                                    risposte[j].setOnClickListener(null);
-                                }
+                        }
+                        for(int j = 0; j < 4; j++){
+                            if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
+                                risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
+                                risposte[j].setOnClickListener(null);
                             }
                         }
-                        setNuovoTurno();
+                        mHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                setNuovoTurno();
+                            }
+                        }, 1000);
                     }
                 });
             }

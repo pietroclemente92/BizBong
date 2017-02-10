@@ -30,7 +30,7 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
 
     private ProgressDialog loadingDialog;
     private Context context;
-    private static String modalita;
+    private static String modalita, lingua;
 
     public BizBongAsync(Context context){
         this.context = context;
@@ -53,9 +53,11 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
             try{
                 // Parametri modalità [Classica, Challenge]
                 modalita = params[0];
+                lingua = params[1];
 
                 // Dati nickname e password inoltrati al server
                 String data = "?modalita=" + URLEncoder.encode(modalita, "UTF-8");
+                data += "&language=" + URLEncoder.encode(lingua, "UTF-8");
 
                 // Link
                 String link = "http://bizbong.altervista.org/php/Control/BizBongControl.php" + data;
@@ -125,7 +127,7 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
                 public void onClick(DialogInterface dialog, int which)
                 {
                     dialog.dismiss();
-                    new BizBongAsync(context).execute(modalita);
+                    new BizBongAsync(context).execute(modalita, lingua);
                 }
             });
 

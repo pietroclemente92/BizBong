@@ -120,7 +120,11 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if(indexClassica == 1 || indexMultipla == 1){
                             //if (Locale.getDefault().getISO3Language()=="ita")
-                            new BizBongAsync(NuovaPartitaActivity.this).execute(modalita);
+                            String lingua = entity.getLingua();
+                            if(!lingua.equals("ita") && !lingua.equals("eng") && !lingua.equals("ukr"))
+                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, "ita");
+                            else
+                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, lingua);
                         } else{
                             Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();
                         }
