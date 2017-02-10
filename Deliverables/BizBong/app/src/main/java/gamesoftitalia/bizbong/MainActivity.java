@@ -249,6 +249,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
     protected void onResume() {     /*quando l'app viene riattivata*/
         super.onResume();
         if (audioAssociato==true)
