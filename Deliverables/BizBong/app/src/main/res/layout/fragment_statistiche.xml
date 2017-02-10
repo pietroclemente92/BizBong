@@ -37,6 +37,7 @@
                         android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="Legenda">
                     </TextView>
 
@@ -57,9 +58,10 @@
                         android:id="@+id/p0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
+
                         android:layout_row="0"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
 
@@ -74,9 +76,9 @@
                         android:id="@+id/p1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Legenda"
                         android:layout_row="0"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -91,9 +93,10 @@
                         android:id="@+id/p2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
+
                         android:layout_row="1"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -108,9 +111,10 @@
                         android:id="@+id/p3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
+
                         android:layout_row="1"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
 
@@ -126,9 +130,10 @@
                         android:id="@+id/p4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
+
                         android:layout_row="2"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -143,9 +148,9 @@
                         android:id="@+id/p5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="2"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
 
@@ -162,9 +167,9 @@
                         android:id="@+id/p6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="3"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -179,9 +184,9 @@
                         android:id="@+id/p7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="3"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
 
@@ -198,9 +203,9 @@
                         android:id="@+id/p8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="4"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -215,9 +220,9 @@
                         android:id="@+id/p9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="4"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -232,9 +237,9 @@
                         android:id="@+id/p10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="5"
-                        android:layout_column="1">
+                        android:layout_column="1"
+                        android:textColor="@color/white">
                     </TextView>
 
                     <ImageView
@@ -246,12 +251,12 @@
                         android:layout_column="2"
                         />
                     <TextView
-                        android:id="@+id/p12"
+                        android:id="@+id/p11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Leggenda"
                         android:layout_row="5"
-                        android:layout_column="3">
+                        android:layout_column="3"
+                        android:textColor="@color/white">
                     </TextView>
 
 

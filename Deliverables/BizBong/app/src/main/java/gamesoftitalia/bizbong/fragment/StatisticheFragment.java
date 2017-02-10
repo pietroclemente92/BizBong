@@ -6,12 +6,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -56,6 +58,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
         Profilo profilo = (Profilo) this.getArguments().getSerializable("profilo");
         entity = (Impostazioni) this.getArguments().getSerializable("impostazioni");
+
         Statistiche statistiche=profilo.getStatistiche();
         //array con i punteggi dell'utente
         final int[] punteggi=statistiche.getPunteggiList();
@@ -171,13 +174,13 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         double spo=(double)punteggi[2];
         double sci=(double)punteggi[3];
         double cin=(double)punteggi[4];
-        double let=(double)punteggi[5];
+        double mat=(double)punteggi[5];
         double log=(double)punteggi[6];
         double vid=(double)punteggi[7];
         double inf=(double)punteggi[8];
         double car=(double)punteggi[9];
         double art=(double)punteggi[10];
-        double cuc=(double)punteggi[11];
+        double mus=(double)punteggi[11];
 
          /*calcolo percentuale  e arrotondamento a due cifre decimali*/
         sto=arrotondaPerEccesso_maxcifre(percentuale(sto,totale),2);
@@ -185,13 +188,13 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         spo=arrotondaPerEccesso_maxcifre(percentuale(spo,totale),2);
         sci=arrotondaPerEccesso_maxcifre(percentuale(sci,totale),2);
         cin=arrotondaPerEccesso_maxcifre(percentuale(cin,totale),2);
-        let=arrotondaPerEccesso_maxcifre(percentuale(let,totale),2);
+        mat=arrotondaPerEccesso_maxcifre(percentuale(mat,totale),2);
         log=arrotondaPerEccesso_maxcifre(percentuale(log,totale),2);
         vid=arrotondaPerEccesso_maxcifre(percentuale(vid,totale),2);
         inf=arrotondaPerEccesso_maxcifre(percentuale(inf,totale),2);
         car=arrotondaPerEccesso_maxcifre(percentuale(car,totale),2);
         art=arrotondaPerEccesso_maxcifre(percentuale(art,totale),2);
-        cuc=arrotondaPerEccesso_maxcifre(percentuale(cuc,totale),2);
+        mus=arrotondaPerEccesso_maxcifre(percentuale(mus,totale),2);
 
         /*conversione dei double in integer per grafico */
         int storia=(int)sto;
@@ -199,30 +202,30 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         int sport=(int)spo;
         int scienze=(int)sci;
         int cinema=(int)cin;
-        int letteratura=(int)let;
+        int matematica=(int)mat;
         int logica=(int)log;
         int videogames=(int)vid;
         int informatica=(int)inf;
         int cartoni=(int)car;
         int arte=(int)art;
-        int cucina=(int)cuc;
+        int musica=(int)mus;
 
         if (fgrafico1==false) {
-            costruzioneGrafico1(storia, geografia, sport, scienze, cinema, letteratura,
-                                logica, videogames, informatica, cartoni, arte, cucina);
+            costruzioneGrafico1(storia, geografia, sport, scienze, cinema, matematica,
+                                logica, videogames, informatica, cartoni, arte, musica);
             fgrafico1=true;
         }
-        costruzioneLegenda1(sto, geo, spo, sci, cin, let, log, vid, inf, car, art, cuc);
+        costruzioneLegenda1(sto, geo, spo, sci, cin, mat, log, vid, inf, car, art, mus);
     }
 
 
-    private void costruzioneGrafico1(int storia, int geografia, int sport, int scienze, int cinema, int letteratura,
-                                     int logica, int videogames, int informatica, int cartoni, int arte, int cucina){
+    private void costruzioneGrafico1(int storia, int geografia, int sport, int scienze, int cinema, int matematica,
+                                     int logica, int videogames, int informatica, int cartoni, int arte, int musica){
         Attributi_grafico item;
         int maxCount=0;
         int itemCount=0;
-        int items[]={storia,geografia,sport,scienze,cinema,letteratura,
-                     logica,videogames,informatica,cartoni,arte,cucina};
+        int items[]={storia,geografia,sport,scienze,cinema,matematica,
+                     logica,videogames,informatica,cartoni,arte,musica};
         int colors[]={Color.YELLOW,Color.GREEN,Color.MAGENTA,Color.BLUE, Color.RED, Color.BLACK,
                       Color.CYAN,Color.GRAY,Color.LTGRAY,Color.parseColor("#636161"),Color.parseColor("#9966CC"),Color.parseColor("#003300")};
         for(int i=0;i<items.length;i++) {
@@ -251,13 +254,36 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         finalLayout.addView(mImageView);
     }
 
-    private void costruzioneLegenda1(double sto,double geo,double spo,double sci,double cin,double let,
-                                     double log,double vid,double inf,double car,double art,double cuc){
+    private void costruzioneLegenda1(double sto,double geo,double spo,double sci,double cin,double mat,
+                                     double log,double vid,double inf,double car,double art,double mus){
 
         RelativeLayout l=(RelativeLayout)view.findViewById(R.id.legenda1);
         l.setVisibility(View.VISIBLE);
-
-
+        TextView p0=(TextView)view.findViewById(R.id.p0);
+        TextView p1=(TextView)view.findViewById(R.id.p1);
+        TextView p2=(TextView)view.findViewById(R.id.p2);
+        TextView p3=(TextView)view.findViewById(R.id.p3);
+        TextView p4=(TextView)view.findViewById(R.id.p4);
+        TextView p5=(TextView)view.findViewById(R.id.p5);
+        TextView p6=(TextView)view.findViewById(R.id.p6);
+        TextView p7=(TextView)view.findViewById(R.id.p7);
+        TextView p8=(TextView)view.findViewById(R.id.p8);
+        TextView p9=(TextView)view.findViewById(R.id.p9);
+        TextView p10=(TextView)view.findViewById(R.id.p10);
+        TextView p11=(TextView)view.findViewById(R.id.p11);
+        p0.setText(""+sto);
+        p1.setText(""+geo);
+        p2.setText(""+spo);
+        p3.setText(""+sci);
+        p4.setText(""+cin);
+        p5.setText(""+mat);
+        p6.setText(""+log);
+        p7.setText(""+vid);
+        p8.setText(""+inf);
+        p9.setText(""+car);
+        p10.setText(""+art);
+        p11.setText(""+mus);
+        Log.d("aa","-->"+vid);
     }
 
     private void dati2(int punteggi[]){
