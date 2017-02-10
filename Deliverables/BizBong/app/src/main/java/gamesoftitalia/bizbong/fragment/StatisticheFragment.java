@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import gamesoftitalia.bizbong.R;
+import gamesoftitalia.bizbong.adapters.CustomHomePagerAdapter;
+import gamesoftitalia.bizbong.adapters.CustomThemePagerAdapter;
 import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.entity.Statistiche;
@@ -41,6 +44,14 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
     private boolean fgrafico3=false;
     private boolean fgrafico4=false;
     private Impostazioni entity;
+
+    private int [] imageProfile;
+    private String[] percentuali;
+    private ViewPager  viewPagerLegenda1;
+    private ViewPager  viewPagerLegenda2;
+    private ViewPager  viewPagerLegenda3;
+    private ViewPager  viewPagerLegenda4;
+
 
 
 
@@ -84,13 +95,19 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
                 sudoBizBong.setBackgroundResource(R.drawable.xml2);
                 //oggetti da nascondere
                 RelativeLayout g3=(RelativeLayout)view.findViewById(R.id.pie_container3);
+                TextView tl3=(TextView)view.findViewById(R.id.legenda3);
+                RelativeLayout l3=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda3);
                 RelativeLayout g4=(RelativeLayout)view.findViewById(R.id.pie_container4);
-                RelativeLayout l3=(RelativeLayout)view.findViewById(R.id.legenda3);
-                RelativeLayout l4=(RelativeLayout)view.findViewById(R.id.legenda4);
+                TextView tl4=(TextView)view.findViewById(R.id.legenda4);
+                RelativeLayout l2=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda4);
+
                 g3.setVisibility(View.GONE);
-                g4.setVisibility(View.GONE);
+                tl3.setVisibility(View.GONE);
                 l3.setVisibility(View.GONE);
-                l4.setVisibility(View.GONE);
+
+                g4.setVisibility(View.GONE);
+                tl4.setVisibility(View.GONE);
+                l2.setVisibility(View.GONE);
 
                 //oggetti da rendere visibili
                 RelativeLayout g1=(RelativeLayout)view.findViewById(R.id.pie_container1);
@@ -120,12 +137,18 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
                 //oggetti da nascondere
                 RelativeLayout g1=(RelativeLayout)view.findViewById(R.id.pie_container1);
+                TextView tl1=(TextView)view.findViewById(R.id.legenda1);
+                RelativeLayout l1=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda1);
                 RelativeLayout g2=(RelativeLayout)view.findViewById(R.id.pie_container2);
-                RelativeLayout l1=(RelativeLayout)view.findViewById(R.id.legenda1);
-                RelativeLayout l2=(RelativeLayout)view.findViewById(R.id.legenda2);
+                TextView tl2=(TextView)view.findViewById(R.id.legenda2);
+                RelativeLayout l2=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda2);
+
                 g1.setVisibility(View.GONE);
+                tl1.setVisibility(View.GONE);
                 l1.setVisibility(View.GONE);
+
                 g2.setVisibility(View.GONE);
+                tl2.setVisibility(View.GONE);
                 l2.setVisibility(View.GONE);
 
                 //oggetti da rendere visibili
@@ -236,7 +259,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
             piedata.add(item);
             maxCount=maxCount+itemCount;
         }
-        int size=400;
+        int size=600;
         int BgColor=Color.alpha(0);
         Bitmap mBaggroundImage=Bitmap.createBitmap(size,size, Bitmap.Config.ARGB_4444);
         Prop_grafico piechart=new Prop_grafico(context);
@@ -256,34 +279,18 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
     private void costruzioneLegenda1(double sto,double geo,double spo,double sci,double cin,double mat,
                                      double log,double vid,double inf,double car,double art,double mus){
-
-        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.legenda1);
+        TextView textView=(TextView)view.findViewById(R.id.legenda1);
+        textView.setVisibility(View.VISIBLE);
+        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda1);
         l.setVisibility(View.VISIBLE);
-        TextView p0=(TextView)view.findViewById(R.id.p0);
-        TextView p1=(TextView)view.findViewById(R.id.p1);
-        TextView p2=(TextView)view.findViewById(R.id.p2);
-        TextView p3=(TextView)view.findViewById(R.id.p3);
-        TextView p4=(TextView)view.findViewById(R.id.p4);
-        TextView p5=(TextView)view.findViewById(R.id.p5);
-        TextView p6=(TextView)view.findViewById(R.id.p6);
-        TextView p7=(TextView)view.findViewById(R.id.p7);
-        TextView p8=(TextView)view.findViewById(R.id.p8);
-        TextView p9=(TextView)view.findViewById(R.id.p9);
-        TextView p10=(TextView)view.findViewById(R.id.p10);
-        TextView p11=(TextView)view.findViewById(R.id.p11);
-        p0.setText(""+sto);
-        p1.setText(""+geo);
-        p2.setText(""+spo);
-        p3.setText(""+sci);
-        p4.setText(""+cin);
-        p5.setText(""+mat);
-        p6.setText(""+log);
-        p7.setText(""+vid);
-        p8.setText(""+inf);
-        p9.setText(""+car);
-        p10.setText(""+art);
-        p11.setText(""+mus);
-        Log.d("aa","-->"+vid);
+
+        //Array
+        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+        percentuali =new String[]{""+mus,""+sto,""+cin};
+
+        // ViewPager
+        viewPagerLegenda1 = (ViewPager) view.findViewById(R.id.viewPagerLegenda1);
+        viewPagerLegenda1.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
     }
 
     private void dati2(int punteggi[]){
@@ -324,7 +331,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
             piedata.add(item);
             maxCount=maxCount+itemCount;
         }
-        int size=750;
+        int size=600;
         int BgColor=Color.alpha(0);
         Bitmap mBaggroundImage=Bitmap.createBitmap(size,size, Bitmap.Config.ARGB_4444);
         Prop_grafico piechart=new Prop_grafico(context);
@@ -344,8 +351,18 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
     private void costruzioneLegenda2(double cla,double bb){
         //rendere layout leggenda visibile impostare legenda su visibile gone tutte
-        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.legenda2);
+        TextView textView=(TextView)view.findViewById(R.id.legenda2);
+        textView.setVisibility(View.VISIBLE);
+        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda2);
         l.setVisibility(View.VISIBLE);
+
+        //Array
+        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku};
+        percentuali =new String[]{""+cla,""+bb};
+
+        // ViewPager
+        viewPagerLegenda2 = (ViewPager) view.findViewById(R.id.viewPagerLegenda2);
+        viewPagerLegenda2.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
 
     }
 
@@ -391,7 +408,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
             piedata.add(item);
             maxCount=maxCount+itemCount;
         }
-        int size=750;
+        int size=600;
         int BgColor=Color.alpha(0);
         Bitmap mBaggroundImage=Bitmap.createBitmap(size,size, Bitmap.Config.ARGB_4444);
         Prop_grafico piechart=new Prop_grafico(context);
@@ -410,9 +427,18 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
     }
 
     private void costruzioneLegenda3(double f,double m,double d){
-        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.legenda3);
+        TextView textView=(TextView)view.findViewById(R.id.legenda3);
+        textView.setVisibility(View.VISIBLE);
+        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda3);
         l.setVisibility(View.VISIBLE);
 
+        //Array
+        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+        percentuali =new String[]{""+f,""+m,""+d};
+
+        // ViewPager
+        viewPagerLegenda3 = (ViewPager) view.findViewById(R.id.viewPagerLegenda3);
+        viewPagerLegenda3.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
     }
 
 
@@ -458,7 +484,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
             piedata.add(item);
             maxCount=maxCount+itemCount;
         }
-        int size=750;
+        int size=600;
         int BgColor=Color.alpha(0);
         Bitmap mBaggroundImage=Bitmap.createBitmap(size,size, Bitmap.Config.ARGB_4444);
         Prop_grafico piechart=new Prop_grafico(context);
@@ -477,8 +503,18 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
     }
 
     private void costruzioneLegenda4(double f,double m,double d){
-        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.legenda4);
+        TextView textView=(TextView)view.findViewById(R.id.legenda4);
+        textView.setVisibility(View.VISIBLE);
+        RelativeLayout l=(RelativeLayout)view.findViewById(R.id.visualizza_leggenda4);
         l.setVisibility(View.VISIBLE);
+
+        //Array
+        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+        percentuali =new String[]{""+f,""+m,""+d};
+
+        // ViewPager
+        viewPagerLegenda4 = (ViewPager) view.findViewById(R.id.viewPagerLegenda4);
+        viewPagerLegenda4.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
     }
 
     private double percentuale(double x,double t){

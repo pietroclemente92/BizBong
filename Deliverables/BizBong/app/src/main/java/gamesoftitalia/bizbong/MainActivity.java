@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                                              Locale locale = new Locale("uk");
                                              Locale.setDefault(locale);
                                              config.locale = locale;
-              }
+                  }
         getResources().updateConfiguration(config, null);
     }
 

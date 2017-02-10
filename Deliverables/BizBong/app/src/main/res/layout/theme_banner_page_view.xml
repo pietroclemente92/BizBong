@@ -3,29 +3,19 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<TextView
-        android:id="@+id/textBanner"
-        android:text="Text"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>-->
-
     <ImageView
         android:id="@+id/imgBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@mipmap/ic_profile"
-        android:layout_weight="9"/>
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp" />
     <TextView
-        android:text="Test"
         android:textSize="15pt"
         android:id="@+id/textBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_weight="1"/>
+        android:layout_marginTop="80dp"
+        android:textColor="@color/white"
+        android:fontFamily="bold"
+        android:gravity="center"/>
 </LinearLayout>

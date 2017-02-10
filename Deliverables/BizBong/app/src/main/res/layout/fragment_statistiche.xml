@@ -16,7 +16,6 @@
         android:id="@+id/tableLayout">
 
 
-
     <TableRow
         android:layout_gravity="center_horizontal" >
        <RelativeLayout
@@ -27,251 +26,51 @@
     </TableRow>
 
         <TableRow>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/legenda1"
-                android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="Legenda">
-                    </TextView>
-
-                <GridLayout
-                    android:layout_below="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/b0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
-
-
-                    <ImageView
-                    android:id="@+id/b1"
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/legenda1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/materia"
-                    android:layout_row="0"
-                    android:layout_column="2"/>
-                    <TextView
-                        android:id="@+id/p1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
+                    android:textColor="@color/white"
+                    android:textSize="12pt"
+                    android:fontFamily="bold"
+                    android:gravity="center"
+                    android:text="Legenda">
+                </TextView>
+        </TableRow>
 
-                    <ImageView
-                        android:id="@+id/b2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/visualizza_leggenda1"
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+                <Button
+                    android:id="@+id/successivo"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/frecce_cambio_gioco_right"/>
 
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
+                <Button
+                    android:id="@+id/precedente"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/frecce_cambio_gioco_left"/>
 
-                    <ImageView
-                        android:id="@+id/b3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        />
-                    <TextView
-                        android:id="@+id/p3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_row="1"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
-
-
-                    <ImageView
-                        android:id="@+id/b4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="2"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_row="2"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
-
-                    <ImageView
-                        android:id="@+id/b5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="2"
-                        android:layout_column="2"
-                        />
-                    <TextView
-                        android:id="@+id/p5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
-
-
-
-                    <ImageView
-                        android:id="@+id/b6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="3"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
-
-                    <ImageView
-                        android:id="@+id/b7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="3"
-                        android:layout_column="2"
-                        />
-                    <TextView
-                        android:id="@+id/p7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
-
-
-
-                    <ImageView
-                        android:id="@+id/b8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="4"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="4"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
-
-                    <ImageView
-                        android:id="@+id/b9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="4"
-                        android:layout_column="2"
-                        />
-                    <TextView
-                        android:id="@+id/p9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="4"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
-
-                    <ImageView
-                        android:id="@+id/b10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="5"
-                        android:layout_column="0"
-                        />
-                    <TextView
-                        android:id="@+id/p10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="5"
-                        android:layout_column="1"
-                        android:textColor="@color/white">
-                    </TextView>
-
-                    <ImageView
-                        android:id="@+id/b11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/materia"
-                        android:layout_row="5"
-                        android:layout_column="2"
-                        />
-                    <TextView
-                        android:id="@+id/p11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="5"
-                        android:layout_column="3"
-                        android:textColor="@color/white">
-                    </TextView>
-
-
-
-
-
-                </GridLayout>
-
-
+                <gamesoftitalia.bizbong.adapters.AdapterViewPager
+                    android:id="@+id/viewPagerLegenda1"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1" />
             </RelativeLayout>
 
 
 
 
-        </TableRow>
 
         <TableRow
             android:layout_gravity="center_horizontal" >
@@ -283,22 +82,49 @@
         </TableRow>
 
         <TableRow>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TextView
+                android:visibility="gone"
                 android:id="@+id/legenda2"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="aa">
-                </TextView>
-
-            </RelativeLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+                android:fontFamily="bold"
+                android:gravity="center"
+                android:text="Legenda">
+            </TextView>
         </TableRow>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/visualizza_leggenda2"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+            <Button
+                android:id="@+id/successivo2"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_right"/>
+
+            <Button
+                android:id="@+id/precedente2"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_left"/>
+
+            <gamesoftitalia.bizbong.adapters.AdapterViewPager
+                android:id="@+id/viewPagerLegenda2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </RelativeLayout>
+
+
 
 
 
@@ -316,21 +142,49 @@
         </TableRow>
 
         <TableRow>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TextView
+                android:visibility="gone"
                 android:id="@+id/legenda3"
-                android:visibility="gone">
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="aaa">
-                </TextView>
-
-            </RelativeLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+                android:fontFamily="bold"
+                android:gravity="center"
+                android:text="Legenda">
+            </TextView>
         </TableRow>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/visualizza_leggenda3"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+            <Button
+                android:id="@+id/successivo3"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_right"/>
+
+            <Button
+                android:id="@+id/precedente3"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_left"/>
+
+            <gamesoftitalia.bizbong.adapters.AdapterViewPager
+                android:id="@+id/viewPagerLegenda3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </RelativeLayout>
+
+
 
         <TableRow
             android:layout_gravity="center_horizontal" >
@@ -343,28 +197,47 @@
         </TableRow>
 
         <TableRow>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TextView
+                android:visibility="gone"
                 android:id="@+id/legenda4"
-                android:visibility="gone">
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="aaaa">
-                </TextView>
-
-            </RelativeLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+                android:fontFamily="bold"
+                android:gravity="center"
+                android:text="Legenda">
+            </TextView>
         </TableRow>
 
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/visualizza_leggenda4"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+            <Button
+                android:id="@+id/successivo4"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_right"/>
 
+            <Button
+                android:id="@+id/precedente4"
+                android:layout_width="120px"
+                android:layout_height="120px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/frecce_cambio_gioco_left"/>
 
-
-
-
-
+            <gamesoftitalia.bizbong.adapters.AdapterViewPager
+                android:id="@+id/viewPagerLegenda4"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </RelativeLayout>
 
     </TableLayout>
 
