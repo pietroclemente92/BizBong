@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,8 +21,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gamesoftitalia.bizbong.HomeActivity;
 import gamesoftitalia.bizbong.R;
-import gamesoftitalia.bizbong.adapters.CustomHomePagerAdapter;
 import gamesoftitalia.bizbong.adapters.CustomThemePagerAdapter;
 import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.entity.Profilo;
@@ -91,6 +94,14 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         sfida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 sfida.setBackgroundResource(R.drawable.xml1);
                 sudoBizBong.setBackgroundResource(R.drawable.xml2);
                 //oggetti da nascondere
@@ -132,6 +143,14 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         sudoBizBong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 sudoBizBong.setBackgroundResource(R.drawable.xml1);
                 sfida.setBackgroundResource(R.drawable.xml2);
 
@@ -285,7 +304,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         l.setVisibility(View.VISIBLE);
 
         //Array
-        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+        imageProfile = new int[]{R.drawable.materia, R.drawable.icon_sudoku, R.drawable.icon_tris};
         percentuali =new String[]{""+mus,""+sto,""+cin};
 
         // ViewPager

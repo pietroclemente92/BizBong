@@ -7,14 +7,14 @@
         android:id="@+id/imgBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="68dp" />
     <TextView
         android:textSize="15pt"
         android:id="@+id/textBanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="95dp"
         android:textColor="@color/white"
         android:fontFamily="bold"
         android:gravity="center"/>

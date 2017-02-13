@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -152,6 +153,14 @@ public class MainActivity extends AppCompatActivity {
                     creaProfiloButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            if(entity.getEffetti()==true) {
+                                MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.bottoni);
+                                mp.start();
+                            }
+                            if(entity.getVibrazione()){
+                                Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                                g.vibrate(100);
+                            }
                             intent = new Intent(MainActivity.this, CreaProfiloActivity.class);
                             intent.putExtra("Impostazioni", (Serializable) entity);
                             startActivity(intent);
@@ -163,8 +172,14 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             //fare controllo effetti se attivati musica play
-                            MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.bottoni);
-                            mp.start();
+                            if(entity.getEffetti()==true) {
+                                                MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.bottoni);
+                                                mp.start();
+                            }
+                            if(entity.getVibrazione()){
+                                Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                                g.vibrate(100);
+                            }
                             intent = new Intent(MainActivity.this, LoginActivity.class);
                             intent.putExtra("Impostazioni", (Serializable) entity);
                             startActivity(intent);

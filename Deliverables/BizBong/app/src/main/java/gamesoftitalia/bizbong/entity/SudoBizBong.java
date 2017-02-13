@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 
 public class SudoBizBong implements Serializable {
-
     private String modalita;
     private int tempo;
     private int mosse;

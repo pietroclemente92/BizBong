@@ -20,7 +20,6 @@ public class UniqueRandom {
             potentialRandom = this.random.nextInt(n);
         }
 
-
         this.usedNumbers.add(potentialRandom);
 
         return potentialRandom;

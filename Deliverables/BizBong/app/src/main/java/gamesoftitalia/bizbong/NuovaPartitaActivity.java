@@ -1,7 +1,10 @@
 package gamesoftitalia.bizbong;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,6 +85,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 classicaButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(indexMultipla == 1) {
                             indexMultipla = 0;
                             challengeButton.setBackgroundResource(R.drawable.buttonshape);
@@ -100,6 +111,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 challengeButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(indexClassica == 1){
                             indexClassica = 0;
                             classicaButton.setBackgroundResource(R.drawable.buttonshape);
@@ -118,6 +137,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 giocaAdessoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(indexClassica == 1 || indexMultipla == 1){
                             //if (Locale.getDefault().getISO3Language()=="ita")
                             String lingua = entity.getLingua();
@@ -140,6 +167,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 facile2X2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index2x2m==1){
                             index2x2m=0;
                             medio2X2.setBackgroundResource(R.drawable.buttonshape);
@@ -177,6 +212,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 medio2X2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index2x2f==1){
                             index2x2f=0;
                             facile2X2.setBackgroundResource(R.drawable.buttonshape);
@@ -214,6 +257,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 difficile2X2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index2x2f==1){
                             index2x2f=0;
                             facile2X2.setBackgroundResource(R.drawable.buttonshape);
@@ -252,6 +303,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 facile3X3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index3x3m ==1){
                             index3x3m=0;
                             medio3X3.setBackgroundResource(R.drawable.buttonshape);
@@ -289,6 +348,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 medio3X3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index3x3f==1){
                             index3x3f=0;
                             facile3X3.setBackgroundResource(R.drawable.buttonshape);
@@ -326,6 +393,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 difficile3X3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(index3x3f==1){
                             index3x3f=0;
                             facile3X3.setBackgroundResource(R.drawable.buttonshape);
@@ -365,6 +440,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 giocaAdessoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if (index2x2f==1||index2x2m==1||index2x2d==1||index3x3f==1||index3x3m==1||index3x3d==1) {
                             intent = new Intent(NuovaPartitaActivity.this, GameSudoBizBongActivity.class);
                             intent.putExtra("modalita", modalita);
@@ -387,6 +470,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 singleButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if (indexMulti==1){
                             indexMulti=0;
                             multiButton.setBackgroundResource(R.drawable.buttonshape);
@@ -408,6 +499,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 multiButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if (indexSingle==1){
                             indexSingle=0;
                             singleButton.setBackgroundResource(R.drawable.buttonshape);
@@ -428,6 +527,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 giocaAdessoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(entity.getEffetti()==true) {
+                            MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                            mp.start();
+                        }
+                        if(entity.getVibrazione()){
+                            Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                            g.vibrate(100);
+                        }
                         if(indexMulti==1||indexSingle==1) {
                             intent = new Intent(NuovaPartitaActivity.this, IntroTrisActivity.class);
                             intent.putExtra("modalita", modalita);
@@ -446,6 +553,14 @@ public class NuovaPartitaActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(NuovaPartitaActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 NuovaPartitaActivity.super.onBackPressed();
             }
         });

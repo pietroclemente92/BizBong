@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -179,6 +181,14 @@ public class ImpostazioniActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(ImpostazioniActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 Intent intent = new Intent(ImpostazioniActivity.this, HomeActivity.class);
                 startActivity(intent);
             }

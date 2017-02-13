@@ -9,6 +9,8 @@
     <!-- Permessi per leggere o scrivere su server online -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Permessi per utilizzare la vibrazione-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"

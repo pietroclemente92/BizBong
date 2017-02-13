@@ -3,6 +3,8 @@ package gamesoftitalia.bizbong;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,6 +61,14 @@ public class ProfiloActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(ProfiloActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 ProfiloActivity.super.onBackPressed();
                 finish();
             }
@@ -123,6 +133,14 @@ public class ProfiloActivity extends AppCompatActivity {
         modificaImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(ProfiloActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 RelativeLayout l= (RelativeLayout) findViewById(R.id.scegli_immagine);
                 l.setVisibility(View.VISIBLE);
 
@@ -135,6 +153,14 @@ public class ProfiloActivity extends AppCompatActivity {
         modificaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(ProfiloActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 String tmpModificaEmail = modificaEmailTextView.getText().toString();
                 String tmpModificaPassword = modificaPasswordTextView.getText().toString();
                 String tmpConfermaPassword = confermaPasswordTextView.getText().toString();

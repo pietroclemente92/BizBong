@@ -4,9 +4,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,6 +68,14 @@ public class LoginActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(LoginActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 LoginActivity.super.onBackPressed();
             }
         });
@@ -73,6 +83,14 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(LoginActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 nickname = nicknameEdit.getText().toString();
                 password = passwordEdit.getText().toString();
 

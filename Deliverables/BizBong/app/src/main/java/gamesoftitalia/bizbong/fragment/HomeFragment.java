@@ -1,7 +1,10 @@
 package gamesoftitalia.bizbong.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -73,6 +76,14 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         nuovaPartita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 Intent intent = new Intent(getActivity(), NuovaPartitaActivity.class);
                 intent.putExtra("position", viewPagerGames.getCurrentItem());
                 intent.putExtra("Impostazioni", (Serializable) entity);

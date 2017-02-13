@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -140,6 +142,14 @@ public class HomeActivity extends AppCompatActivity {
         profiloButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(HomeActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 Intent intent = new Intent(HomeActivity.this, ProfiloActivity.class);
                 intent.putExtra("Impostazioni", (Serializable) entity);
                 startActivity(intent);
@@ -151,6 +161,14 @@ public class HomeActivity extends AppCompatActivity {
         impostazioniButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(HomeActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 Intent intent = new Intent(HomeActivity.this, ImpostazioniActivity.class);
                 startActivity(intent);
             }
@@ -161,6 +179,14 @@ public class HomeActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(HomeActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 // Editor clear all element
                 editor.clear();
                 editor.commit();
