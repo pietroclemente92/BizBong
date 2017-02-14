@@ -9,7 +9,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-import gamesoftitalia.bizbong.HomeActivity;
 import gamesoftitalia.bizbong.R;
 import gamesoftitalia.bizbong.adapters.CustomThemePagerAdapter;
 import gamesoftitalia.bizbong.entity.Impostazioni;
@@ -128,7 +127,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
                 //costruzine grafici visibii
                 if(punteggi[12]+punteggi[13]==0){                       //controllo presenza dati da rappresentare
-                      /*messaggio impossibile fare statistiche*/
+                    Toast.makeText(view.getContext(),R.string.eccezione_grafico1,Toast.LENGTH_LONG).show();
                 }else {
                     dati1(punteggi);
                     dati2(punteggi);
@@ -180,16 +179,16 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
                 //costruzine grafici visibii
                 //controllo presenza dati da rappresentare tutte e due i grafici
                 if (punteggi[14]+punteggi[15]+punteggi[16]==0&&punteggi[17]+punteggi[18]+punteggi[19]==0){
-                    /*impossibile fare grafici*/
+                                    Toast.makeText(view.getContext(),R.string.eccezione_grafico4,Toast.LENGTH_LONG).show();
                     //controllo presenza dati da rappresentare grafico 1
                 }else if (punteggi[14]+punteggi[15]+punteggi[16]!=0&&punteggi[17]+punteggi[18]+punteggi[19]==0) {
                                                                 dati3(punteggi);
-                                                                /*messaggio impossibile rappresentare grafico 2*/
+                                                                Toast.makeText(view.getContext(),R.string.eccezione_grafico3,Toast.LENGTH_LONG).show();
                       }
                     //controllo presenza dati da rappresentare  grafico 2
                     else if (punteggi[17]+punteggi[18]+punteggi[19]!=0&&punteggi[14]+punteggi[15]+punteggi[16]==0) {
                                                            dati4(punteggi);
-                                                           /*messaggio impossibile rappresentare grafico 1*/
+                                                           Toast.makeText(view.getContext(),R.string.eccezione_grafico2,Toast.LENGTH_LONG).show();
                     }
                           else {
                               dati3(punteggi);
@@ -268,8 +267,8 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         int itemCount=0;
         int items[]={storia,geografia,sport,scienze,cinema,matematica,
                      logica,videogames,informatica,cartoni,arte,musica};
-        int colors[]={Color.YELLOW,Color.GREEN,Color.MAGENTA,Color.BLUE, Color.RED, Color.BLACK,
-                      Color.CYAN,Color.GRAY,Color.LTGRAY,Color.parseColor("#636161"),Color.parseColor("#9966CC"),Color.parseColor("#003300")};
+        int colors[]={Color.parseColor("#EB327C"),Color.parseColor("#347C1A"),Color.parseColor("#BF8AC2"),Color.parseColor("#C3FFA1"), Color.parseColor("#FF1300"), Color.parseColor("#FFF910"),
+                      Color.parseColor("#7F0037"),Color.parseColor("#54FF00"),Color.parseColor("#00FFFF"),Color.parseColor("#49C9A4"),Color.parseColor("#0094FF"),Color.parseColor("#D78C46")};
         for(int i=0;i<items.length;i++) {
             itemCount=items[i];
             item=new Attributi_grafico();
@@ -304,8 +303,21 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         l.setVisibility(View.VISIBLE);
 
         //Array
-        imageProfile = new int[]{R.drawable.materia, R.drawable.icon_sudoku, R.drawable.icon_tris};
-        percentuali =new String[]{""+mus,""+sto,""+cin};
+        if (entity.getLingua().equals("ita"))
+                   imageProfile = new int[]{R.drawable.img_sto_ita, R.drawable.img_geo_ita, R.drawable.img_spo_ita, R.drawable.img_sci_ita, R.drawable.img_cin_ita, R.drawable.img_mat_ita,
+                                            R.drawable.img_log_ita, R.drawable.img_vid_ita, R.drawable.img_inf_ita, R.drawable.img_car_ita, R.drawable.img_art_ita, R.drawable.img_mus_ita,};
+            else if (entity.getLingua().equals("eng"))
+                                imageProfile = new int[]{R.drawable.img_sto_eng, R.drawable.img_geo_eng, R.drawable.img_spo_eng, R.drawable.img_sci_eng, R.drawable.img_cin_eng, R.drawable.img_mat_eng,
+                                                         R.drawable.img_log_eng, R.drawable.img_vid_eng, R.drawable.img_inf_eng, R.drawable.img_car_eng, R.drawable.img_art_eng, R.drawable.img_mus_eng,};
+                 else if (entity.getLingua().equals("ukr"))
+                                        imageProfile = new int[]{R.drawable.img_sto_ukr, R.drawable.img_geo_ukr, R.drawable.img_spo_ukr, R.drawable.img_sci_ukr, R.drawable.img_cin_ukr, R.drawable.img_mat_ukr,
+                                                                 R.drawable.img_log_ukr, R.drawable.img_vid_ukr, R.drawable.img_inf_ukr, R.drawable.img_car_ukr, R.drawable.img_art_ukr, R.drawable.img_mus_ukr,};
+                       else
+                            imageProfile = new int[]{R.drawable.img_sto_ita, R.drawable.img_geo_ita, R.drawable.img_spo_ita, R.drawable.img_sci_ita, R.drawable.img_cin_ita, R.drawable.img_mat_ita,
+                                                     R.drawable.img_log_ita, R.drawable.img_vid_ita, R.drawable.img_inf_ita, R.drawable.img_car_ita, R.drawable.img_art_ita, R.drawable.img_mus_ita,};
+
+        percentuali =new String[]{""+sto+"%",""+geo+"%",""+spo+"%",""+sci+"%",""+cin+"%",""+mat+"%",
+                                  ""+log+"%",""+vid+"%",""+inf+"%",""+car+"%",""+art+"%",""+mus+"%",};
 
         // ViewPager
         viewPagerLegenda1 = (ViewPager) view.findViewById(R.id.viewPagerLegenda1);
@@ -341,7 +353,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         int maxCount=0;
         int itemCount=0;
         int items[]={classica,bizbong};
-        int colors[]={Color.YELLOW,Color.GREEN};
+        int colors[]={Color.parseColor("#8CC3FF"),Color.parseColor("#FF3111")};
         for(int i=0;i<items.length;i++) {
             itemCount=items[i];
             item=new Attributi_grafico();
@@ -376,8 +388,16 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         l.setVisibility(View.VISIBLE);
 
         //Array
-        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku};
-        percentuali =new String[]{""+cla,""+bb};
+        if (entity.getLingua().equals("ita"))
+                    imageProfile = new int[]{R.drawable.img_cc_ita, R.drawable.img_bb_ita};
+        /*else if (entity.getLingua().equals("eng"))
+                            imageProfile = new int[]{R.drawable.img_cc_eng, R.drawable.img_bb_eng};
+        else if (entity.getLingua().equals("ukr"))
+                                imageProfile = new int[]{R.drawable.img_cc_ukr, R.drawable.img_bb_ukr};*/
+        else
+            imageProfile = new int[]{R.drawable.img_cc_ita, R.drawable.img_bb_ita};
+
+        percentuali =new String[]{""+cla+"%",""+bb+"%"};
 
         // ViewPager
         viewPagerLegenda2 = (ViewPager) view.findViewById(R.id.viewPagerLegenda2);
@@ -418,7 +438,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         int maxCount=0;
         int itemCount=0;
         int items[]={facile,medio,difficile};
-        int colors[]={Color.YELLOW,Color.GREEN,Color.BLUE};
+        int colors[]={Color.parseColor("#0094FF"),Color.parseColor("#87FF93"),Color.parseColor("#FF9366")};
         for(int i=0;i<items.length;i++) {
             itemCount=items[i];
             item=new Attributi_grafico();
@@ -452,8 +472,16 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         l.setVisibility(View.VISIBLE);
 
         //Array
-        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
-        percentuali =new String[]{""+f,""+m,""+d};
+        if (entity.getLingua().equals("ita"))
+            imageProfile = new int[]{R.drawable.img_su2x2f_ita, R.drawable.img_su2x2m_ita, R.drawable.img_su2x2d_ita};
+        /*else if (entity.getLingua().equals("eng"))
+                             imageProfile = new int[]{R.drawable.img_su2x2f_eng, R.drawable.img_su2x2m_eng, R.drawable.img_su2x2d_eng};
+        else if (entity.getLingua().equals("ukr"))
+                                 imageProfile = new int[]{R.drawable.img_su2x2f_ukr, R.drawable.img_su2x2m_ukr, R.drawable.img_su2x2d_ukr};*/
+        else
+            imageProfile = new int[]{R.drawable.img_su2x2f_ita, R.drawable.img_su2x2m_ita, R.drawable.img_su2x2d_ita};
+
+        percentuali =new String[]{""+f+"%",""+m+"%",""+d+"%"};
 
         // ViewPager
         viewPagerLegenda3 = (ViewPager) view.findViewById(R.id.viewPagerLegenda3);
@@ -494,7 +522,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         int maxCount=0;
         int itemCount=0;
         int items[]={facile,medio,difficile};
-        int colors[]={Color.YELLOW,Color.GREEN,Color.BLUE};
+        int colors[]={Color.parseColor("#FF8142"),Color.parseColor("#5FFF47"),Color.parseColor("#BF72FF")};
         for(int i=0;i<items.length;i++) {
             itemCount=items[i];
             item=new Attributi_grafico();
@@ -528,8 +556,16 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         l.setVisibility(View.VISIBLE);
 
         //Array
-        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
-        percentuali =new String[]{""+f,""+m,""+d};
+        if (entity.getLingua().equals("ita"))
+            imageProfile = new int[]{R.drawable.img_su3x3f_ita, R.drawable.img_su2x2m_ita, R.drawable.img_su2x2d_ita};
+        /*else if (entity.getLingua().equals("eng"))
+                             imageProfile = new int[]{R.drawable.img_su3x3f_eng, R.drawable.img_su3x3m_eng, R.drawable.img_su3x3d_eng};
+        else if (entity.getLingua().equals("ukr"))
+                                 imageProfile = new int[]{R.drawable.img_su3x3f_ukr, R.drawable.img_su3x3m_ukr, R.drawable.img_su3x3d_ukr};*/
+        else
+            imageProfile = new int[]{R.drawable.img_su2x2f_ita, R.drawable.img_su2x2m_ita, R.drawable.img_su2x2d_ita};
+
+        percentuali =new String[]{""+f+"%",""+m+"%",""+d+"%"};
 
         // ViewPager
         viewPagerLegenda4 = (ViewPager) view.findViewById(R.id.viewPagerLegenda4);

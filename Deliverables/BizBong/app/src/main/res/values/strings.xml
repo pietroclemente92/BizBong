@@ -1,8 +1,34 @@
 <resources>
     <string name="app_name">BizBong</string>
-    <string name="creaprofilo">aaaa</string>
+    <string name="creaprofilo">CreaProfilo</string>
     <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
     <string name="classifica_prompt">Seleziona la modalità</string>
+    <string name="eccezione_grafico1">Non ci sono abbastanza dati per elaborare il grafico BizBong</string>
+    <string name="eccezione_grafico2">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong 2X2</string>
+    <string name="eccezione_grafico3">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong 3X3</string>
+    <string name="eccezione_grafico4">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong </string>
+
+    <string name="email" >Digita new Email</string>
+    <string name="password" >Digita new Password</string>
+    <string name="ripeti" >Ripeti Password</string>
+
+    <string name="profilo" >Profilo</string>
+    <string name="modifica" >Modifica</string>
+    <string name="punteggio" >Punteggio: 0</string>
+    <string name="credenziali" >Inserisci le tue credenziali</string>
+    <string name="audio" >Audio</string>
+    <string name="effetti" >Effetti</string>
+    <string name="vibrazione" >Vibrazione</string>
+    <string name="impostazioni" >Impostazioni</string>
+    <string name="accedi" >Accedi</string>
+    <string name="nuovapartita" >Nuova Partita</string>
+    <string name="modalitagioco" >Modalità di gioco</string>
+    <string name="challenge" >Challenge</string>
+    <string name="classica" >classica</string>
+    <string name="gioco" >Seleziona una delle modalità proposte e sfida i tuoi amici</string>
+    <string name="giocaadesso" >Gioca Adesso</string>
+   
+
 
 
     <!-- Lista contente le lingue supportate dal sistema-->

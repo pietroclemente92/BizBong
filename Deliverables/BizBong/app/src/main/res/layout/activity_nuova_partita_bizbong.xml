@@ -19,7 +19,7 @@
             android:layout_height="90px"
             android:background="@drawable/ic_back"/>
         <TextView
-            android:text="Nuova Partita"
+            android:text="@string/nuovapartita"
             android:textSize="14pt"
             android:textStyle="bold"
             android:textColor="@color/blackText"
@@ -35,7 +35,7 @@
         android:padding="30dp"
         android:layout_marginTop="50dp">
         <TextView
-            android:text="Modalità di gioco"
+            android:text="@string/modalitagioco"
             android:textStyle="bold"
             android:textSize="12pt"
             android:textColor="@color/whiteText"
@@ -48,7 +48,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
             <Button
-                android:text="Classica"
+                android:text="@string/classica"
                 android:id="@+id/classicaButton"
                 android:textStyle="bold"
                 android:textSize="9pt"
@@ -59,7 +59,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"/>
             <Button
-                android:text="Challenge"
+                android:text="@string/challenge"
                 android:id="@+id/challengeButton"
                 android:textStyle="bold"
                 android:textSize="9pt"
@@ -71,7 +71,7 @@
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
         <TextView
-            android:text="Seleziona una delle modalità proposte e sfida i tuoi amici"
+            android:text="@string/gioco"
             android:textStyle="bold"
             android:textSize="5pt"
             android:textColor="@color/whiteText"
@@ -80,7 +80,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"/>
         <Button
-            android:text="Gioca Adesso"
+            android:text="@string/giocaadesso"
             android:id="@+id/giocaAdesso"
             android:textStyle="bold"
             android:textSize="9pt"

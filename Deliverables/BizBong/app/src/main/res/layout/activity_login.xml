@@ -19,7 +19,7 @@
             android:layout_height="90px"
             android:background="@drawable/ic_back"/>
         <TextView
-            android:text="Login"
+            android:text="@string/accedi"
             android:textSize="16pt"
             android:textColor="@color/blackText"
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             android:orientation="vertical"
             android:padding="30dp">
             <TextView
-                android:text="Inserisci le tue credenziali"
+                android:text="@string/credenziali"
                 android:textStyle="bold"
                 android:textSize="12pt"
                 android:textColor="@color/whiteText"

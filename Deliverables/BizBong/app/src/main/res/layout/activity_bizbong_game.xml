@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/punteggio"
-            android:text="Punteggio: 0"
+            android:text="@string/punteggio"
             android:textSize="7pt"
             android:textStyle="bold"
             android:textColor="@color/blackText"
