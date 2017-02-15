@@ -56,26 +56,26 @@ public class ClassificaFragment extends android.support.v4.app.Fragment {
 
         // Spinner
         ArrayList<ItemDataSpinner> list=new ArrayList<>();
-        list.add(new ItemDataSpinner(array[0],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[1],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[2],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[3],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[4],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[5],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[6],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[7],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[8],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[9],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[10],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[11],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[12],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[13],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[14],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[15],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[16],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[17],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[18],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[19],R.mipmap.ita));
+        list.add(new ItemDataSpinner(array[0],R.mipmap.tema3));
+        list.add(new ItemDataSpinner(array[1],R.mipmap.tema4));
+        list.add(new ItemDataSpinner(array[2],R.mipmap.tema5));
+        list.add(new ItemDataSpinner(array[3],R.mipmap.tema6));
+        list.add(new ItemDataSpinner(array[4],R.mipmap.tema7));
+        list.add(new ItemDataSpinner(array[5],R.mipmap.tema1));
+        list.add(new ItemDataSpinner(array[6],R.mipmap.tema2));
+        list.add(new ItemDataSpinner(array[7],R.mipmap.tema8));
+        list.add(new ItemDataSpinner(array[8],R.mipmap.tema9));
+        list.add(new ItemDataSpinner(array[9],R.mipmap.tema10));
+        list.add(new ItemDataSpinner(array[10],R.mipmap.tema11));
+        list.add(new ItemDataSpinner(array[11],R.mipmap.tema0));
+        list.add(new ItemDataSpinner(array[12],R.mipmap.tema13));
+        list.add(new ItemDataSpinner(array[13],R.mipmap.tema13));
+        list.add(new ItemDataSpinner(array[14],R.mipmap.tema12));
+        list.add(new ItemDataSpinner(array[15],R.mipmap.tema12));
+        list.add(new ItemDataSpinner(array[16],R.mipmap.tema12));
+        list.add(new ItemDataSpinner(array[17],R.mipmap.tema12));
+        list.add(new ItemDataSpinner(array[18],R.mipmap.tema12));
+        list.add(new ItemDataSpinner(array[19],R.mipmap.tema12));
 
 
 

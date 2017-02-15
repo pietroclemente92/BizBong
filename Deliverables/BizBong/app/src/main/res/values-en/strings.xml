@@ -1,4 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="creaprofilo">Sign in</string>
+    <string name="creaprofilo">Sign up</string>
+    <string name="accedi">Sign in</string>
+    <string name="app_name">BizBong</string>
+    <string name="attendi">Wait...</string>
+    <string name="audio">Audio</string>
+    <string name="avanti">Forward</string>
+    <string name="challenge">Challenge</string>
+    <string name="classica">Classic</string>
+    <string name="classifica1">Choose between these modalities and view top players</string>
+    <string name="classifica_prompt">Choose modality</string>
+    <string name="conferma">Yes</string>
+    <string name="congratulazioni">Congratulations</string>
+    <string name="credenziali">Insert your credentials</string>
+    <string name="difficile">Hard</string>
+    <string name="domanda">Close the application?</string>
+    <string name="eccezione_grafico1">There is no enough data to elaborate BizBong graphic</string>
+    <string name="eccezione_grafico2">There is no enough data to elaborate SudoBizBong2X2 graphic</string>
+    <string name="eccezione_grafico3">There is no enough data to elaborate SudoBizBong3X3 graphic</string>
+    <string name="eccezione_grafico4">There is no enough data to elaborate SudoBizBong graphic</string>
+    <string name="effetti">Effects</string>
+    <string name="email">Type new Email</string>
+    <string name="erroremail">Error Email: This Email isn\'t suitable</string>
+    <string name="errorempty">Error Empty: Inserted credentials aren\'t appropriate. Start over</string>
+    <string name="errorenickname">Error Nickname: Inserted nickname hasn\'t appropriate length(Min 5, Max 16).</string>
+    <string name="errorpassword">Error Password: Inserted password isn\'t appropriate(has to contain one uppercase letter, one lowercase letter, a number and alfanumeric character).</string>
+    <string name="facile">Easy</string>
+    <string name="fineSudop">You lost.</string>
+    <string name="fineSudov1">Congratuations! You won.</string>
+    <string name="fineSudov2">Your score is:</string>
+    <string name="giocaadesso">Play now</string>
+    <string name="gioco">Choose one of these modalities and challenge your friends</string>
+    <string name="giocosudo1">Choose one of these 2x2 modalities</string>
+    <string name="giocosudo2">Choose one of these 3x3 modalities</string>
+    <string name="giocotris">Choose one of these modalities</string>
+    <string name="home1">Choose one of these modalities</string>
+    <string name="home2">(you can click on arrow or select with touch)</string>
+    <string name="impostazioni">Settings</string>
+    <string name="inziog">Play</string>
+    <string name="inziogb">Play Bizbong Wait...</string>
+    <string name="inziogo">Play guest Wait...</string>
+    <string name="medio">Medium</string>
+    <string name="modalitagioco">Game modality</string>
+    <string name="modifica">Change</string>
+    <string name="moneta">Choose one of the coin\'s sides to find, who is first to play</string>
+    <string name="mossa">Do your move</string>
+    <string name="nonconferma">No</string>
+    <string name="nuovapartita">New game</string>
+    <string name="pareggio">Draw</string>
+    <string name="password">Type new password</string>
+    <string name="profilo">Profile</string>
+    <string name="punteggio">Score: 0</string>
+    <string name="punteggio2">Score:</string>
+    <string name="punti">Score:</string>
+    <string name="rigioca">Play again</string>
+    <string name="rigiocare">Want to play again?</string>
+    <string name="ripeti">Repeat the password</string>
+    <string name="scegli">Choose one of these modalities to start a game!</string>
+    <string name="t2x2d">SudoBizBong 2X2 Hard</string>
+    <string name="t2x2f">SudoBizBong 2X2 Easy</string>
+    <string name="t2x2m">SudoBizBong 2X2 Medium</string>
+    <string name="t3x3d">SudoBizBong 3X3 Hard</string>
+    <string name="t3x3f">SudoBizBong 3X3 Easy</string>
+    <string name="t3x3m">SudoBizBong 3X3 Medium</string>
+    <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
+    <string name="turno">Turn</string>
+    <string name="turnob">Wait BizBong\'s turn...</string>
+    <string name="turnoospite">Guest\'s turn, do your move!</string>
+    <string name="vibrazione">Vibration</string>
+    <string name="vince">Won</string>
+    <string name="vinceb">BizBong won</string>
+    <string name="vinceo">Guest won</string>
+    <string name="vospite">Vs Guest</string>
+
+
+
+    <!-- Lista contente le lingue supportate dal sistema-->
+    <string-array name="lingua_arrays">
+        <item>Italian</item>
+        <item>English</item>
+        <item>Ukrainian</item>
+    </string-array>
+
+
+
+    <!-- Lista contente le modalita di gioco inserite-->
+    <string-array name="classifica_arrays">
+        <item>Videogames</item>
+        <item>Logic</item>
+        <item>Informatics</item>
+        <item>Maths</item>
+        <item>Sport</item>
+        <item>Arts</item>
+        <item>History</item>
+        <item>Music</item>
+        <item>Geography</item>
+        <item>Cinema and theater</item>
+        <item>Science</item>
+        <item>Cartoons and TV Shows</item>
+        <item>Classic</item>
+        <item>BizBong</item>
+        <item>2x2f</item>
+        <item>2x2m</item>
+        <item>2x2d</item>
+        <item>3x3f</item>
+        <item>3x3m</item>
+        <item>3x3d</item>
+    </string-array>
+
 </resources>

@@ -148,6 +148,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                         if(indexClassica == 1 || indexMultipla == 1){
                             //if (Locale.getDefault().getISO3Language()=="ita")
                             String lingua = entity.getLingua();
+                            Log.d("DEBUG:", lingua);
                             if(!lingua.equals("ita") && !lingua.equals("eng") && !lingua.equals("ukr"))
                                 new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, "ita");
                             else

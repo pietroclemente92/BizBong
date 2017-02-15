@@ -38,9 +38,9 @@
     <string name="domanda" >Vuoi chiudere l app?</string>
     <string name="conferma" >Si</string>
     <string name="nonconferma" >No</string>
-    <string name="classifica1" >Seleziona una delle modalità proposte e scopri i classificati</string>
+    <string name="classifica1" >Seleziona una delle modalità proposte e visualizza i classificati</string>
     <string name="home1" >Seleziona una delle modalità proposte</string>
-    <string name="home2" >(puoi cliccare sulle frecce o solezionare via touch)</string>
+    <string name="home2" >(puoi cliccare sulle frecce o selezionare via touch)</string>
     <string name="errorempty" >Error Empty: Non sono state inserite le credenziali opportune. Riprovare</string>
     <string name="errorenickname" >Error Nickname: Il nickname inserito non ha lunghezza idonea(Min 5, Max 16).</string>
     <string name="erroremail" >Error Email:  L\'email inserita non è idonea.</string>
@@ -71,12 +71,18 @@
     <string name="vince" >Vince </string>
     <string name="vinceo" >Vince ospite</string>
     <string name="moneta" > scegli una faccia della moneta per stabilire chi inzia a giocare</string>
-    <string name="inziog" >Inzia a giocare </string>
+    <string name="inziog" >Inizia a giocare</string>
     <string name="attendi" >   Attendi...</string>
     <string name="inziogo" >Inzia a giocare l\'ospite   Attendi...</string>
     <string name="inziogb" >Inzia a giocare BizBong   Attendi...</string>
     <string name="scegli" >Selezionare una delle modalità proposte per avviare la partita!</string>
     <string name="vospite" >Vs Ospite</string>
+
+    <string name="scelta" >Scelta turno</string>
+
+
+    <string name="continua" > Continua a giocare </string>
+    <string name="rhome" > Ritorna alla Home </string>
 
 
 

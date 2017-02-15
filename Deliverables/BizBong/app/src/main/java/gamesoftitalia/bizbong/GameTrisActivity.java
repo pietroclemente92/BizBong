@@ -899,7 +899,7 @@ public class GameTrisActivity extends AppCompatActivity {
         t.setText(s);
 
         ImageView image = (ImageView) fine.findViewById(R.id.image);
-        image.setImageResource(R.drawable.go);
+        image.setImageResource(R.drawable.icon_tris);
 
         Button dialogButtonRigioca = (Button) fine.findViewById(R.id.dialogButtonOK);
         Button dialogButtonNo = (Button) fine.findViewById(R.id.dialogButtonNO);

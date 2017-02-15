@@ -183,8 +183,6 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         TextView c= (TextView) inizio.findViewById(R.id.text);
         c.setText(corpo);
 
-        ImageView image = (ImageView) inizio.findViewById(R.id.image);
-        image.setImageResource(R.drawable.go);
 
         Button dialogButtonGioca = (Button) inizio.findViewById(R.id.dialogButtonOK);
         Button dialogButtonNo = (Button) inizio.findViewById(R.id.dialogButtonNO);
@@ -302,7 +300,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         c.setText(corpo);
 
         ImageView image = (ImageView) fine.findViewById(R.id.image);
-        image.setImageResource(R.drawable.go);
+        image.setImageResource(R.mipmap.tema12);
 
         Button dialogButtonRigioca = (Button) fine.findViewById(R.id.dialogButtonOK);
         Button dialogButtonNo = (Button) fine.findViewById(R.id.dialogButtonNO);
@@ -431,7 +429,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         numbers = new int[n];
         UniqueRandom random = new UniqueRandom();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(9);
+            numbers[i] = random.nextInt(12);
         }
     }
 
@@ -444,7 +442,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             bi = (ImageButton) findViewById(getResources().getIdentifier(strFlag, null, getPackageName()));
             ListaButton.add(bi);
             if (matrice[i/n][i%n] != -1) {
-                String pathName = "@mipmap/a" +numbers[matrice[i/n][i%n]] ;               // se metto matrice[i/n][i%n]colore caselle matrice vengono presi dalla matrice quindi sono sempre quelli
+                String pathName = "@mipmap/soluzione" +numbers[matrice[i/n][i%n]] ;               // se metto matrice[i/n][i%n]colore caselle matrice vengono presi dalla matrice quindi sono sempre quelli
                 ListaButton.get(i).setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 ListaButton.get(i).setEnabled(false);  //mettere qualcosa di diverso (robba grafica cambiare mipmap ) per segnalare che nn può essere modificato traccia
             }
@@ -458,10 +456,10 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
     private void selezionaCasellaSudoku(final int n) {
         for(int i = 0; i < ListaButton.size(); i++){
             final int index=i;                    /****/
-            ListaButton.get(i).setOnClickListener(new View.OnClickListener() {
+            ListaButton.get(index).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //listaButton.get(i)gli setto l'immagne per segnalare il click dell'utente
+                    ListaButton.get(index).setBackgroundResource(R.drawable.button_modalita_true);
 
                     //attivo le possibili scelte dell utente
                     for (int j = 0; j < n; j++)
@@ -479,7 +477,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             String strFlag = "@id/" + "u" + i;
             bi = (ImageButton) findViewById(getResources().getIdentifier(strFlag, null, getPackageName()));
             ListaButtonUtente.add(bi);
-            String pathName = "@mipmap/a" +numbers[i] ;
+            String pathName = "@mipmap/tema" +numbers[i] ;
             ListaButtonUtente.get(i).setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
             ListaButtonUtente.get(i).setEnabled(false);
         }
@@ -492,8 +490,9 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             ListaButtonUtente.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String pathName = "@mipmap/a" + numbers[index];
+                    String pathName = "@mipmap/tema" + numbers[index];
                     ListaButton.get(x).setImageResource(getResources().getIdentifier(pathName, null, getPackageName())); //inserimento sudoku grafico
+                    ListaButton.get(x).setBackgroundColor(0x00000000);
                     matrice[x / n][x % n] = index;     //assegno valore alla matrice sudoku
 
                     for (int i = 0; i < n; i++)
