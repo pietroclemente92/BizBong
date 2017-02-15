@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -34,15 +35,17 @@ public class ProfiloActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private ImageButton backButton;
     private int [] imageProfile;
+    private String[] imageProfileArray;
     private ViewPager  viewPagerProfile;
     private Impostazioni entity;
     private Button leftButton, rightButton;
 
 
-    private EditText modificaNicknameTextView, modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
+    private EditText modificaEmailTextView, modificaPasswordTextView, confermaPasswordTextView;
     private ImageButton modificaImageButton;
     private Button modificaButton;
 
+    private Profilo profilo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,7 @@ public class ProfiloActivity extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        final Profilo profilo = new Gson().fromJson(profiloGson, Profilo.class);
+        profilo = new Gson().fromJson(profiloGson, Profilo.class);
         // Log.d("DEBUG:", "Value-->"+profilo.getStatistiche().getPunteggiList()[0]);
 
 
@@ -99,7 +102,8 @@ public class ProfiloActivity extends AppCompatActivity {
         modificaPasswordTextView = (EditText) findViewById(R.id.modificaPassword);
         confermaPasswordTextView = (EditText) findViewById(R.id.confermaPassword);
 
-        imageProfile = new int[]{R.drawable.icon_bizbong, R.drawable.icon_sudoku, R.drawable.icon_tris};
+        imageProfile = new int[]{R.drawable.ic_profile, R.drawable.ic_profile_ragazza, R.drawable.ic_profile_anziano};
+        imageProfileArray = new String[]{"ic_profile", "ic_profile_ragazza", "ic_profile_anziano"};
 
         // ViewPager
         viewPagerProfile = (ViewPager) findViewById(R.id.viewPagerProfile);
@@ -130,6 +134,8 @@ public class ProfiloActivity extends AppCompatActivity {
 
         //ImageButton
         modificaImageButton = (ImageButton) findViewById(R.id.image_profile);
+        String pathName = "@drawable/"+profilo.getImgProfilo();
+        modificaImageButton.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
         modificaImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -164,17 +170,24 @@ public class ProfiloActivity extends AppCompatActivity {
                 String tmpModificaEmail = modificaEmailTextView.getText().toString();
                 String tmpModificaPassword = modificaPasswordTextView.getText().toString();
                 String tmpConfermaPassword = confermaPasswordTextView.getText().toString();
+                String tmpImageProfilo = imageProfileArray[viewPagerProfile.getCurrentItem()];
 
-                if(tmpModificaEmail.length() > 0) {
-                    profilo.setEmail(tmpModificaEmail);
-                    ricaricaProfilo(tmpModificaEmail);
+                if(tmpModificaEmail.trim().length() > 0 || tmpModificaPassword.trim().length() > 0 || !profilo.getImgProfilo().equals(tmpImageProfilo)){
+                    if(tmpModificaEmail.trim().length() > 0)
+                        profilo.setEmail(tmpModificaEmail);
+
+                    if(tmpModificaPassword.trim().length() > 0 && tmpConfermaPassword.trim().length() > 0 && tmpModificaPassword.equals(tmpConfermaPassword))
+                        profilo.setPassword(tmpModificaPassword);
+
+                    if(!profilo.getImgProfilo().equals(imageProfileArray[viewPagerProfile.getCurrentItem()]))
+                        profilo.setImgProfilo(tmpImageProfilo);
+
+                    String modificaProfilo = new Gson().toJson(profilo, Profilo.class);
+                    new ModificaProfiloAsync(context).execute(modificaProfilo);
+                    ricaricaProfilo();
+                } else {
+                    Toast.makeText(context, "Non è possibile eseguire la modifica profilo(Inserire almeno un campo oportuno)", Toast.LENGTH_LONG).show();
                 }
-                if(tmpModificaPassword.length() > 0 && tmpModificaPassword.equals(tmpConfermaPassword))
-                    profilo.setPassword(tmpModificaPassword);
-
-                String modificaProfilo = new Gson().toJson(profilo, Profilo.class);
-                // Log.d("DEBUG:", "GSON-->"+modificaProfilo);
-                new ModificaProfiloAsync(context).execute(modificaProfilo);
             }
         });
     }
@@ -184,8 +197,10 @@ public class ProfiloActivity extends AppCompatActivity {
 
     }
 
-    private void ricaricaProfilo(String newEmail){
-        emailText.setText("Email: "+newEmail);
-        modificaEmailTextView.setHint(newEmail);
+    private void ricaricaProfilo(){
+        emailText.setText("Email: "+profilo.getEmail());
+        modificaEmailTextView.setHint(profilo.getEmail());
+        String pathName = "@drawable/"+profilo.getImgProfilo();
+        modificaImageButton.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
     }
 }

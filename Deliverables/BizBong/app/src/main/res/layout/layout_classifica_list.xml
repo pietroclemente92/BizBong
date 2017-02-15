@@ -10,7 +10,7 @@
         android:id="@+id/classifica_posizione"
         android:text="1"
         android:textSize="12pt"
-        android:textColor="@color/blackText"
+        android:textColor="@color/whiteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"/>
@@ -27,7 +27,7 @@
         android:id="@+id/classifica_nickname"
         android:text="Test"
         android:textSize="12pt"
-        android:textColor="@color/blackText"
+        android:textColor="@color/whiteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"/>
@@ -35,7 +35,7 @@
         android:id="@+id/classifica_punteggio"
         android:text="1000"
         android:textSize="12pt"
-        android:textColor="@color/blackText"
+        android:textColor="@color/whiteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"/>

@@ -44,7 +44,7 @@
 
                 <ImageButton
                     android:id="@+id/image_profile"
-                    android:background="@mipmap/ic_profilo_onepiece"
+                    android:background="#00000000"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"/>
@@ -218,7 +218,7 @@
 
                         <gamesoftitalia.bizbong.adapters.AdapterViewPager
                             android:id="@+id/viewPagerProfile"
-                            android:layout_width="240dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_weight="1" />
