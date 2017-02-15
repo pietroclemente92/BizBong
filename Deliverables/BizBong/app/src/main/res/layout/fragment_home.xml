@@ -39,7 +39,7 @@
         </RelativeLayout>
 
         <TextView
-            android:text="Seleziona una delle modalità proposte"
+            android:text="@string/home1"
             android:textStyle="bold"
             android:textSize="5pt"
             android:textColor="@color/whiteText"
@@ -48,7 +48,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"/>
         <TextView
-            android:text="(puoi cliccare sulle frecce o solezionare via touch)"
+            android:text="@string/home2"
             android:textStyle="bold"
             android:textSize="5pt"
             android:textColor="@color/whiteText"
@@ -59,7 +59,7 @@
 
         <Button
             android:id="@+id/nuovaPartitaButton"
-            android:text="Nuova Partita"
+            android:text="@string/nuovapartita"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:background="@drawable/buttonshape"

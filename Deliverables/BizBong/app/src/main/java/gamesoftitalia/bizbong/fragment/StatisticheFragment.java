@@ -127,7 +127,7 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
 
                 //costruzine grafici visibii
                 if(punteggi[12]+punteggi[13]==0){                       //controllo presenza dati da rappresentare
-                    Toast.makeText(view.getContext(),R.string.eccezione_grafico1,Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(),getResources().getString(R.string.eccezione_grafico1),Toast.LENGTH_LONG).show();
                 }else {
                     dati1(punteggi);
                     dati2(punteggi);

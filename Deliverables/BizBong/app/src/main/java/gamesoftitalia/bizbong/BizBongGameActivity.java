@@ -93,7 +93,7 @@ public class BizBongGameActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
                         punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
-                        punteggioTextView.setText("Punteggio: "+punteggio);
+                        punteggioTextView.setText(getResources().getString(R.string.punteggio2)+" "+punteggio);
                     }
                     for(int j = 0; j < 4; j++){
                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
@@ -183,7 +183,7 @@ public class BizBongGameActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
                             punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
-                            punteggioTextView.setText("Punteggio: "+punteggio);
+                            punteggioTextView.setText(getResources().getString(R.string.punteggio2)+" "+punteggio);
 
                             // Aggiungi punti a statistiche
                             Statistiche statistiche =  profilo.getStatistiche();
@@ -218,13 +218,13 @@ public class BizBongGameActivity extends AppCompatActivity {
 
             // Dialog Views
             TextView congratulazioniText = (TextView) dialogView.findViewById(R.id.congratulazioniText);
-            congratulazioniText.setText("Congratulazioni " + nickname.substring(0, 1).toUpperCase() + nickname.substring(1));
+            congratulazioniText.setText(getResources().getString(R.string.congratulazioni)+" "+ nickname.substring(0, 1).toUpperCase() + nickname.substring(1));
 
             // Punteggio Ottenuto
             Log.d("DEBUG2:", "Modalita->"+profilo.getStatistiche().getModalitaList().length+", Punteggio->"+profilo.getStatistiche().getPunteggiList().length);
 
             TextView punteggioText = (TextView) dialogView.findViewById(R.id.punteggioText);
-            punteggioText.setText("Punteggio: " + punteggio);
+            punteggioText.setText(getResources().getString(R.string.punteggio2)+" "+punteggio);
 
             // AggiornaStatistiche
             String aggiornaProfiloGson = new Gson().toJson(profilo, Profilo.class);

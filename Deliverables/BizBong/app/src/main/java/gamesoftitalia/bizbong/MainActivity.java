@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         else if(entity.getLingua().equals("eng"))
                                           config.locale = Locale.ENGLISH;
              else if (entity.getLingua().equals("ukr")){
-                                             Locale locale = new Locale("uk");
+                                             Locale locale = new Locale("ukr");
                                              Locale.setDefault(locale);
                                              config.locale = locale;
                   }

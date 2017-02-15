@@ -12,7 +12,7 @@
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/loginButton"
-        android:text="Login"
+        android:text="@string/accedi"
         android:background="@drawable/main_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -153,7 +153,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             else
                                 new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, lingua);
                         } else{
-                            Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -453,7 +453,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             intent.putExtra("modalita", modalita);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -495,7 +495,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                 });
 
                 multiButton = (Button) findViewById(R.id.multiButton);
-                multiButton.setText(nickname+" Vs Ospite");
+                multiButton.setText(nickname+" "+getResources().getString(R.string.vospite));
                 multiButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -540,7 +540,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             intent.putExtra("modalita", modalita);
                             startActivity(intent);
                         } else{
-                             Toast.makeText(NuovaPartitaActivity.this, "Selezionare una delle modalità proposte per avviare la partita!", Toast.LENGTH_SHORT).show();
+                             Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

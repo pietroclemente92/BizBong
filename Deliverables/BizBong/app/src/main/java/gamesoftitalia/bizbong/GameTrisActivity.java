@@ -48,22 +48,22 @@ public class GameTrisActivity extends AppCompatActivity {
             creacampo();
             player=1;
             computer=0;
-            mano.setText("Turno "+nickname+" fai la tua mossa...");
+            mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
         }
         if(modalita.equals("2")){
             creacampo();
             player=0;
             computer=1;
-            mano.setText("Attendere turno BizBong...");
+            mano.setText(getResources().getString(R.string.turnob));
             gioco_computer();
         }
         if (modalita.equals("3")){
             creacampo();
             if (singolo==0){
-                mano.setText("Turno "+nickname+" fai la tua mossa...");
+                mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
             }
             else{
-                mano.setText("Turno ospite fai la tua mossa...");
+                mano.setText(getResources().getString(R.string.turnoospite));
             }
         }
 
@@ -101,13 +101,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     casella1_1x();
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno ospite fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella1_1o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b1.setEnabled(false);
             inserimento_array(0);
@@ -137,13 +137,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella2_2o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b2.setEnabled(false);
             inserimento_array(1);
@@ -173,13 +173,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella3_3o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b3.setEnabled(false);
             inserimento_array(2);
@@ -209,14 +209,14 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella4_4o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b4.setEnabled(false);
             inserimento_array(3);
@@ -247,13 +247,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella5_5o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b5.setEnabled(false);
             inserimento_array(4);
@@ -284,13 +284,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella6_6o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b6.setEnabled(false);
             inserimento_array(5);
@@ -321,13 +321,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella7_7o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b7.setEnabled(false);
             inserimento_array(6);
@@ -358,13 +358,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella8_8o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b8.setEnabled(false);
             inserimento_array(7);
@@ -395,13 +395,13 @@ public class GameTrisActivity extends AppCompatActivity {
                     singolo++;
                     TextView mano=(TextView)findViewById(R.id.textView1);
 
-                    mano.setText("Turno ospite fai la tua mossa...");
+                     mano.setText(getResources().getString(R.string.turnoospite));
                 }
                 else{
                     casella9_9o();
                     singolo--;
                     TextView mano=(TextView)findViewById(R.id.textView1);
-                    mano.setText("Turno "+nickname+" fai la tua mossa...");
+                    mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
                 }
             b9.setEnabled(false);
             inserimento_array(8);
@@ -449,19 +449,20 @@ public class GameTrisActivity extends AppCompatActivity {
         }
         if(flag==1){
             /*vittoria computer*/
-            fine_partita("Vince BizBong");
+
+            fine_partita(getResources().getString(R.string.vinceb));
             return;
         }
         if (turno>8&&flag==0) {
             /*pareggio*/
-            fine_partita("Pareggio");
+            fine_partita(getResources().getString(R.string.pareggio));
         }
         return;
     }
 
     private void inserimento_X_O_nel_campo(int computer,int posizione){
         TextView mano=(TextView)findViewById(R.id.textView1);
-        mano.setText("Attendere turno BizBong...");
+        mano.setText(getResources().getString(R.string.turnob));
         counter.start();
         if (computer==0)
             switch(posizione){
@@ -949,12 +950,12 @@ public class GameTrisActivity extends AppCompatActivity {
     private int fine_partita_giocatore(){
         if(vittoria()==8||vittoria()==27){
             /*vittoria giocatore*/
-            fine_partita("Vince "+nickname);
+            fine_partita(getResources().getString(R.string.vince)+" "+ nickname);
             return 1;
         }
         if (turno>8){
             /*pareggio*/
-            fine_partita("Pareggio");
+            fine_partita(getResources().getString(R.string.pareggio));
             return 2;
         }
         return 0;
@@ -965,29 +966,29 @@ public class GameTrisActivity extends AppCompatActivity {
         int s=getIntent().getExtras().getInt("s");
         if (s==0){
             if(vittoria()==8) {
-                fine_partita("Vince " + nickname);
+                fine_partita(getResources().getString(R.string.vince)+" "+ nickname);
                 return;
             }
             if (vittoria()==27) {
-                fine_partita("Vince Ospite");
+                fine_partita(getResources().getString(R.string.vinceo));
                 return;
             }
         }
 
         if (s==1){
             if(vittoria()==8) {
-                fine_partita("Vince Ospite");
+                fine_partita(getResources().getString(R.string.vinceo));
                 return;
             }
             if (vittoria()==27) {
-                fine_partita("Vince " + nickname);
+                fine_partita(getResources().getString(R.string.vince)+" "+nickname);
                 return;
             }
         }
 
         if(turno>8){
             /*pareggio*/
-            fine_partita("Pareggio");
+            fine_partita(getResources().getString(R.string.pareggio));
             return;
         }
         return;
@@ -1093,12 +1094,12 @@ public class GameTrisActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             TextView mano=(TextView)findViewById(R.id.textView1);
-            mano.setText("Turno "+nickname+" fai la tua mossa...");
+            mano.setText(getResources().getString(R.string.turno)+" "+nickname+" "+getResources().getString(R.string.mossa));
         }
         @Override
         public void onTick(long millisUntilFinished) {
             TextView mano=(TextView)findViewById(R.id.textView1);
-            mano.setText("Attendere turno BizBong...");
+            mano.setText(getResources().getString(R.string.turnob));
         }
     }
 }

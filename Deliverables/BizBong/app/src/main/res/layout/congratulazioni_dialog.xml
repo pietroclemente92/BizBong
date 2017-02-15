@@ -19,7 +19,7 @@
         android:padding="30dp">
         <TextView
             android:id="@+id/congratulazioniText"
-            android:text="Congratulazioni"
+            android:text="@string/congratulazioni"
             android:textStyle="bold"
             android:textSize="16pt"
             android:textColor="@color/white"
@@ -29,7 +29,7 @@
             android:layout_gravity="center"/>
         <TextView
             android:id="@+id/punteggioText"
-            android:text="Punti:"
+            android:text="@string/punti"
             android:textStyle="bold"
             android:textSize="12pt"
             android:textColor="@color/white"
@@ -39,7 +39,7 @@
             android:layout_gravity="left"/>
         <Button
             android:id="@+id/avantiButton"
-            android:text="Avanti"
+            android:text="@string/avanti"
             android:textSize="16pt"
             android:textStyle="bold"
             android:layout_width="match_parent"

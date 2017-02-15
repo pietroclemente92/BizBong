@@ -256,7 +256,7 @@
         android:padding="20dp">
 
         <Button
-            android:text="Sfida"
+            android:text="BizBong"
             android:id="@+id/sfida"
             android:textStyle="bold"
             android:textSize="9pt"

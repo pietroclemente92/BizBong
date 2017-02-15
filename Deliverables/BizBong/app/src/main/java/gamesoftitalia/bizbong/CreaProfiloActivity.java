@@ -104,19 +104,19 @@ public class CreaProfiloActivity extends AppCompatActivity {
         boolean flagCreaProfilo = true;
 
         if(nickname.length() < 0 && password.length() < 0) {
-            Toast.makeText(CreaProfiloActivity.this, "Error Empty: Non sono state inserite le credenziali opportune. Riprovare.", Toast.LENGTH_LONG).show();
+            Toast.makeText(CreaProfiloActivity.this, getResources().getString(R.string.errorempty), Toast.LENGTH_LONG).show();
             flagCreaProfilo = false;
         }
         if(nickname.length() > 16 && nickname.length() < 5) {
-            Toast.makeText(CreaProfiloActivity.this, "Error Nickname: Il nickname inserito non ha lunghezza idonea(Min 5, Max 16).", Toast.LENGTH_LONG).show();
+            Toast.makeText(CreaProfiloActivity.this, getResources().getString(R.string.errorenickname), Toast.LENGTH_LONG).show();
             flagCreaProfilo = false;
         }
         if(!email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}")) {
-            Toast.makeText(CreaProfiloActivity.this, "Error Email: L' email inserita non è idonea.", Toast.LENGTH_LONG).show();
+            Toast.makeText(CreaProfiloActivity.this, getResources().getString(R.string.erroremail), Toast.LENGTH_LONG).show();
             flagCreaProfilo = false;
         }
         if(!password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%_-]).{4,16})")) {
-            Toast.makeText(CreaProfiloActivity.this, "Error Password: La password inserita non è idonea(deve contenere una lettera maiuscola, minuscola, numero e un carattaere alfanumerico).", Toast.LENGTH_LONG).show();
+            Toast.makeText(CreaProfiloActivity.this, getResources().getString(R.string.errorpassword), Toast.LENGTH_LONG).show();
             flagCreaProfilo = false;
         }
 

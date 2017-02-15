@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/modalita_gioco_text"
-        android:text="Modalità di gioco"
+        android:text="@string/modalitagioco"
         android:textStyle="bold"
         android:textSize="12pt"
         android:textColor="@color/red"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/modalita_text"
-        android:text="Seleziona una delle modalità proposte e scopri i classificati"
+        android:text="@string/classifica1"
         android:textStyle="bold"
         android:textSize="6pt"
         android:textColor="@color/blackText"

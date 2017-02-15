@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/bar_bizbong"/>
     <TextView
-        android:text="Vuoi chiudere l'app?"
+        android:text="@string/domanda"
         android:textStyle="bold"
         android:textSize="12pt"
         android:textColor="@color/whiteText"
@@ -26,7 +26,7 @@
         android:padding="20dp">
         <Button
             android:id="@+id/yesButton"
-            android:text="Si"
+            android:text="@string/conferma"
             android:textSize="16pt"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_weight="1"/>
         <Button
             android:id="@+id/noButton"
-            android:text="No"
+            android:text="@string/nonconferma"
             android:textSize="16pt"
             android:textStyle="bold"
             android:layout_width="match_parent"

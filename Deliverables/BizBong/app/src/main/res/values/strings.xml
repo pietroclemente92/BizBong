@@ -1,33 +1,82 @@
 <resources>
     <string name="app_name">BizBong</string>
-    <string name="creaprofilo">CreaProfilo</string>
+    <string name="creaprofilo">Crea Profilo</string>
     <string name="title_activity_game_sudo_biz_bong">GameSudoBizBong</string>
     <string name="classifica_prompt">Seleziona la modalità</string>
     <string name="eccezione_grafico1">Non ci sono abbastanza dati per elaborare il grafico BizBong</string>
     <string name="eccezione_grafico2">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong 2X2</string>
     <string name="eccezione_grafico3">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong 3X3</string>
     <string name="eccezione_grafico4">Non ci sono abbastanza dati per elaborare il grafico SudoBizBong </string>
-
     <string name="email" >Digita new Email</string>
     <string name="password" >Digita new Password</string>
     <string name="ripeti" >Ripeti Password</string>
-
     <string name="profilo" >Profilo</string>
     <string name="modifica" >Modifica</string>
     <string name="punteggio" >Punteggio: 0</string>
+    <string name="punteggio2" >Punteggio:</string>
     <string name="credenziali" >Inserisci le tue credenziali</string>
     <string name="audio" >Audio</string>
     <string name="effetti" >Effetti</string>
     <string name="vibrazione" >Vibrazione</string>
     <string name="impostazioni" >Impostazioni</string>
-    <string name="accedi" >Accedi</string>
+    <string name="accedi">Accedi</string>
     <string name="nuovapartita" >Nuova Partita</string>
     <string name="modalitagioco" >Modalità di gioco</string>
     <string name="challenge" >Challenge</string>
     <string name="classica" >classica</string>
     <string name="gioco" >Seleziona una delle modalità proposte e sfida i tuoi amici</string>
     <string name="giocaadesso" >Gioca Adesso</string>
-   
+    <string name="giocosudo1" >Seleziona una delle modalità 2x2 proposte</string>
+    <string name="giocosudo2" >Seleziona una delle modalità 3x3 proposte</string>
+    <string name="facile" >Facile</string>
+    <string name="medio" >Medio</string>
+    <string name="difficile" >Difficile</string>
+    <string name="giocotris" >Seleziona una delle modalità proposte</string>
+    <string name="congratulazioni" >Congratulazioni</string>
+    <string name="punti" >Punti:</string>
+    <string name="avanti" >Avanti</string>
+    <string name="domanda" >Vuoi chiudere l app?</string>
+    <string name="conferma" >Si</string>
+    <string name="nonconferma" >No</string>
+    <string name="classifica1" >Seleziona una delle modalità proposte e scopri i classificati</string>
+    <string name="home1" >Seleziona una delle modalità proposte</string>
+    <string name="home2" >(puoi cliccare sulle frecce o solezionare via touch)</string>
+    <string name="errorempty" >Error Empty: Non sono state inserite le credenziali opportune. Riprovare</string>
+    <string name="errorenickname" >Error Nickname: Il nickname inserito non ha lunghezza idonea(Min 5, Max 16).</string>
+    <string name="erroremail" >Error Email:  L\'email inserita non è idonea.</string>
+    <string name="errorpassword" >Error Password: La password inserita non è idonea(deve contenere una lettera maiuscola, minuscola, numero e un carattaere alfanumerico).</string>
+    <string name="t2x2f" >SudoBizBong 2X2 Facile</string>
+    <string name="c2x2f" >Hai 25 minuti per completare il SudoBizBong</string>
+    <string name="t2x2m" >SudoBizBong 2X2 Medio</string>
+    <string name="c2x2m" >Hai 30 minuti per completare il SudoBizBong</string>
+    <string name="t2x2d" >SudoBizBong 2X2 Difficile</string>
+    <string name="c2x2d" >Hai 40 minuti per completare il SudoBizBong</string>
+    <string name="t3x3f" >SudoBizBong 3X3 Facile</string>
+    <string name="c3x3f" >Hai 25 minuti per completare il SudoBizBong</string>
+    <string name="t3x3m" >SudoBizBong 3X3 Medio</string>
+    <string name="c3x3m" >Hai 30 minuti per completare il SudoBizBong</string>
+    <string name="t3x3d" >SudoBizBong 3X3 Difficile</string>
+    <string name="c3x3d" >Hai 40 minuti per completare il SudoBizBong</string>
+    <string name="fineSudov1" >Complimenti hai vinto!</string>
+    <string name="fineSudov2" >Il tuo punteggio è di: </string>
+    <string name="rigiocare" >Vuoi rigiocare?</string>
+    <string name="fineSudop" >Hai perso.</string>
+    <string name="rigioca" >Rigioca</string>
+    <string name="turno" >Turno </string>
+    <string name="mossa" > fai la tua mossa...</string>
+    <string name="turnob" >Attendere turno BizBong...</string>
+    <string name="turnoospite" >Turno ospite fai la tua mossa...</string>
+    <string name="vinceb" >Vince BizBong</string>
+    <string name="pareggio" >Pareggio</string>
+    <string name="vince" >Vince </string>
+    <string name="vinceo" >Vince ospite</string>
+    <string name="moneta" > scegli una faccia della moneta per stabilire chi inzia a giocare</string>
+    <string name="inziog" >Inzia a giocare </string>
+    <string name="attendi" >   Attendi...</string>
+    <string name="inziogo" >Inzia a giocare l\'ospite   Attendi...</string>
+    <string name="inziogb" >Inzia a giocare BizBong   Attendi...</string>
+    <string name="scegli" >Selezionare una delle modalità proposte per avviare la partita!</string>
+    <string name="vospite" >Vs Ospite</string>
 
 
 

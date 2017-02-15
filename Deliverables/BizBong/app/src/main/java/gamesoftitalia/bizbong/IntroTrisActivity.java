@@ -56,7 +56,7 @@ public class IntroTrisActivity extends AppCompatActivity {
         TextView titolo=(TextView)findViewById(R.id.titolo);
         final ImageButton biz=(ImageButton)findViewById(R.id.biz);
         final ImageButton bong=(ImageButton)findViewById(R.id.bong);
-        titolo.setText(nickname+" scegli una faccia della moneta per stabilire chi inzia a giocare");
+        titolo.setText(nickname+" "+getResources().getString(R.string.moneta));
 
         biz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,12 +113,12 @@ public class IntroTrisActivity extends AppCompatActivity {
                     if(d==scelta_utente) {
                             if (modalita.equals("3"))
                                                    s=0;
-                            inzioTurno.setText("Inzia a giocare " + nickname + "   Attendi...");
+                            inzioTurno.setText(getResources().getString(R.string.inziog)+" "+ nickname+" "+getResources().getString(R.string.attendi));
                     }else if (modalita.equals("3")) {
-                                    inzioTurno.setText("Inzia a giocare l'ospite   Attendi...");
+                                    inzioTurno.setText(getResources().getString(R.string.inziogo));
                                     s=1;
                           }else{
-                             inzioTurno.setText("Inzia a giocare BizBong   Attendi...");
+                             inzioTurno.setText(getResources().getString(R.string.inziogb));
                              modalita="2";
                           }
                 }

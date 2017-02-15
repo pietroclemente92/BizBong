@@ -80,11 +80,12 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
 
     //funzione che gestisce le varie difficoltà tramite lo switch
     private void startSudoBizBong(String mod){
-        String s1="",s2="";
+        String s1="";
+        String s2="";
         switch(mod) {
             case "2x2f":
-                s1 = "SudoBizBong 2X2 Facile";
-                s2 = "Hai 25 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t2x2f);
+                s2 = getResources().getString(R.string.c2x2f);
                 setContentView(R.layout.sudobizbong2x2);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -94,8 +95,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 timer.setText("25:00");
                 break;
             case "2x2m":
-                s1 = "SudoBizBong 2X2 medio";
-                s2 = "Hai 30 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t2x2m);
+                s2 = getResources().getString(R.string.c2x2m);
                 setContentView(R.layout.sudobizbong2x2);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -105,8 +106,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 timer.setText("30:00");
                 break;
             case "2x2d":
-                s1 = "SudoBizBong 2X2 difficile";
-                s2 = "Hai 40 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t2x2d);
+                s2 = getResources().getString(R.string.c2x2d);
                 setContentView(R.layout.sudobizbong2x2);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -116,8 +117,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 timer.setText("40:00");
                 break;
             case "3x3f":
-                s1 = "SudoBizBong 3X3 Facile";
-                s2 = "Hai 25 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t3x3f);
+                s2 = getResources().getString(R.string.c3x3f);
                 setContentView(R.layout.sudobizbong3x3);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -127,8 +128,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 timer.setText("25:00");
                 break;
             case "3x3m":
-                s1 = "SudoBizBong 3X3 medio";
-                s2 = "Hai 30 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t3x3m);
+                s2 = getResources().getString(R.string.c3x3m);
                 setContentView(R.layout.sudobizbong3x3);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -138,8 +139,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 timer.setText("30:00");
                 break;
             case "3x3d":
-                s1 = "SudoBizBong 3X3 difficile";
-                s2 = "Hai 40 minuti per completare il SudoBizBong";
+                s1 = getResources().getString(R.string.t3x3d);
+                s2 = getResources().getString(R.string.c3x3d);
                 setContentView(R.layout.sudobizbong3x3);
                 timer=(TextView)findViewById(R.id.time);
                 tmosse=(TextView)findViewById(R.id.mosse);
@@ -258,8 +259,9 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 SoluzioneSudoBizBong soluzione = new SoluzioneSudoBizBong(sudokuInizio.getDimensione(), creaTraccia(sudokuInizio.getDimensione()), matrice);
                 if (soluzione.getEsito()==true){
                     FineSudoBizBong fs = new FineSudoBizBong(sudokuInizio.getModalita(),Integer.parseInt((String) totmosse.getText()), "" + timer.getText());
-                    String s="Complimenti hai vinto";
-                    String s1="Il tuo punteggio è di:"+fs.getPunteggio()+"vuoi rigiocare?";
+                    String s=getResources().getString(R.string.fineSudov1);
+                    String s1=getResources().getString(R.string.fineSudov2)+" "+fs.getPunteggio()+" "+getResources().getString(R.string.rigiocare);
+
 
                     // Aggiungi punti a statistiche
                     Statistiche statistiche =  profilo.getStatistiche();
@@ -276,8 +278,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                     image.setImageResource(R.drawable.go);*/
                     Dialog_fine(s,s1);
                 } else{
-                    String s="Hai perso";
-                    String s1="Vuoi rigiocare";
+                    String s=getResources().getString(R.string.fineSudop);
+                    String s1=getResources().getString(R.string.rigiocare);
                     //quando perdi settare le stringhe e richiamare metodo*/
                     Dialog_fine(s,s1);
                 }
@@ -289,7 +291,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
     //crea il messaggio che l'utente visualizza a fine partita
     private void Dialog_fine(String titolo,String corpo){
         final Dialog fine= new Dialog(GameSudoBizBongActivity.this);
-        fine.setContentView(R.layout.dialog2);
+        fine.setContentView(R.layout.dialog_fine_sudobizbong);
         fine.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         fine.setCancelable(false);
 
@@ -416,8 +418,8 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                String s="Hai perso";
-                String s1="Vuoi rigiocare";
+                String s=getResources().getString(R.string.fineSudop);
+                String s1=getResources().getString(R.string.rigiocare);
                 Dialog_fine(s,s1);
             }
         }.start();
@@ -429,7 +431,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         numbers = new int[n];
         UniqueRandom random = new UniqueRandom();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(n);
+            numbers[i] = random.nextInt(9);
         }
     }
 
@@ -502,9 +504,11 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
 
                      decrementaMosse();
 
-                    /*vedere quando fare i controlli per fine partita cioè tempo (onfinsh timer) e fine mosse fare if */
+                    /*fine mosse previste */
                     if (n==0){
-                        //scehrmata hai perso
+                        String s=getResources().getString(R.string.fineSudop);
+                        String s1=getResources().getString(R.string.rigiocare);
+                        Dialog_fine(s,s1);
                     }
                 }
             });
