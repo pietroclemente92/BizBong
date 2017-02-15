@@ -54,8 +54,8 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
     private ViewPager  viewPagerLegenda3;
     private ViewPager  viewPagerLegenda4;
 
-
-
+    Button precedente, precedente2, precedente3, precedente4;
+    Button successivo, successivo2, successivo3, successivo4;
 
     private List<Attributi_grafico> piedata=new ArrayList<>(0);
 
@@ -322,6 +322,28 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         // ViewPager
         viewPagerLegenda1 = (ViewPager) view.findViewById(R.id.viewPagerLegenda1);
         viewPagerLegenda1.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
+
+        //Precedente Successivo
+        precedente = (Button) view.findViewById(R.id.precedente);
+        precedente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda1.getCurrentItem() == 0)
+                    viewPagerLegenda1.setCurrentItem(11, true);
+                else
+                    viewPagerLegenda1.setCurrentItem(viewPagerLegenda1.getCurrentItem() - 1, true);
+            }
+        });
+        successivo = (Button) view.findViewById(R.id.successivo);
+        successivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda1.getCurrentItem() == 11)
+                    viewPagerLegenda1.setCurrentItem(0, true);
+                else
+                    viewPagerLegenda1.setCurrentItem(viewPagerLegenda1.getCurrentItem() + 1, true);
+            }
+        });
     }
 
     private void dati2(int punteggi[]){
@@ -403,6 +425,27 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         viewPagerLegenda2 = (ViewPager) view.findViewById(R.id.viewPagerLegenda2);
         viewPagerLegenda2.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
 
+        //Precedente Successivo
+        precedente2 = (Button) view.findViewById(R.id.precedente2);
+        precedente2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda2.getCurrentItem() == 0)
+                    viewPagerLegenda2.setCurrentItem(1, true);
+                else
+                    viewPagerLegenda2.setCurrentItem(viewPagerLegenda2.getCurrentItem() - 1, true);
+            }
+        });
+        successivo2 = (Button) view.findViewById(R.id.successivo2);
+        successivo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda2.getCurrentItem() == 1)
+                    viewPagerLegenda2.setCurrentItem(0, true);
+                else
+                    viewPagerLegenda2.setCurrentItem(viewPagerLegenda2.getCurrentItem() + 1, true);
+            }
+        });
     }
 
 
@@ -486,6 +529,28 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         // ViewPager
         viewPagerLegenda3 = (ViewPager) view.findViewById(R.id.viewPagerLegenda3);
         viewPagerLegenda3.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
+
+        //Precedente Successivo
+        precedente3 = (Button) view.findViewById(R.id.precedente3);
+        precedente3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda3.getCurrentItem() == 0)
+                    viewPagerLegenda3.setCurrentItem(2, true);
+                else
+                    viewPagerLegenda3.setCurrentItem(viewPagerLegenda3.getCurrentItem() - 1, true);
+            }
+        });
+        successivo3 = (Button) view.findViewById(R.id.successivo3);
+        successivo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda3.getCurrentItem() == 2)
+                    viewPagerLegenda3.setCurrentItem(0, true);
+                else
+                    viewPagerLegenda3.setCurrentItem(viewPagerLegenda3.getCurrentItem() + 1, true);
+            }
+        });
     }
 
 
@@ -570,6 +635,28 @@ public class StatisticheFragment extends android.support.v4.app.Fragment{
         // ViewPager
         viewPagerLegenda4 = (ViewPager) view.findViewById(R.id.viewPagerLegenda4);
         viewPagerLegenda4.setAdapter(new CustomThemePagerAdapter(context, imageProfile, percentuali));
+
+        //Precedente Successivo
+        precedente4 = (Button) view.findViewById(R.id.precedente4);
+        precedente4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda4.getCurrentItem() == 0)
+                    viewPagerLegenda4.setCurrentItem(2, true);
+                else
+                    viewPagerLegenda4.setCurrentItem(viewPagerLegenda4.getCurrentItem() - 1, true);
+            }
+        });
+        successivo4 = (Button) view.findViewById(R.id.successivo4);
+        successivo4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewPagerLegenda4.getCurrentItem() == 2)
+                    viewPagerLegenda4.setCurrentItem(0, true);
+                else
+                    viewPagerLegenda4.setCurrentItem(viewPagerLegenda4.getCurrentItem() + 1, true);
+            }
+        });
     }
 
     private double percentuale(double x,double t){
