@@ -2,6 +2,7 @@ package gamesoftitalia.bizbong;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 import gamesoftitalia.bizbong.connessione.ModificaStatisticheAsync;
 import gamesoftitalia.bizbong.connessione.ProfiloAsync;
 import gamesoftitalia.bizbong.entity.BizBong;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 import gamesoftitalia.bizbong.entity.Profilo;
 import gamesoftitalia.bizbong.entity.Statistiche;
 
@@ -41,6 +43,7 @@ public class BizBongGameActivity extends AppCompatActivity {
     private String profiloGson;
     private Profilo profilo;
     private Handler mHandler;
+    Impostazioni entity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,6 @@ public class BizBongGameActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         profilo = new Gson().fromJson(profiloGson, Profilo.class);
-        // Log.d("DEBUG1:", "Modalita->"+profilo.getStatistiche().getModalitaList().length+", Punteggio->"+profilo.getStatistiche().getPunteggiList().length);
 
         // Game's Variables
         punteggio = 0;
@@ -69,6 +71,7 @@ public class BizBongGameActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             bizBong = (BizBong) bundle.getSerializable("bizbong");
+            entity = (Impostazioni) bundle.getSerializable("Impostazioni");
         }
 
         // TextView
@@ -85,15 +88,24 @@ public class BizBongGameActivity extends AppCompatActivity {
             int indexAnswer = i+1;
             final int tmp = i;
             String pathName = "@id/answer" + indexAnswer;
-            //Log.d("DEBUG:", "PathName-->"+pathName+", ID1-->"+getResources().getIdentifier(pathName, null, getPackageName())+", ID2-->"+R.id.answer1);
+
             risposte[tmp] = (Button) findViewById(getResources().getIdentifier(pathName, null, getPackageName()));
             risposte[tmp].setText(bizBong.getListaDomande().get(turno).getListaRisposte().get(tmp).toString());
             risposte[tmp].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
+                        if(entity.getEffetti() == true) {
+                            MediaPlayer mp = MediaPlayer.create(BizBongGameActivity.this, R.raw.biz);
+                            mp.start();
+                        }
                         punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
                         punteggioTextView.setText(getResources().getString(R.string.punteggio2)+" "+punteggio);
+                    } else {
+                        if(entity.getEffetti() == true) {
+                            MediaPlayer mp = MediaPlayer.create(BizBongGameActivity.this, R.raw.bong);
+                            mp.start();
+                        }
                     }
                     for(int j = 0; j < 4; j++){
                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
@@ -125,6 +137,10 @@ public class BizBongGameActivity extends AppCompatActivity {
                             public void run() {
                                 // TODO Auto-generated method stub
                                 if (tempoCorrente == 1) {
+                                    if(entity.getEffetti() == true) {
+                                        MediaPlayer mp = MediaPlayer.create(BizBongGameActivity.this, R.raw.bong);
+                                        mp.start();
+                                    }
                                     for(int j = 0; j < 4; j++){
                                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[j].getText().toString())) {
                                             risposte[j].setBackgroundResource(R.drawable.button_modalita_true);
@@ -182,6 +198,10 @@ public class BizBongGameActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(bizBong.getListaDomande().get(turno).getRispostaVera().equals(risposte[tmp].getText().toString())) {
+                            if(entity.getEffetti() == true) {
+                                MediaPlayer mp = MediaPlayer.create(BizBongGameActivity.this, R.raw.biz);
+                                mp.start();
+                            }
                             punteggio += bizBong.getListaDomande().get(turno).getPunteggio();
                             punteggioTextView.setText(getResources().getString(R.string.punteggio2)+" "+punteggio);
 
@@ -193,6 +213,11 @@ public class BizBongGameActivity extends AppCompatActivity {
                                     profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
                                 if(bizBong.getModalita().equals(statistiche.getModalitaList()[j]))
                                     profilo.getStatistiche().getPunteggiList()[j] += bizBong.getListaDomande().get(turno).getPunteggio();
+                            }
+                        } else {
+                            if(entity.getEffetti() == true) {
+                                MediaPlayer mp = MediaPlayer.create(BizBongGameActivity.this, R.raw.bong);
+                                mp.start();
                             }
                         }
                         for(int j = 0; j < 4; j++){

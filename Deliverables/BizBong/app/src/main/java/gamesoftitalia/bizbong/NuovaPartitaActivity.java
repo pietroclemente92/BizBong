@@ -151,9 +151,9 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             String lingua = entity.getLingua();
                             Log.d("DEBUG:", lingua);
                             if(!lingua.equals("ita") && !lingua.equals("eng") && !lingua.equals("ukr"))
-                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, "ita");
+                                new BizBongAsync(NuovaPartitaActivity.this, entity).execute(modalita, "ita");
                             else
-                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, lingua);
+                                new BizBongAsync(NuovaPartitaActivity.this, entity).execute(modalita, lingua);
                         } else{
                             Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
                         }

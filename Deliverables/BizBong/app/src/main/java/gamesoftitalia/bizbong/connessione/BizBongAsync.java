@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -21,6 +22,7 @@ import java.net.URLEncoder;
 
 import gamesoftitalia.bizbong.BizBongGameActivity;
 import gamesoftitalia.bizbong.entity.BizBong;
+import gamesoftitalia.bizbong.entity.Impostazioni;
 
 /**
  * Created by GameSoftItalia on 21/12/2016.
@@ -30,10 +32,12 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
 
     private ProgressDialog loadingDialog;
     private Context context;
+    Impostazioni entity;
     private static String modalita, lingua;
 
-    public BizBongAsync(Context context){
+    public BizBongAsync(Context context, Impostazioni entity){
         this.context = context;
+        this.entity = entity;
     }
 
     @Override
@@ -113,6 +117,7 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
             // Intent
             Intent intent = new Intent(context, BizBongGameActivity.class);
             intent.putExtra("bizbong", bizBong);
+            intent.putExtra("Impostazioni", entity);
             context.startActivity(intent);
         } else {
             String msg = "Connessione lenta o non funzionante";
@@ -127,7 +132,7 @@ public class BizBongAsync extends AsyncTask<String, Void, String> {
                 public void onClick(DialogInterface dialog, int which)
                 {
                     dialog.dismiss();
-                    new BizBongAsync(context).execute(modalita, lingua);
+                    new BizBongAsync(context, entity).execute(modalita, lingua);
                 }
             });
 
