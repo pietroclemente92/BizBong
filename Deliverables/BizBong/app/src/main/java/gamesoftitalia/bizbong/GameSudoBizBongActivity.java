@@ -1,62 +1,69 @@
 package gamesoftitalia.bizbong;
 
 import android.app.Dialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+    import android.content.Context;
+    import android.content.Intent;
+    import android.content.SharedPreferences;
+    import android.graphics.Color;
+    import android.graphics.drawable.ColorDrawable;
+    import android.media.MediaPlayer;
+    import android.os.CountDownTimer;
+    import android.os.Vibrator;
+    import android.support.v7.app.AppCompatActivity;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.view.animation.Animation;
+    import android.view.animation.AnimationUtils;
+    import android.widget.Button;
+    import android.widget.GridLayout;
+    import android.widget.ImageButton;
+    import android.widget.ImageView;
+    import android.widget.RelativeLayout;
+    import android.widget.TextView;
 
-import com.google.gson.Gson;
+    import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
+    import java.util.ArrayList;
+    import java.util.concurrent.ExecutionException;
 
-import gamesoftitalia.bizbong.connessione.ModificaStatisticheAsync;
-import gamesoftitalia.bizbong.connessione.ProfiloAsync;
-import gamesoftitalia.bizbong.connessione.SudoBizBongAsync;
-import gamesoftitalia.bizbong.entity.FineSudoBizBong;
-import gamesoftitalia.bizbong.entity.Profilo;
-import gamesoftitalia.bizbong.entity.SoluzioneSudoBizBong;
-import gamesoftitalia.bizbong.entity.Statistiche;
-import gamesoftitalia.bizbong.entity.SudoBizBong;
-import gamesoftitalia.bizbong.random.UniqueRandom;
+    import gamesoftitalia.bizbong.connessione.ModificaStatisticheAsync;
+    import gamesoftitalia.bizbong.connessione.ProfiloAsync;
+    import gamesoftitalia.bizbong.connessione.SudoBizBongAsync;
+    import gamesoftitalia.bizbong.entity.FineSudoBizBong;
+    import gamesoftitalia.bizbong.entity.Impostazioni;
+    import gamesoftitalia.bizbong.entity.Profilo;
+    import gamesoftitalia.bizbong.entity.SoluzioneSudoBizBong;
+    import gamesoftitalia.bizbong.entity.Statistiche;
+    import gamesoftitalia.bizbong.entity.SudoBizBong;
+    import gamesoftitalia.bizbong.random.UniqueRandom;
 
-public class GameSudoBizBongActivity extends AppCompatActivity {
+    public class GameSudoBizBongActivity extends AppCompatActivity {
 
-    private TextView timer;                                                               //time gioco
-    private ImageView orologio;                                                           //orologio game
-    private TextView totmosse;                                                            //mosse disponibili per l utente
-    private TextView tmosse;                                                              //txt mosse
-    private int [][] matrice;                                                             //matrice con le giocate dell utente
-    private ArrayList<ImageButton> ListaButton=new ArrayList<ImageButton>();                        //button che stanno nel gridlayout
-    private int[] numbers;                                                                //array delle mosse che l'utente può fare (es n1 corrisponde un immagine di un tema)
-    private ArrayList<ImageButton> ListaButtonUtente=new ArrayList<ImageButton>();                  //button che scegli l'utente per inserirli nel sudoku
-    private ImageView timerIamge;                                                         //immagine timer avvio partita 1/2/3/go
-    private CountDownTimer Conteggio;                                                     //timer vero e proprio
-    private SudoBizBong sudokuInizio;
-    private Button fine;
+        private TextView timer;                                                               //time gioco
+        private ImageView orologio;                                                           //orologio game
+        private TextView totmosse;                                                            //mosse disponibili per l utente
+        private TextView tmosse;                                                              //txt mosse
+        private int [][] matrice;                                                             //matrice con le giocate dell utente
+        private ArrayList<ImageButton> ListaButton=new ArrayList<ImageButton>();                        //button che stanno nel gridlayout
+        private int[] numbers;                                                                //array delle mosse che l'utente può fare (es n1 corrisponde un immagine di un tema)
+        private ArrayList<ImageButton> ListaButtonUtente=new ArrayList<ImageButton>();                  //button che scegli l'utente per inserirli nel sudoku
+        private ImageView timerIamge;                                                         //immagine timer avvio partita 1/2/3/go
+        private CountDownTimer Conteggio;                                                     //timer vero e proprio
+        private SudoBizBong sudokuInizio;
+        private Button fine;
 
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private String nickname;
-    private String profiloGson;
-    private Profilo profilo;
+        private SharedPreferences sharedPreferences;
+        private SharedPreferences.Editor editor;
+        private String nickname;
+        private String profiloGson;
+        private Profilo profilo;
+        private Impostazioni entity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        entity= (Impostazioni) getIntent().getSerializableExtra("Impostazioni");     //ricevitore oggetto Impostazioni
 
         // SharedPrefernces
         sharedPreferences = this.getSharedPreferences("sessioneUtente", this.MODE_PRIVATE);
@@ -92,7 +99,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 totmosse=(TextView)findViewById(R.id.n_mosse);
                 orologio=(ImageView)findViewById(R.id.orologio);
                 orologio.setImageResource(getResources().getIdentifier("@drawable/watch1", null, getPackageName()));
-                timer.setText("25:00");
+                timer.setText("35:00");
                 break;
             case "2x2m":
                 s1 = getResources().getString(R.string.t2x2m);
@@ -114,7 +121,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 totmosse=(TextView)findViewById(R.id.n_mosse);
                 orologio=(ImageView)findViewById(R.id.orologio);
                 orologio.setImageResource(getResources().getIdentifier("@drawable/watch1", null, getPackageName()));
-                timer.setText("40:00");
+                timer.setText("20:00");
                 break;
             case "3x3f":
                 s1 = getResources().getString(R.string.t3x3f);
@@ -125,7 +132,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 totmosse=(TextView)findViewById(R.id.n_mosse);
                 orologio=(ImageView)findViewById(R.id.orologio);
                 orologio.setImageResource(getResources().getIdentifier("@drawable/watch1", null, getPackageName()));
-                timer.setText("25:00");
+                timer.setText("35:00");
                 break;
             case "3x3m":
                 s1 = getResources().getString(R.string.t3x3m);
@@ -147,7 +154,7 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
                 totmosse=(TextView)findViewById(R.id.n_mosse);
                 orologio=(ImageView)findViewById(R.id.orologio);
                 orologio.setImageResource(getResources().getIdentifier("@drawable/watch1", null, getPackageName()));
-                timer.setText("40:00");
+                timer.setText("20:00");
                 break;
         }
 
@@ -193,12 +200,28 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         dialogButtonGioca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 game(inizio);
             }
         });
         dialogButtonNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 inizio.dismiss();
                 finish();
                 Intent intent = new Intent(GameSudoBizBongActivity.this, HomeActivity.class);
@@ -309,6 +332,14 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         dialogButtonRigioca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 fine.dismiss();
                 finish();
                 startActivity(getIntent());
@@ -317,6 +348,14 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
         dialogButtonNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(entity.getEffetti()==true) {
+                    MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.bottoni);
+                    mp.start();
+                }
+                if(entity.getVibrazione()){
+                    Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    g.vibrate(100);
+                }
                 fine.dismiss();
                 finish();
                 Intent intent = new Intent(GameSudoBizBongActivity.this, HomeActivity.class);
@@ -335,14 +374,26 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             public void onTick(long l) {
                 String pathName;
                 if (l/1000==3){
+                    if(entity.getEffetti()==true) {
+                        MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.sudoku_utente);
+                        mp.start();
+                    }
                     pathName = "@drawable/timer2";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
                 if (l/1000==2){
+                    if(entity.getEffetti()==true) {
+                        MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.sudoku_utente);
+                        mp.start();
+                    }
                     pathName = "@drawable/timer1";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
                 if (l/1000==1){
+                    if(entity.getEffetti()==true) {
+                        MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.sudoku_utente);
+                        mp.start();
+                    }
                     pathName = "@drawable/timer0";
                     timerIamge.setImageResource(getResources().getIdentifier(pathName, null, getPackageName()));
                 }
@@ -459,7 +510,16 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             ListaButton.get(index).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(entity.getEffetti()==true) {
+                        MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.bottoni);
+                        mp.start();
+                    }
+                    if(entity.getVibrazione()){
+                        Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        g.vibrate(100);
+                    }
                     ListaButton.get(index).setBackgroundResource(R.drawable.button_modalita_true);
+
 
                     //attivo le possibili scelte dell utente
                     for (int j = 0; j < n; j++)
@@ -490,6 +550,14 @@ public class GameSudoBizBongActivity extends AppCompatActivity {
             ListaButtonUtente.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(entity.getEffetti()==true) {
+                        MediaPlayer mp = MediaPlayer.create(GameSudoBizBongActivity.this, R.raw.sudoku_utente);
+                        mp.start();
+                    }
+                    if(entity.getVibrazione()){
+                        Vibrator g = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        g.vibrate(100);
+                    }
                     String pathName = "@mipmap/tema" + numbers[index];
                     ListaButton.get(x).setImageResource(getResources().getIdentifier(pathName, null, getPackageName())); //inserimento sudoku grafico
                     ListaButton.get(x).setBackgroundColor(0x00000000);

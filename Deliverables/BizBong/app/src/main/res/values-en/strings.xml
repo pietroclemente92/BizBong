@@ -107,5 +107,18 @@
         <item>3x3m</item>
         <item>3x3d</item>
     </string-array>
+    <string name="c2x2d">You have 20 minuts to coplete SudoBizBong in 10 moves</string>
+    <string name="c2x2f">You have 35 minuts to coplete SudoBizBong in 20 moves</string>
+    <string name="c2x2m">You have 30 minuts to coplete SudoBizBong in 15 moves</string>
+    <string name="c3x3d">You have 20 minuts to coplete SudoBizBong in 90 moves</string>
+    <string name="c3x3f">You have 35 minuts to coplete SudoBizBong in 150 moves</string>
+    <string name="c3x3m">You have 30 minuts to coplete SudoBizBong in 120 moves</string>
+    <string name="continua">Continue</string>
+    <string name="controlla">Control</string>
+    <string name="eccezioneprofilo">It\'s impossible to complete prfile\'s changes</string>
+    <string name="leg">Legend</string>
+    <string name="mossed">Moves available:</string>
+    <string name="rhome">Home</string>
+    <string name="scelta">Choose turns</string>
 
 </resources>

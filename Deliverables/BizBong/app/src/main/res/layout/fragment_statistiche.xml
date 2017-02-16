@@ -35,7 +35,7 @@
                     android:textSize="12pt"
                     android:fontFamily="bold"
                     android:gravity="center"
-                    android:text="Legenda">
+                    android:text="@string/leg">
                 </TextView>
         </TableRow>
 
@@ -91,7 +91,7 @@
                 android:textSize="12pt"
                 android:fontFamily="bold"
                 android:gravity="center"
-                android:text="Legenda">
+                android:text="@string/leg">
             </TextView>
         </TableRow>
 
@@ -151,7 +151,7 @@
                 android:textSize="12pt"
                 android:fontFamily="bold"
                 android:gravity="center"
-                android:text="Legenda">
+                android:text="@string/leg">
             </TextView>
         </TableRow>
 
@@ -206,7 +206,7 @@
                 android:textSize="12pt"
                 android:fontFamily="bold"
                 android:gravity="center"
-                android:text="Legenda">
+                android:text="@string/leg">
             </TextView>
         </TableRow>
 

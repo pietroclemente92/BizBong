@@ -193,7 +193,8 @@
 
 
         <Button
-            android:text="Controlla"
+            android:text="@string/controlla"
+            android:background="@drawable/buttonshape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/finebutton"
@@ -287,6 +288,9 @@
 
 
     <TextView
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -300,6 +304,9 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -323,7 +330,10 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Mosse a disposizione:"
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
+        android:text="@string/mossed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mosse"

@@ -46,17 +46,17 @@
     <string name="erroremail" >Error Email:  L\'email inserita non è idonea.</string>
     <string name="errorpassword" >Error Password: La password inserita non è idonea(deve contenere una lettera maiuscola, minuscola, numero e un carattaere alfanumerico).</string>
     <string name="t2x2f" >SudoBizBong 2X2 Facile</string>
-    <string name="c2x2f" >Hai 25 minuti per completare il SudoBizBong</string>
+    <string name="c2x2f" >Hai 35 minuti per completare il SudoBizBong in 20 mosse</string>
     <string name="t2x2m" >SudoBizBong 2X2 Medio</string>
-    <string name="c2x2m" >Hai 30 minuti per completare il SudoBizBong</string>
+    <string name="c2x2m" >Hai 30 minuti per completare il SudoBizBong in 15 mosse</string>
     <string name="t2x2d" >SudoBizBong 2X2 Difficile</string>
-    <string name="c2x2d" >Hai 40 minuti per completare il SudoBizBong</string>
+    <string name="c2x2d" >Hai 20 minuti per completare il SudoBizBong in 10 mosse</string>
     <string name="t3x3f" >SudoBizBong 3X3 Facile</string>
-    <string name="c3x3f" >Hai 25 minuti per completare il SudoBizBong</string>
+    <string name="c3x3f" >Hai 35 minuti per completare il SudoBizBong in 150 mosse</string>
     <string name="t3x3m" >SudoBizBong 3X3 Medio</string>
-    <string name="c3x3m" >Hai 30 minuti per completare il SudoBizBong</string>
+    <string name="c3x3m" >Hai 30 minuti per completare il SudoBizBong in 120 mosse</string>
     <string name="t3x3d" >SudoBizBong 3X3 Difficile</string>
-    <string name="c3x3d" >Hai 40 minuti per completare il SudoBizBong</string>
+    <string name="c3x3d" >Hai 20 minuti per completare il SudoBizBong in 90 mosse</string>
     <string name="fineSudov1" >Complimenti hai vinto!</string>
     <string name="fineSudov2" >Il tuo punteggio è di: </string>
     <string name="rigiocare" >Vuoi rigiocare?</string>
@@ -83,6 +83,11 @@
 
     <string name="continua" > Continua a giocare </string>
     <string name="rhome" > Ritorna alla Home </string>
+    <string name="eccezioneprofilo" > Non è possibile eseguire la modifica profilo(Inserire almeno un campo oportuno)</string>
+    <string name="controlla" > Controlla </string>
+    <string name="mossed" > Mosse a disposizione: </string>
+    <string name="leg" > Legenda </string>
+
 
 
 
