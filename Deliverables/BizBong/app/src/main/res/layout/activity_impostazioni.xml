@@ -34,6 +34,9 @@
 
     <Switch
         android:text="@string/vibrazione"
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/switch3"
@@ -43,6 +46,9 @@
 
     <Switch
         android:text="@string/effetti"
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/switch2"
@@ -52,6 +58,9 @@
 
     <Switch
         android:text="@string/audio"
+        android:textColor="@color/white"
+        android:textSize="6pt"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/switch1"
@@ -60,11 +69,12 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="ok" android:onClick="onClick"
         android:layout_below="@+id/switch3"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp" />
 
 

@@ -25,7 +25,7 @@ public class FineSudoBizBong {
         String secondi=tempo.substring(tempo.indexOf(":")+1, tempo.length());
         int mm= Integer.parseInt(String.valueOf(minuti));
         int sec= Integer.parseInt(String.valueOf(secondi));
-        p=mm*100+sec*10+mosse;
+        p=mm*10+sec*2+mosse;
         return p;
     }
 

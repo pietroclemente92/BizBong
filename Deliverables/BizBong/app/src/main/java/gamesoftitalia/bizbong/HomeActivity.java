@@ -219,11 +219,6 @@ public class HomeActivity extends AppCompatActivity {
         tabTre.setText("THREE");
         tabTre.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_pie_chart, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabTre);
-
-        /*TextView tabQuattro = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tablayout, null);
-        tabQuattro.setText("FOUR");
-        tabQuattro.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.ic_setting, 0, 0);
-        tabLayout.getTabAt(3).setCustomView(tabQuattro);*/
     }
 
     private void caricaImpostazioni(){

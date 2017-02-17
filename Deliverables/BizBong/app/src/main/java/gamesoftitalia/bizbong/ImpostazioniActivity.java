@@ -73,8 +73,8 @@ public class ImpostazioniActivity extends AppCompatActivity {
 
         ArrayList<ItemDataSpinner> list=new ArrayList<>();
         list.add(new ItemDataSpinner(array[0],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[1],R.mipmap.ita));
-        list.add(new ItemDataSpinner(array[2],R.mipmap.ita));
+        list.add(new ItemDataSpinner(array[1],R.mipmap.eng));
+        list.add(new ItemDataSpinner(array[2],R.mipmap.ukr));
         Spinner sp=(Spinner)findViewById(R.id.spinner1);
 
         SpinnerAdapter adapter=new SpinnerAdapter(this, R.layout.spinner_layout,R.id.txt,list);

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import gamesoftitalia.bizbong.connessione.BizBongAsync;
@@ -150,9 +151,9 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                             String lingua = entity.getLingua();
                             Log.d("DEBUG:", lingua);
                             if(!lingua.equals("ita") && !lingua.equals("eng") && !lingua.equals("ukr"))
-                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, "ita");
+                                new BizBongAsync(NuovaPartitaActivity.this, entity).execute(modalita, "ita");
                             else
-                                new BizBongAsync(NuovaPartitaActivity.this).execute(modalita, lingua);
+                                new BizBongAsync(NuovaPartitaActivity.this, entity).execute(modalita, lingua);
                         } else{
                             Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
                         }
@@ -452,6 +453,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                         if (index2x2f==1||index2x2m==1||index2x2d==1||index3x3f==1||index3x3m==1||index3x3d==1) {
                             intent = new Intent(NuovaPartitaActivity.this, GameSudoBizBongActivity.class);
                             intent.putExtra("modalita", modalita);
+                            intent.putExtra("Impostazioni", (Serializable) entity);
                             startActivity(intent);
                         }else{
                             Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();
@@ -539,6 +541,7 @@ public class NuovaPartitaActivity extends AppCompatActivity {
                         if(indexMulti==1||indexSingle==1) {
                             intent = new Intent(NuovaPartitaActivity.this, IntroTrisActivity.class);
                             intent.putExtra("modalita", modalita);
+                            intent.putExtra("Impostazioni", (Serializable) entity);
                             startActivity(intent);
                         } else{
                              Toast.makeText(NuovaPartitaActivity.this, getResources().getString(R.string.scegli), Toast.LENGTH_SHORT).show();

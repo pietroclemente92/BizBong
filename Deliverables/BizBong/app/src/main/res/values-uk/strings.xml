@@ -84,19 +84,19 @@
 
     <!-- Lista contente le modalita di gioco inserite-->
     <string-array name="classifica_arrays">
-        <item>Відеоігри</item>
-        <item>Логіка</item>
-        <item>Інформатика</item>
-        <item>Математика</item>
-        <item>Спорт</item>
-        <item>Мистецтво</item>
-        <item>Історія</item>
-        <item>Музика</item>
-        <item>Географія</item>
-        <item>Кіно та театр</item>
-        <item>Наука</item>
-        <item>Мультфільми та серіали</item>
-        <item>Классична</item>
+        <item>Videogames</item>
+        <item>Logic</item>
+        <item>Informatics</item>
+        <item>Maths</item>
+        <item>Sport</item>
+        <item>Arts</item>
+        <item>History</item>
+        <item>Music</item>
+        <item>Geography</item>
+        <item>Cinema and theater</item>
+        <item>Science</item>
+        <item>Cartoons and TV Shows</item>
+        <item>Classic</item>
         <item>BizBong</item>
         <item>2x2f</item>
         <item>2x2m</item>
@@ -105,5 +105,18 @@
         <item>3x3m</item>
         <item>3x3d</item>
     </string-array>
+    <string name="c2x2d">Ти маєш 20 хвилин для заповнення СудоБізБонг за 10 ходів</string>
+    <string name="c2x2f">Ти маєш 35 хвилин для заповнення СудоБізБонг за 20 ходів</string>
+    <string name="c2x2m">Ти маєш 35 хвилин для заповнення СудоБізБонг за 20 ходів</string>
+    <string name="c3x3d">Ти маєш 35 хвилин для заповнення СудоБізБонг за 20 ходів</string>
+    <string name="c3x3f">Ти маєш 35 хвилин для заповнення СудоБізБонг за 20 ходів</string>
+    <string name="c3x3m">Ти маєш 35 хвилин для заповнення СудоБізБонг за 20 ходів</string>
+    <string name="controlla">Проконтролювати</string>
+    <string name="continua">Продовжити</string>
+    <string name="eccezioneprofilo">Неможливо продовжити</string>
+    <string name="leg">Графік</string>
+    <string name="mossed">Доступно ходів:</string>
+    <string name="rhome">Додому</string>
+    <string name="scelta">Вибір очереді</string>
 
 </resources>

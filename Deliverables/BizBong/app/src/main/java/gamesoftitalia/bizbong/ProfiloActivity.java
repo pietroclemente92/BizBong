@@ -186,7 +186,7 @@ public class ProfiloActivity extends AppCompatActivity {
                     new ModificaProfiloAsync(context).execute(modificaProfilo);
                     ricaricaProfilo();
                 } else {
-                    Toast.makeText(context, "Non è possibile eseguire la modifica profilo(Inserire almeno un campo oportuno)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, getResources().getString(R.string.eccezioneprofilo), Toast.LENGTH_LONG).show();
                 }
             }
         });
