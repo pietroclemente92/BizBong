@@ -77,20 +77,13 @@
     <string name="inziogb" >Inzia a giocare BizBong   Attendi...</string>
     <string name="scegli" >Selezionare una delle modalità proposte per avviare la partita!</string>
     <string name="vospite" >Vs Ospite</string>
-
     <string name="scelta" >Scelta turno</string>
-
-
     <string name="continua" > Continua a giocare </string>
     <string name="rhome" > Ritorna alla Home </string>
     <string name="eccezioneprofilo" > Non è possibile eseguire la modifica profilo(Inserire almeno un campo oportuno)</string>
     <string name="controlla" > Controlla </string>
     <string name="mossed" > Mosse a disposizione: </string>
     <string name="leg" > Legenda </string>
-
-
-
-
     <!-- Lista contente le lingue supportate dal sistema-->
     <string-array name="lingua_arrays">
         <item>Italiano</item>
